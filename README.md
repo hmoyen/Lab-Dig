@@ -3,7 +3,7 @@
 
   Primeiramente, baixe em ZIP o repositório e extraia os arquivos ou dê o comando no terminal:
   ```
-  git@github.com:hmoyen/Lab-Dig.git
+  git clone git@github.com:hmoyen/Lab-Dig.git
   
   ```
 Agora vamos compilar os arquivos com Icarus Verilog:
