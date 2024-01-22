@@ -15,7 +15,7 @@
  */
 
 module circuito_exp3_ativ2 (clock, zera, carrega, conta, chaves, 
-                            menor, maior, igual, fim, db_contagem, display);
+                            menor, maior, igual, fim, db_contagem, display_CONT, display_CHAVES);
     input        clock;
     input        zera;
     input        carrega;
@@ -26,7 +26,8 @@ module circuito_exp3_ativ2 (clock, zera, carrega, conta, chaves,
     output       igual;
     output       fim;
     output [3:0] db_contagem;
-    output [6:0] display;
+    output [6:0] display_CONT;
+	 output [6:0] display_CHAVES;
 
     wire   [3:0] s_contagem;  // sinal interno para interligacao dos componentes
 
@@ -56,10 +57,16 @@ module circuito_exp3_ativ2 (clock, zera, carrega, conta, chaves,
       .AEBo( igual )
     );
 
-    hexa7seg hexa7seg (
+    hexa7seg hexa7seg_CHAVES (
+
+      .hexa(chaves),
+      .display(display_CHAVES)
+    );
+	 
+	 hexa7seg hexa7seg_CONT (
 
       .hexa(s_contagem),
-      .display(display)
+      .display(display_CONT)
     );
 
     // saida de depuracao
