@@ -1,17 +1,10 @@
 /*
  * ------------------------------------------------------------------
- *  Arquivo   : circuito_exp3_ativ2-PARCIAL.v
+ *  Arquivo   : testbench.v
  *  Projeto   : Experiencia 3 - Um Fluxo de Dados Simples
  * ------------------------------------------------------------------
- *  Descricao : Circuito PARCIAL do fluxo de dados da Atividade 2
- * 
- *     1) COMPLETAR DESCRICAO
- * 
- * ------------------------------------------------------------------
- *  Revisoes  :
- *      Data        Versao  Autor             Descricao
- *      11/01/2024  1.0     Edson Midorikawa  versao inicial
- * ------------------------------------------------------------------
+ *  Descricao : Testbench do arquivo do circuito EXP3
+ * --------------------------------------------------------------
  */
 
 `timescale 1ns/1ns
@@ -26,6 +19,7 @@ module testbench;
     reg  [3:0] chaves;
     wire       menor;
     wire       maior;
+    wire [6:0] display;
     wire       igual;
     wire       fim;
     wire [3:0] contagem;
@@ -42,7 +36,8 @@ module testbench;
         .maior (maior), 
         .igual (igual), 
         .fim (fim), 
-        .db_contagem (contagem)
+        .db_contagem (contagem),
+        .display(display)
     );
 
     initial $dumpfile("testbench.vcd");
@@ -221,6 +216,8 @@ module testbench;
         clock = 1;
 
         #50
+
+        $display("%d", display);
         $display("%d", contagem);
         #10
        
