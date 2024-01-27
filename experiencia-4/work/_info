@@ -1,0 +1,241 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/lena/intelFPGA
+vcircuito_exp4
+!s110 1706314145
+!i10b 1
+!s100 ;36@g1FRLB;eRZj;LkSW]0
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IkoOhU7mK_GXJV?8a4Y2GO3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 d/home/lena/Lab-Dig/experiencia-4
+w1706314008
+8/home/lena/Lab-Dig/experiencia-4/circuito_exp4.v
+F/home/lena/Lab-Dig/experiencia-4/circuito_exp4.v
+!i122 33
+L0 2 75
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z4 !s108 1706314145.000000
+!s107 /home/lena/Lab-Dig/experiencia-4/circuito_exp4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/circuito_exp4.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vcircuito_exp4_tb
+Z7 !s110 1706314146
+!i10b 1
+!s100 >MV`[Q2F78=K65kd8SL=A3
+R0
+IoOaXR9baf:NKI8z6Qf_8f0
+R1
+R2
+w1705958752
+8/home/lena/Lab-Dig/experiencia-4/circuito_exp4_tb.v
+F/home/lena/Lab-Dig/experiencia-4/circuito_exp4_tb.v
+!i122 34
+L0 18 159
+R3
+r1
+!s85 0
+31
+R4
+!s107 /home/lena/Lab-Dig/experiencia-4/circuito_exp4_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/circuito_exp4_tb.v|
+!i113 1
+R5
+R6
+vcomparador_85
+R7
+!i10b 1
+!s100 bckB8^W=VE]I2a21^PB@D0
+R0
+I<L^OE4Vig8Emgz5RTO5^k0
+R1
+R2
+w1706284717
+8/home/lena/Lab-Dig/experiencia-4/comparador_85.v
+F/home/lena/Lab-Dig/experiencia-4/comparador_85.v
+!i122 35
+L0 16 14
+R3
+r1
+!s85 0
+31
+Z8 !s108 1706314146.000000
+!s107 /home/lena/Lab-Dig/experiencia-4/comparador_85.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/comparador_85.v|
+!i113 1
+R5
+R6
+vcontador_163
+R7
+!i10b 1
+!s100 6Bz:SlPP`3YUIDnZHDi`c2
+R0
+I0dTkn_=N@2cWcVjdP^Iod3
+R1
+R2
+w1706284713
+8/home/lena/Lab-Dig/experiencia-4/contador_163.v
+F/home/lena/Lab-Dig/experiencia-4/contador_163.v
+!i122 36
+L0 16 16
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/lena/Lab-Dig/experiencia-4/contador_163.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/contador_163.v|
+!i113 1
+R5
+R6
+vexp4_fluxo_dados
+R7
+!i10b 1
+!s100 bZk8@khll5flHjKDnJ@Ae3
+R0
+IROKI^?`6WVEKm7GmA`INK3
+R1
+R2
+w1706313837
+8/home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados.v
+F/home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados.v
+!i122 37
+L0 1 63
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados.v|
+!i113 1
+R5
+R6
+vexp4_fluxo_dados_tb
+R7
+!i10b 1
+!s100 Z=6YM^zMb]2>E3c1UJY9C2
+R0
+IT:z:INc4cE[Ek2Z5f:L]:1
+R1
+R2
+w1705969340
+8/home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados_tb.v
+F/home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados_tb.v
+!i122 38
+L0 19 151
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/exp4_fluxo_dados_tb.v|
+!i113 1
+R5
+R6
+vexp4_unidade_controle
+R7
+!i10b 1
+!s100 m]F^7YFgNaChWVnoK@_aN2
+R0
+I2[F^b;b]=Ch[mPffR3;TU2
+R1
+R2
+Z9 w1705938000
+8/home/lena/Lab-Dig/experiencia-4/exp4_unidade_controle.v
+F/home/lena/Lab-Dig/experiencia-4/exp4_unidade_controle.v
+!i122 39
+L0 15 66
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/lena/Lab-Dig/experiencia-4/exp4_unidade_controle.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/exp4_unidade_controle.v|
+!i113 1
+R5
+R6
+vhexa7seg
+R7
+!i10b 1
+!s100 ^ldcN:Zl`^?4Tnh8I@Z332
+R0
+I?CBgcK`U_IEWTEM]D@hPT3
+R1
+R2
+w1706313706
+8/home/lena/Lab-Dig/experiencia-4/hexa7seg.v
+F/home/lena/Lab-Dig/experiencia-4/hexa7seg.v
+!i122 40
+L0 23 38
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/lena/Lab-Dig/experiencia-4/hexa7seg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/hexa7seg.v|
+!i113 1
+R5
+R6
+vregistrador_4
+R7
+!i10b 1
+!s100 45NaE0zN5R1c;nb0e8L`23
+R0
+I2>dJCf>abo@XZJYQ0?ilA0
+R1
+R2
+R9
+8/home/lena/Lab-Dig/experiencia-4/registrador_4.v
+F/home/lena/Lab-Dig/experiencia-4/registrador_4.v
+!i122 41
+L0 13 20
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/lena/Lab-Dig/experiencia-4/registrador_4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/registrador_4.v|
+!i113 1
+R5
+R6
+vsync_rom_16x4
+!s110 1706311929
+!i10b 1
+!s100 Tz6@dY^L3ZzVgc74FVX5T1
+R0
+I6Q=>XZbzQ:=]U2iASOVoK1
+R1
+R2
+R9
+8/home/lena/Lab-Dig/experiencia-4/sync_rom_16x4.v
+F/home/lena/Lab-Dig/experiencia-4/sync_rom_16x4.v
+!i122 30
+L0 13 27
+R3
+r1
+!s85 0
+31
+!s108 1706311929.000000
+!s107 /home/lena/Lab-Dig/experiencia-4/sync_rom_16x4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/lena/Lab-Dig/experiencia-4/sync_rom_16x4.v|
+!i113 1
+R5
+R6

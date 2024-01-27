@@ -1,0 +1,45 @@
+# Loading project experiencia4
+# Compile of circuito_exp4.v was successful.
+# Compile of circuito_exp4_tb.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of exp4_fluxo_dados.v was successful.
+# Compile of exp4_fluxo_dados_tb.v was successful.
+# Compile of exp4_unidade_controle.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# 9 compiles, 0 failed with no errors.
+vsim work.circuito_exp4_tb
+# vsim work.circuito_exp4_tb 
+# Start time: 21:09:19 on Jan 26,2024
+# Loading work.circuito_exp4_tb
+# Loading work.circuito_exp4
+# Loading work.exp4_unidade_controle
+# Loading work.exp4_fluxo_dados
+# Loading work.contador_163
+# Loading work.registrador_4
+# Loading work.sync_rom_16x4
+# Loading work.comparador_85
+# Loading work.hexa7seg
+add wave -position insertpoint  \
+sim:/circuito_exp4_tb/clockPeriod \
+sim:/circuito_exp4_tb/clock_in \
+sim:/circuito_exp4_tb/reset_in \
+sim:/circuito_exp4_tb/iniciar_in \
+sim:/circuito_exp4_tb/chaves_in \
+sim:/circuito_exp4_tb/pronto_out \
+sim:/circuito_exp4_tb/db_igual_out \
+sim:/circuito_exp4_tb/db_iniciar_out \
+sim:/circuito_exp4_tb/db_contagem_out \
+sim:/circuito_exp4_tb/db_memoria_out \
+sim:/circuito_exp4_tb/db_chaves_out \
+sim:/circuito_exp4_tb/db_estado_out \
+sim:/circuito_exp4_tb/caso
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : /home/lena/Lab-Dig/experiencia-4/circuito_exp4_tb.v(173)
+#    Time: 1230 ns  Iteration: 0  Instance: /circuito_exp4_tb
+# Break in Module circuito_exp4_tb at /home/lena/Lab-Dig/experiencia-4/circuito_exp4_tb.v line 173
+# couldn't load file "/home/lena/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
