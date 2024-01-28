@@ -179,31 +179,31 @@ module circuito_exp4_tb;
       #(3*clockPeriod);
 
       // Teste 17 (ajustar chaves para 0100 por 1 periodo de clock)
-      caso = 16;
+      caso = 17;
       @(negedge clock_in);
       chaves_in = 4'b0100;
       #(3*clockPeriod);
 
       // Teste 18 (ajustar chaves para 1000 por 1 periodo de clock)
-      caso = 16;
+      caso = 18;
       @(negedge clock_in);
       chaves_in = 4'b1000;
       #(3*clockPeriod);
 
       // Teste 19 (ajustar chaves para 1000 por 1 periodo de clock)
-      caso = 16;
+      caso = 19;
       @(negedge clock_in);
       chaves_in = 4'b1000;
       #(3*clockPeriod);
 
       // Teste 20 (ajustar chaves para 0001 por 1 periodo de clock)
-      caso = 16;
+      caso = 20;
       @(negedge clock_in);
       chaves_in = 4'b0001;
       #(3*clockPeriod);
 
       // Teste 21 (ajustar chaves para 0100 por 1 periodo de clock)
-      caso = 16;
+      caso = 21;
       @(negedge clock_in);
       chaves_in = 4'b0100;
       #(3*clockPeriod);

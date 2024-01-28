@@ -1,0 +1,22 @@
+Quartus Prime Archive log --	/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/quartus/exp4_T2BA3_ativ2.qarlog
+
+Archive:	/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/quartus/exp4_T2BA3_ativ2.qar
+Date:		Sun Jan 28 09:28:30 2024
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/circuito_exp4.v
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/comparador_85.v
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/contador_163.v
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/exp4_fluxo_dados.v
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/exp4_unidade_controle.v
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/hexa7seg.v
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/quartus/assignment_defaults.qdf
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/quartus/circuito_exp4.qpf
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/quartus/circuito_exp4.qsf
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/registrador_4.v
+/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus Ativ 2/exp4_T2BA3_ativ1_restored/sync_rom_16x4.v
+	======= Total: 11 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
