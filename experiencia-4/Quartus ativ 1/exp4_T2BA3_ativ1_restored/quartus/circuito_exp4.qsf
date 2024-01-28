@@ -97,7 +97,6 @@ set_location_assignment PIN_P14 -to db_estado[3]
 set_location_assignment PIN_C1 -to db_estado[4]
 set_location_assignment PIN_C2 -to db_estado[5]
 set_location_assignment PIN_W19 -to db_estado[6]
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name VERILOG_FILE ../sync_rom_16x4.v
 set_global_assignment -name VERILOG_FILE ../registrador_4.v
 set_global_assignment -name VERILOG_FILE ../hexa7seg.v
@@ -106,3 +105,4 @@ set_global_assignment -name VERILOG_FILE ../exp4_fluxo_dados.v
 set_global_assignment -name VERILOG_FILE ../contador_163.v
 set_global_assignment -name VERILOG_FILE ../comparador_85.v
 set_global_assignment -name VERILOG_FILE ../circuito_exp4.v
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

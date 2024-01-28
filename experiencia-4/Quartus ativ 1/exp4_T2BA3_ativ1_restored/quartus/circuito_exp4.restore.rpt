@@ -1,5 +1,5 @@
 Restore Archived Project report for circuito_exp4
-Sun Jan 28 09:29:11 2024
+Sun Jan 28 09:33:56 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Sun Jan 28 09:29:11 2024 ;
+; Restore Archived Project Status ; Successful - Sun Jan 28 09:33:56 2024 ;
 ; Revision Name                   ; circuito_exp4                         ;
 ; Top-level Entity Name           ; circuito_exp4                         ;
 ; Family                          ; Cyclone V                             ;
@@ -50,15 +50,22 @@ https://fpgasoftware.intel.com/eula.
 Info: Successfully restored '/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus ativ 1/exp4_T2BA3_ativ1.qar' into the '/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/Quartus ativ 1/exp4_T2BA3_ativ1_restored/' directory
 Info: Generated report 'circuito_exp4.restore.rpt'
 Info (23030): Evaluation of Tcl script /home/victor/intelFPGA_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+Info: Quartus Prime Shell was successful. 0 errors, 13 warnings
     Info: Peak virtual memory: 581 megabytes
-    Info: Processing ended: Sun Jan 28 09:29:11 2024
+    Info: Processing ended: Sun Jan 28 09:33:56 2024
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
 
++----------------+
+; Files Restored ;
++----------------+
+; File Name      ;
++----------------+
+
+
 +---------------------------------+
-; Files Restored                  ;
+; Files Not Restored              ;
 +---------------------------------+
 ; File Name                       ;
 +---------------------------------+
@@ -75,12 +82,5 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; sync_rom_16x4.v                 ;
 ; quartus/assignment_defaults.qdf ;
 +---------------------------------+
-
-
-+--------------------+
-; Files Not Restored ;
-+--------------------+
-; File Name          ;
-+--------------------+
 
 

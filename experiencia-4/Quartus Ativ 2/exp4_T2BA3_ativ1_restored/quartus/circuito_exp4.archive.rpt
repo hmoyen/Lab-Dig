@@ -1,5 +1,5 @@
 Archive Project report for circuito_exp4
-Sun Jan 28 09:28:30 2024
+Sun Jan 28 09:44:00 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Sun Jan 28 09:28:30 2024 ;
+; Archive Project Status ; Successful - Sun Jan 28 09:44:00 2024 ;
 ; Revision Name          ; circuito_exp4                         ;
 ; Top-level Entity Name  ; circuito_exp4                         ;
 ; Family                 ; Cyclone V                             ;
@@ -60,9 +60,9 @@ Info: ----------------------------------------------------------
 Info: Generated report 'circuito_exp4.archive.rpt'
 Info (23030): Evaluation of Tcl script /home/victor/intelFPGA_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 583 megabytes
-    Info: Processing ended: Sun Jan 28 09:28:30 2024
-    Info: Elapsed time: 00:00:00
+    Info: Peak virtual memory: 585 megabytes
+    Info: Processing ended: Sun Jan 28 09:44:00 2024
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
 
