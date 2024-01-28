@@ -15,7 +15,7 @@
 
 `timescale 1ns/1ns
 
-module circuito_exp4_tb;
+module circuito_exp4_tb_errou;
 
     // Sinais para conectar com o DUT
     // valores iniciais para fins de simulacao (ModelSim)
@@ -59,8 +59,8 @@ module circuito_exp4_tb;
       .db_estado  (db_estado_out)
     );
 
-    initial $dumpfile("testbench.vcd");
-    initial $dumpvars(0, circuito_exp4_tb);
+    initial $dumpfile("testbench_errou.vcd");
+    initial $dumpvars(0, circuito_exp4_tb_errou);
 
     // geracao dos sinais de entrada (estimulos)
     initial begin
@@ -86,7 +86,7 @@ module circuito_exp4_tb;
       caso = 2;
       #(clockPeriod);
 
-      // Teste 3 (ajustar chaves para 0100, acionar iniciar por 1 periodo de clock)
+      // Teste 3 (ajustar chaves para 0001, acionar iniciar por 1 periodo de clock)
       caso = 3;
       @(negedge clock_in);
       chaves_in = 4'b0001;
@@ -95,25 +95,25 @@ module circuito_exp4_tb;
       #(clockPeriod);
       iniciar_in = 0;
 
-      // Teste 4 (manter chaves em 0100 por 1 periodo de clock)
+      // Teste 4 (manter chaves em 0001 por 1 periodo de clock)
       caso = 4;
       @(negedge clock_in);
       chaves_in = 4'b0001;
       #(clockPeriod);
 
-      // Teste 5 (manter chaves em 0100 por 1 periodo de clock)
+      // Teste 5 (manter chaves em 0001 por 1 periodo de clock)
       caso = 5;
       @(negedge clock_in);
       chaves_in = 4'b0001;
       #(clockPeriod);
 
-      // Teste 6 (manter chaves em 0100 por 1 periodo de clock)
+      // Teste 6 (manter chaves em 0010 por 1 periodo de clock)
       caso = 6;
       @(negedge clock_in);
       chaves_in = 4'b0010;
       #(clockPeriod);
 
-      // Teste 7 (manter chaves em 0100 por 3 periodos de clock)
+      // Teste 7 (manter chaves em 0010 por 3 periodos de clock)
       caso = 7;
       @(negedge clock_in);
       chaves_in = 4'b0010;
@@ -125,53 +125,11 @@ module circuito_exp4_tb;
       chaves_in = 4'b0100;
       #(3*clockPeriod);
 
-      // Teste 9 (manter chaves em 0100 por 9 periodos de clock)
+      // Teste 9 (manter chaves em 0100 por 9 periodos de clock - divergência com a memória[3])
       caso = 9;
       @(negedge clock_in);
-      chaves_in = 4'b1000;
-      #(9*clockPeriod);
-
-      // Teste 10 (ajustar chaves para 0001 por 6 periodos de clock)
-      caso = 10;
-      @(negedge clock_in);
-      chaves_in = 4'b0001;
-      #(6*clockPeriod);
-
-      // Teste 11 (ajustar chaves para 0010 por 6 periodos de clock)
-      caso = 11;
-      @(negedge clock_in);
-      chaves_in = 4'b0010;
-      #(6*clockPeriod);
-
-      // Teste 12 (ajustar chaves para 0100 por 6 periodos de clock) 
-      caso = 12;
-      @(negedge clock_in);
       chaves_in = 4'b0100;
-      #(6*clockPeriod);
-
-      // Teste 13 (ajustar chaves para 1000 por 6 periodos de clock)
-      caso = 13;
-      @(negedge clock_in);
-      chaves_in = 4'b1000;
-      #(6*clockPeriod);
-
-      // Teste 14 (ajustar chaves para 0001 por 3 periodos de clock) 
-      caso = 14;
-      @(negedge clock_in);
-      chaves_in = 4'b0001;
-      #(3*clockPeriod);
-
-      // Teste 15 (ajustar chaves para 0010 por 6 periodos de clock)
-      caso = 15;
-      @(negedge clock_in);
-      chaves_in = 4'b0010;
-      #(6*clockPeriod);
-
-      // Teste 16 (ajustar chaves para 0000 por 1 periodo de clock)
-      caso = 16;
-      @(negedge clock_in);
-      chaves_in = 4'b0000;
-      #(clockPeriod);
+      #(9*clockPeriod);
 
       // final dos casos de teste da simulacao
       caso = 99;
