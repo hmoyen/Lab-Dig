@@ -1,0 +1,47 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sun Jan 28 00:56:09 2024
+[*]
+[dumpfile] "/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/desafio/testbench.vcd"
+[dumpfile_mtime] "Sun Jan 28 00:48:30 2024"
+[dumpfile_size] 11919
+[savefile] "/home/victor/Documentos/LABDIG/GitLabdig/Lab-Dig/experiencia-4/desafio/onda_tudo_funciona.gtkw"
+[timestart] 1006
+[size] 1920 1029
+[pos] -1 -1
+*-4.000000 1054 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] circuito_exp4_tb.
+[treeopen] circuito_exp4_tb.dut.
+[sst_width] 41
+[signals_width] 200
+[sst_expanded] 0
+[sst_vpaned_height] 298
+@24
+circuito_exp4_tb.clock_in
+circuito_exp4_tb.caso[31:0]
+circuito_exp4_tb.chaves_in[3:0]
+circuito_exp4_tb.reset_in
+circuito_exp4_tb.iniciar_in
+circuito_exp4_tb.pronto_out
+circuito_exp4_tb.errou_out
+circuito_exp4_tb.acertou_out
+@200
+-UC
+@24
+circuito_exp4_tb.dut.uc.db_estado[3:0]
+circuito_exp4_tb.dut.uc.Eatual[3:0]
+circuito_exp4_tb.dut.uc.Eprox[3:0]
+circuito_exp4_tb.dut.uc.igual
+@200
+-FD
+@24
+circuito_exp4_tb.dut.fd.db_chaves[3:0]
+circuito_exp4_tb.dut.fd.db_contagem[3:0]
+circuito_exp4_tb.dut.fd.db_memoria[3:0]
+circuito_exp4_tb.dut.fd.zeraC
+circuito_exp4_tb.dut.fd.fimC
+circuito_exp4_tb.dut.fd.registraR
+circuito_exp4_tb.dut.fd.zeraR
+circuito_exp4_tb.dut.fd.chavesIgualMemoria
+[pattern_trace] 1
+[pattern_trace] 0
