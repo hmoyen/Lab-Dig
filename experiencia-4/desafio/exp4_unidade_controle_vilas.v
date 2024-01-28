@@ -70,7 +70,8 @@ module exp4_unidade_controle (
         zeraR     = (Eatual == inicial || Eatual == preparacao) ? 1'b1 : 1'b0;
         registraR = (Eatual == registra) ? 1'b1 : 1'b0;
         contaC    = (Eatual == proximo) ? 1'b1 : 1'b0;
-        pronto    = (Eatual == derrota || vitoria) ? 1'b1 : 1'b0;
+        pronto    = (Eatual == derrota) ? 1'b1 : 
+                    (Eatual == vitoria) ? 1'b1: 1'b0;
         errou     = (Eatual == derrota) ? 1'b1: 1'b0;
         acertou   = (Eatual == vitoria) ? 1'b1 : 1'b0;
 
