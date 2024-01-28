@@ -131,6 +131,12 @@ module circuito_exp4_tb_errou;
       chaves_in = 4'b0100;
       #(9*clockPeriod);
 
+      // Teste 10 (ajustar chaves para 0000 por 1 periodo de clock)
+      caso = 10;
+      @(negedge clock_in);
+      chaves_in = 4'b0000;
+      #(clockPeriod);
+
       // final dos casos de teste da simulacao
       caso = 99;
       #100;
