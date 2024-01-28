@@ -1,0 +1,36 @@
+$date
+	Sat Jan 27 23:10:55 2024
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ns
+$end
+$scope module circuito_exp4_tb_errou $end
+$scope module dut $end
+$scope module uc $end
+$var reg 1 ! registraR $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0 !
+b0 !
+#100
+b1 !
+#120
+b0 !
+#160
+b1 !
+#180
+b0 !
+#220
+b1 !
+#240
+b0 !
+#280
+b1 !
+#300
+b0 !
