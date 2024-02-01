@@ -6,15 +6,10 @@
   git clone git@github.com:hmoyen/Lab-Dig.git
   
   ```
-Agora vamos compilar os arquivos com Icarus Verilog:
+Agora vamos compilar os arquivos com Icarus Verilog e gerar os testbench.vcd:
 
  ```
-  iverilog sistema.v testbench.v
+  make
   
   ```
-  Por fim, vamos executar a simulação:
-  
-   ```
-  vvp a.out
-  
-  ```
+  Caso dê algum erro no make, reveja o nome dos arquivos no Makefile.
