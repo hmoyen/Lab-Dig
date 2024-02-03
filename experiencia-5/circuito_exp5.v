@@ -85,5 +85,6 @@ output db_tem_jogada
 assign db_igual = igual;
 assign db_iniciar = iniciar;
 assign leds = db_jogada_hex;
+assign db_clock = clock;
 
 endmodule

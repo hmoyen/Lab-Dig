@@ -61,8 +61,8 @@ module unidade_controle (
                                  (fimC) ? vitoria:
                                           proximo;
             proximo:     Eprox = espera;
-            derrota:     Eprox = (iniciar) ? inicial : derrota;
-            vitoria:     Eprox = (iniciar) ? inicial : vitoria;
+            derrota:     Eprox = (iniciar) ? preparacao : derrota;
+            vitoria:     Eprox = (iniciar) ? preparacao : vitoria;
             default:     Eprox = inicial;
         endcase
     end
