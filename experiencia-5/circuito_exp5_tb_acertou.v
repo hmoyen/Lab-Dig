@@ -226,7 +226,7 @@ module circuito_exp5_tb_acertou;
       #(10*clockPeriod);
 
       // Teste 16. jogada #14 (ajustar chaves para 1000 por 10 periodos de clock
-      caso = 15;
+      caso = 16;
       @(negedge clock_in);
       chaves_in = 4'b1000;
       #(10*clockPeriod);
@@ -235,7 +235,7 @@ module circuito_exp5_tb_acertou;
       #(10*clockPeriod);
 
       // Teste 17. jogada #15 (ajustar chaves para 0001 por 10 periodos de clock
-      caso = 16;
+      caso = 17;
       @(negedge clock_in);
       chaves_in = 4'b0001;
       #(10*clockPeriod);
@@ -244,7 +244,7 @@ module circuito_exp5_tb_acertou;
       #(10*clockPeriod);
 
       // Teste 18. jogada #16 (ajustar chaves para 0100 por 10 periodos de clock
-      caso = 16;
+      caso = 18;
       @(negedge clock_in);
       chaves_in = 4'b0100;
       #(10*clockPeriod);
