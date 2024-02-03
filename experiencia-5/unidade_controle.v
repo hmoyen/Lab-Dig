@@ -32,12 +32,12 @@ module unidade_controle (
     // Define estados
     parameter inicial    = 4'b0000;  // 0
     parameter preparacao = 4'b0011;  // 3
+    parameter espera     = 4'b0001; // 1
     parameter registra   = 4'b0100;  // 4
     parameter comparacao = 4'b0101;  // 5
     parameter proximo    = 4'b0110;  // 6
     parameter derrota    = 4'b1110; // E
     parameter vitoria    = 4'b1101; // D
-    parameter espera     = 4'b0001; // 1
 
     // Variaveis de estado
     reg [3:0] Eatual, Eprox;
@@ -53,14 +53,14 @@ module unidade_controle (
     // Logica de proximo estado
     always @* begin
         case (Eatual)
-            inicial:     Eprox = iniciar ? espera : inicial;
-            espera:      Eprox = jogada ? preparacao: espera;
-            preparacao:  Eprox = registra;
+            inicial:     Eprox = iniciar ? preparacao : inicial;
+            preparacao:  Eprox = espera;
+            espera:      Eprox = jogada ? registra: espera;
             registra:    Eprox = comparacao;
             comparacao:  Eprox = (~igual) ? derrota :
                                  (fimC) ? vitoria:
-                                          espera;
-            // proximo:     Eprox = registra;
+                                          proximo;
+            proximo:     Eprox = espera;
             derrota:     Eprox = (iniciar) ? inicial : derrota;
             vitoria:     Eprox = (iniciar) ? inicial : vitoria;
             default:     Eprox = inicial;
