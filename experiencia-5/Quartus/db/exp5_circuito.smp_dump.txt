@@ -1,0 +1,11 @@
+
+State Machine - |circuito_exp5|unidade_controle:uc|Eatual
+Name Eatual.derrota Eatual.vitoria Eatual.proximo Eatual.comparacao Eatual.registra Eatual.preparacao Eatual.espera Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 0 0 0 
+Eatual.espera 0 0 0 0 0 0 1 1 
+Eatual.preparacao 0 0 0 0 0 1 0 1 
+Eatual.registra 0 0 0 0 1 0 0 1 
+Eatual.comparacao 0 0 0 1 0 0 0 1 
+Eatual.proximo 0 0 1 0 0 0 0 1 
+Eatual.vitoria 0 1 0 0 0 0 0 1 
+Eatual.derrota 1 0 0 0 0 0 0 1 

@@ -1,0 +1,23 @@
+Quartus Prime Archive log --	/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/Quartus/exp5_T2BA3_ativ1.qarlog
+
+Archive:	/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/Quartus/exp5_T2BA3_ativ1.qar
+Date:		Sat Feb  3 17:11:47 2024
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/Quartus/exp5_circuito.qpf
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/Quartus/exp5_circuito.qsf
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/circuito_exp5.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/comparador_85.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/contador_163.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/edge_detector.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/fluxo_dados.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/hexa7seg.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/registrador_4.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/sync_rom_16x4.v
+/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-5/unidade_controle.v
+/home/victor/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 12 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
