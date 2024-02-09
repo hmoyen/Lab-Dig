@@ -1,0 +1,95 @@
+//------------------------------------------------------------------
+// Arquivo   : exp4_unidade_controle.v
+// Projeto   : Experiencia 4 - Projeto de uma Unidade de Controle
+//------------------------------------------------------------------
+// Descricao : Unidade de controle
+//
+// usar este codigo como template (modelo) para codificar 
+// máquinas de estado de unidades de controle            
+//------------------------------------------------------------------
+// Revisoes  :
+//     Data        Versao  Autor             Descricao
+//     14/01/2024  1.0     Edson Midorikawa  versao inicial
+//------------------------------------------------------------------
+//
+module unidade_controle (
+    input      clock,
+    input      reset,
+    input      iniciar,
+    input      fimC,
+    input      jogada,
+    input      igual,
+    output reg zeraC,
+    output reg contaC,
+    output reg zeraR,
+    output reg registraR,
+    output reg pronto,
+    output reg errou,
+    output reg acertou,
+    output reg [3:0] db_estado
+);
+
+    // Define estados
+    parameter inicial    = 4'b0000;  // 0
+    parameter preparacao = 4'b0011;  // 3
+    parameter espera     = 4'b0001; // 1
+    parameter registra   = 4'b0100;  // 4
+    parameter comparacao = 4'b0101;  // 5
+    parameter proximo    = 4'b0110;  // 6
+    parameter derrota    = 4'b1110; // E
+    parameter vitoria    = 4'b1101; // D
+
+    // Variaveis de estado
+    reg [3:0] Eatual, Eprox;
+
+    // Memoria de estado
+    always @(posedge clock or posedge reset) begin
+        if (reset)
+            Eatual <= inicial;
+        else
+            Eatual <= Eprox;
+    end
+
+    // Logica de proximo estado
+    always @* begin
+        case (Eatual)
+            inicial:     Eprox = iniciar ? preparacao : inicial;
+            preparacao:  Eprox = espera;
+            espera:      Eprox = jogada ? registra: espera;
+            registra:    Eprox = comparacao;
+            comparacao:  Eprox = (~igual) ? derrota :
+                                 (fimC) ? vitoria:
+                                          proximo;
+            proximo:     Eprox = espera;
+            derrota:     Eprox = (iniciar) ? preparacao : derrota;
+            vitoria:     Eprox = (iniciar) ? preparacao : vitoria;
+            default:     Eprox = inicial;
+        endcase
+    end
+
+    // Logica de saida (maquina Moore)
+    always @* begin
+        zeraC     = (Eatual == inicial || Eatual == preparacao) ? 1'b1 : 1'b0;
+        zeraR     = (Eatual == inicial || Eatual == preparacao) ? 1'b1 : 1'b0;
+        registraR = (Eatual == registra) ? 1'b1 : 1'b0;
+        contaC    = (Eatual == proximo) ? 1'b1 : 1'b0;
+        pronto    = (Eatual == derrota) ? 1'b1 : 
+                    (Eatual == vitoria) ? 1'b1: 1'b0;
+        errou     = (Eatual == derrota) ? 1'b1: 1'b0;
+        acertou   = (Eatual == vitoria) ? 1'b1 : 1'b0;
+
+        // Saida de depuracao (estado)
+        case (Eatual)
+            inicial:     db_estado = 4'b0000;  // 0
+            preparacao:  db_estado = 4'b0011;  // 3
+            registra:    db_estado = 4'b0100;  // 4
+            comparacao:  db_estado = 4'b0101;  // 5
+            proximo:     db_estado = 4'b0110;  // 6
+            derrota:     db_estado = 4'b1110;  // E
+            vitoria:     db_estado = 4'b1101;  // D
+            espera:      db_estado = 4'b0001;  // 1
+            default:     db_estado = 4'b1111;  // F
+        endcase
+    end
+
+endmodule
