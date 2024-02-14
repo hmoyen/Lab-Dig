@@ -1,0 +1,147 @@
+# Loading project exp6_tb
+# Load canceled
+# Compile of circuito_exp6_tb.v was successful.
+# Compile of circuito_jogo_base.v was successful.
+# Compile of comparador_85.v was successful.
+# Compile of contador_163.v was successful.
+# Compile of contador_m.v was successful.
+# Compile of edge_detector.v was successful.
+# Compile of fluxo_dados.v was successful.
+# Compile of hexa7seg.v was successful.
+# Compile of registrador_4.v was successful.
+# Compile of sync_rom_16x4.v was successful.
+# Compile of unidade_controle.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim work.circuito_exp6_tb
+# vsim work.circuito_exp6_tb 
+# Start time: 19:14:47 on Feb 13,2024
+# Loading work.circuito_exp6_tb
+# Loading work.circuito_jogo_base
+# Loading work.unidade_controle
+# Loading work.fluxo_dados
+# Loading work.contador_163
+# Loading work.registrador_4
+# Loading work.sync_rom_16x4
+# Loading work.comparador_85
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.hexa7seg
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/clockPeriod \
+sim:/circuito_exp6_tb/clock_in \
+sim:/circuito_exp6_tb/reset_in \
+sim:/circuito_exp6_tb/iniciar_in \
+sim:/circuito_exp6_tb/chaves_in \
+sim:/circuito_exp6_tb/ganhou_out \
+sim:/circuito_exp6_tb/perdeu_out \
+sim:/circuito_exp6_tb/pronto_out \
+sim:/circuito_exp6_tb/leds_out \
+sim:/circuito_exp6_tb/db_contagem_out \
+sim:/circuito_exp6_tb/db_memoria_out \
+sim:/circuito_exp6_tb/db_estado_out \
+sim:/circuito_exp6_tb/db_timeout_out \
+sim:/circuito_exp6_tb/db_jogadafeita_out \
+sim:/circuito_exp6_tb/db_rodada_out \
+sim:/circuito_exp6_tb/db_clock_out \
+sim:/circuito_exp6_tb/db_iniciar_out \
+sim:/circuito_exp6_tb/db_tem_jogada_out \
+sim:/circuito_exp6_tb/db_enderecoIgualRodada_out \
+sim:/circuito_exp6_tb/db_jogada_correta_out \
+sim:/circuito_exp6_tb/db_Q_out \
+sim:/circuito_exp6_tb/caso
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v(158)
+#    Time: 92600 ns  Iteration: 0  Instance: /circuito_exp6_tb
+# Break in Module circuito_exp6_tb at /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v line 158
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/uc/Eatual
+add wave -position insertpoint sim:/circuito_exp6_tb/dut/fd/memoria1/*
+run -all
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/uc/db_estado
+# Break key hit
+# Simulation stop requested.
+
+
+
+
+
+restart -f
+
+
+# Closing VCD file "testbench.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+restart -f
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v(158)
+#    Time: 92600 ns  Iteration: 0  Instance: /circuito_exp6_tb
+# Break in Module circuito_exp6_tb at /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v line 158
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/fd/memoria2/data_out
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/fd/memoria1/data_out
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/fd/registrador/Q
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/fd/contador_rodada/Q
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/fd/contador_endereco/Q
+restart -f
+# Closing VCD file "testbench.vcd"
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v(158)
+#    Time: 92600 ns  Iteration: 0  Instance: /circuito_exp6_tb
+# Break in Module circuito_exp6_tb at /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v line 158
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+add wave -position insertpoint  \
+sim:/circuito_exp6_tb/dut/fd/edge_detect/pulso
+restart -f
+# Closing VCD file "testbench.vcd"
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v(158)
+#    Time: 92600 ns  Iteration: 0  Instance: /circuito_exp6_tb
+# Break in Module circuito_exp6_tb at /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v line 158
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
+# Compile of unidade_controle.v was successful.
+restart -f
+# Closing VCD file "testbench.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.unidade_controle
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v(158)
+#    Time: 92600 ns  Iteration: 0  Instance: /circuito_exp6_tb
+# Break in Module circuito_exp6_tb at /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v line 158
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
+# Compile of circuito_exp6_tb.v was successful.
+restart -f
+# Closing VCD file "testbench.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.circuito_exp6_tb
+run -all
+# Inicio da simulacao
+# Fim da simulacao
+# ** Note: $stop    : /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v(223)
+#    Time: 217600 ns  Iteration: 0  Instance: /circuito_exp6_tb
+# Break in Module circuito_exp6_tb at /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v line 223
+# couldn't load file "/home/victor/intelFPGA/20.1/modelsim_ase/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space

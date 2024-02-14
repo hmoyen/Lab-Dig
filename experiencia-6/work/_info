@@ -1,0 +1,264 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6
+vcircuito_exp6_tb
+!s110 1707868641
+!i10b 1
+!s100 ZY4a^;27E1YQdND4_aN`Z0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I^alek?[B8;DgO3N[VSHO60
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1707868608
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v
+!i122 12
+L0 20 207
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1707868641.000000
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+vcircuito_jogo_base
+Z6 !s110 1707862471
+!i10b 1
+!s100 RcZBCCLGaKLKdJK8KT>[F0
+R1
+If`:R=j3`gDdYlNX8hPBH43
+R2
+R0
+w1707439924
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v
+!i122 1
+L0 2 118
+R3
+r1
+!s85 0
+31
+Z7 !s108 1707862471.000000
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v|
+!i113 1
+R4
+R5
+vcomparador_85
+R6
+!i10b 1
+!s100 bckB8^W=VE]I2a21^PB@D0
+R1
+IFIn7>Gl[RXeZ5_a8h@G3Q2
+R2
+R0
+Z8 w1707423164
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v
+!i122 2
+L0 16 14
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v|
+!i113 1
+R4
+R5
+vcontador_163
+R6
+!i10b 1
+!s100 6Bz:SlPP`3YUIDnZHDi`c2
+R1
+IJF:TOjLV]z=3?dXW4lI>f0
+R2
+R0
+R8
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v
+!i122 3
+L0 16 16
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v|
+!i113 1
+R4
+R5
+vcontador_m
+R6
+!i10b 1
+!s100 FgVIl26Wi`bLFf1[^Goga0
+R1
+IO10=ZP[d35CThS3C2h<af0
+R2
+R0
+R8
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v
+!i122 4
+L0 19 37
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v|
+!i113 1
+R4
+R5
+vedge_detector
+R6
+!i10b 1
+!s100 b=6PQ:nFojW4z?d;AGW=D0
+R1
+I=3I=662X9QjM=Ij8VHSFW2
+R2
+R0
+R8
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v
+!i122 5
+L0 21 23
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v|
+!i113 1
+R4
+R5
+vfluxo_dados
+R6
+!i10b 1
+!s100 88cH1f=dhB1H<@M52]MkR1
+R1
+IG0nJ=hO_49Kah[FM2Y20]2
+R2
+R0
+w1707862097
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/fluxo_dados.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/fluxo_dados.v
+!i122 6
+L0 1 138
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/fluxo_dados.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/fluxo_dados.v|
+!i113 1
+R4
+R5
+vhexa7seg
+R6
+!i10b 1
+!s100 ^ldcN:Zl`^?4Tnh8I@Z332
+R1
+I8BIgnDC?K^VoEkNgZj5f]0
+R2
+R0
+R8
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v
+!i122 7
+L0 23 38
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v|
+!i113 1
+R4
+R5
+vregistrador_4
+R6
+!i10b 1
+!s100 45NaE0zN5R1c;nb0e8L`23
+R1
+IV9G3?:CYU_cj<zFlhT:MW2
+R2
+R0
+R8
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v
+!i122 8
+L0 13 20
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v|
+!i113 1
+R4
+R5
+vsync_rom_16x4
+R6
+!i10b 1
+!s100 BA3>fjel;oLZ_H4I9;O[L2
+R1
+IL2IG`8`2HP:;ZJ3`Kd1LA1
+R2
+R0
+w1707439837
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/sync_rom_16x4.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/sync_rom_16x4.v
+!i122 9
+L0 13 30
+R3
+r1
+!s85 0
+31
+R7
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/sync_rom_16x4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/sync_rom_16x4.v|
+!i113 1
+R4
+R5
+vunidade_controle
+!s110 1707868052
+!i10b 1
+!s100 d_?ficKN;9@nO4K@;BX[U2
+R1
+IL`P;Oi`H>4cK@Dmm22^nh2
+R2
+R0
+w1707868038
+8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/unidade_controle.v
+F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/unidade_controle.v
+!i122 11
+L0 15 105
+R3
+r1
+!s85 0
+31
+!s108 1707868052.000000
+!s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/unidade_controle.v|
+!s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/unidade_controle.v|
+!i113 1
+R4
+R5

@@ -20,8 +20,8 @@ module fluxo_dados(
     output [3:0] db_contagem,
     output [3:0] db_jogada,
     output [3:0] db_memoria,
-    output [3:0] db_rodada,
-    output [11:0] Q,
+    output [3:0] db_rodada, //OR entre todas as chaves de entrada de Dado
+    output [11:0] Q, //saida do contador timeout
 	  output timeout
 );
 
@@ -77,7 +77,7 @@ wire fim_rodada;
 
     .clock(clock),
     .address(s_rodada),
-    .data_in(s_jogada),
+    .data_in(),
     .enable(1'b0),
     .data_out(leds)
 

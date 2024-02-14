@@ -71,7 +71,7 @@ module unidade_controle (
 											jogada ? registra: espera;
             registra:    Eprox = comparacao;
             comparacao:  Eprox = (~jogada_correta) ? derrota :
-                                 (fimCE) ? ultima_rodada:
+                                 (enderecoIgualRodada) ? ultima_rodada:
                                           proxima_jogada;
             proxima_jogada: Eprox = espera;
             ultima_rodada:     Eprox = fimCR ? vitoria : proxima_rodada;
