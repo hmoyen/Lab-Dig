@@ -10,60 +10,60 @@ z2
 cModel Technology
 Z0 d/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6
 vcircuito_exp6_tb
-!s110 1707868641
+!s110 1707871358
 !i10b 1
-!s100 ZY4a^;27E1YQdND4_aN`Z0
+!s100 ekJL^0V5TgnKF8K^IK^]e1
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I^alek?[B8;DgO3N[VSHO60
+I1BEEJ7Vh8CnAHPd4nOW1b1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1707868608
+w1707871354
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v
-!i122 12
-L0 20 207
+!i122 14
+L0 20 1335
 Z3 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1707868641.000000
+!s108 1707871358.000000
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_exp6_tb.v|
 !i113 1
 Z4 o-work work
 Z5 tCvgOpt 0
 vcircuito_jogo_base
-Z6 !s110 1707862471
+!s110 1707871597
 !i10b 1
-!s100 RcZBCCLGaKLKdJK8KT>[F0
+!s100 coL1Lj_09N]2eV2?O4aaY3
 R1
-If`:R=j3`gDdYlNX8hPBH43
+I@>?E;KPS]4RShkUPijS8g3
 R2
 R0
-w1707439924
+w1707871589
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v
-!i122 1
+!i122 15
 L0 2 118
 R3
 r1
 !s85 0
 31
-Z7 !s108 1707862471.000000
+!s108 1707871597.000000
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/circuito_jogo_base.v|
 !i113 1
 R4
 R5
 vcomparador_85
-R6
+Z6 !s110 1707862471
 !i10b 1
 !s100 bckB8^W=VE]I2a21^PB@D0
 R1
 IFIn7>Gl[RXeZ5_a8h@G3Q2
 R2
 R0
-Z8 w1707423164
+Z7 w1707423164
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v
 !i122 2
@@ -72,7 +72,7 @@ R3
 r1
 !s85 0
 31
-R7
+Z8 !s108 1707862471.000000
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/comparador_85.v|
 !i113 1
@@ -86,7 +86,7 @@ R1
 IJF:TOjLV]z=3?dXW4lI>f0
 R2
 R0
-R8
+R7
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v
 !i122 3
@@ -95,7 +95,7 @@ R3
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_163.v|
 !i113 1
@@ -109,7 +109,7 @@ R1
 IO10=ZP[d35CThS3C2h<af0
 R2
 R0
-R8
+R7
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v
 !i122 4
@@ -118,7 +118,7 @@ R3
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/contador_m.v|
 !i113 1
@@ -132,7 +132,7 @@ R1
 I=3I=662X9QjM=Ij8VHSFW2
 R2
 R0
-R8
+R7
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v
 !i122 5
@@ -141,7 +141,7 @@ R3
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/edge_detector.v|
 !i113 1
@@ -164,7 +164,7 @@ R3
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/fluxo_dados.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/fluxo_dados.v|
 !i113 1
@@ -178,7 +178,7 @@ R1
 I8BIgnDC?K^VoEkNgZj5f]0
 R2
 R0
-R8
+R7
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v
 !i122 7
@@ -187,7 +187,7 @@ R3
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/hexa7seg.v|
 !i113 1
@@ -201,7 +201,7 @@ R1
 IV9G3?:CYU_cj<zFlhT:MW2
 R2
 R0
-R8
+R7
 8/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v
 F/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v
 !i122 8
@@ -210,7 +210,7 @@ R3
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/registrador_4.v|
 !i113 1
@@ -233,7 +233,7 @@ R3
 r1
 !s85 0
 31
-R7
+R8
 !s107 /home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/sync_rom_16x4.v|
 !s90 -reportprogress|300|-work|work|-stats=none|/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/sync_rom_16x4.v|
 !i113 1

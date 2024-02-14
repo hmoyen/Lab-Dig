@@ -7,12 +7,12 @@
       <elementName>External</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>circuito_jogo_base_tudo</string>
-        </entry>
-        <entry>
           <string>applicationType</string>
           <appType>IVERILOG</appType>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>circuito_jogo_base</string>
         </entry>
         <entry>
           <string>externalInputs</string>
@@ -24,7 +24,7 @@
         </entry>
         <entry>
           <string>Code</string>
-          <string>module circuito_jogo_base_tudo (
+          <string>module circuito_jogo_base (
 input clock,
 input reset,
 input iniciar,
@@ -33,11 +33,11 @@ output ganhou,
 output perdeu,
 output pronto,
 output [3:0] leds,
-output [3:0] db_contagem,
-output [3:0] db_memoria,
-output [3:0] db_estado,
-output [3:0] db_jogadafeita,
-output [3:0] db_rodada,
+output [6:0] db_contagem,
+output [6:0] db_memoria,
+output [6:0] db_estado,
+output [6:0] db_jogadafeita,
+output [6:0] db_rodada,
 output db_clock,
 output db_tem_jogada,
 output db_timeout,
@@ -73,7 +73,7 @@ output [11:0] db_Q
   .pronto(pronto),
   .errou(errou),
   .acertou(acertou),
-  .db_estado(db_estado)
+  .db_estado(db_estado_hex)
   );
 
 
@@ -95,15 +95,43 @@ output [11:0] db_Q
   .jogada_feita(jogada),
   .leds(leds), //valor da ROM cujo endereço é a rodada atual
   .db_tem_jogada(db_tem_jogada),
-  .db_contagem(db_contagem),
-  .db_jogada(db_jogadafeita),
-  .db_memoria(db_memoria),
+  .db_contagem(db_contagem_hex),
+  .db_jogada(db_jogada_hex),
+  .db_memoria(db_memoria_hex),
   .Q(db_Q),
-  .db_rodada(db_rodada),
+  .db_rodada(db_rodada_hex),
   .timeout(timeout)
   );
 
+  hexa7seg hexa7seg_CHAVES (
+
+    .hexa(db_jogada_hex),
+    .display(db_jogadafeita)
+  );
   
+  hexa7seg hexa7seg_CONT (
+
+    .hexa(db_contagem_hex),
+    .display(db_contagem)
+  );
+
+  hexa7seg hexa7seg_MEM (
+
+    .hexa(db_memoria_hex),
+    .display(db_memoria)
+  );
+
+  hexa7seg hexa7seg_EST (
+
+    .hexa(db_estado_hex),
+    .display(db_estado)
+  );
+
+  hexa7seg hexa7seg_ROD (
+
+    .hexa(db_rodada_hex),
+    .display(db_rodada)
+  );
 
 
 assign db_clock = clock;
@@ -292,8 +320,8 @@ module fluxo_dados(
     output [3:0] db_contagem,
     output [3:0] db_jogada,
     output [3:0] db_memoria,
-    output [3:0] db_rodada,
-    output [11:0] Q,
+    output [3:0] db_rodada, //OR entre todas as chaves de entrada de Dado
+    output [11:0] Q, //saida do contador timeout
 	  output timeout
 );
 
@@ -349,7 +377,7 @@ wire fim_rodada;
 
     .clock(clock),
     .address(s_rodada),
-    .data_in(s_jogada),
+    .data_in(),
     .enable(1&apos;b0),
     .data_out(leds)
 
@@ -616,7 +644,7 @@ module unidade_controle (
 											jogada ? registra: espera;
             registra:    Eprox = comparacao;
             comparacao:  Eprox = (~jogada_correta) ? derrota :
-                                 (fimCE) ? ultima_rodada:
+                                 (enderecoIgualRodada) ? ultima_rodada:
                                           proxima_jogada;
             proxima_jogada: Eprox = espera;
             ultima_rodada:     Eprox = fimCR ? vitoria : proxima_rodada;
@@ -665,7 +693,7 @@ endmodule</string>
         </entry>
         <entry>
           <string>externalOutputs</string>
-          <string>ganhou,perdeu,pronto,leds:4,db_contagem:4,db_memoria:4,db_estado:4,db_jogadafeita:4,db_rodada:4,db_clock,db_tem_jogada,db_timeout,db_jogada_correta,db_enderecoIgualRodada,db_Q:12</string>
+          <string>ganhou,perdeu,pronto,leds:4,db_contagem:7,db_memoria:7,db_estado:7,db_jogadafeita:7,db_rodada:7,db_clock,db_tem_jogada,db_timeout,db_jogada_correta,db_enderecoIgualRodada,db_Q:12</string>
         </entry>
       </elementAttributes>
       <pos x="640" y="380"/>
@@ -674,12 +702,12 @@ endmodule</string>
       <elementName>Clock</elementName>
       <elementAttributes>
         <entry>
-          <string>Frequency</string>
-          <int>1000</int>
-        </entry>
-        <entry>
           <string>runRealTime</string>
           <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Frequency</string>
+          <int>1000</int>
         </entry>
       </elementAttributes>
       <pos x="480" y="360"/>
@@ -807,7 +835,7 @@ endmodule</string>
       <elementAttributes>
         <entry>
           <string>Bits</string>
-          <int>4</int>
+          <int>7</int>
         </entry>
       </elementAttributes>
       <pos x="1580" y="400"/>
@@ -817,7 +845,7 @@ endmodule</string>
       <elementAttributes>
         <entry>
           <string>Bits</string>
-          <int>4</int>
+          <int>7</int>
         </entry>
       </elementAttributes>
       <pos x="1520" y="460"/>
@@ -827,7 +855,7 @@ endmodule</string>
       <elementAttributes>
         <entry>
           <string>Bits</string>
-          <int>4</int>
+          <int>7</int>
         </entry>
       </elementAttributes>
       <pos x="1460" y="520"/>
@@ -837,7 +865,7 @@ endmodule</string>
       <elementAttributes>
         <entry>
           <string>Bits</string>
-          <int>4</int>
+          <int>7</int>
         </entry>
       </elementAttributes>
       <pos x="1380" y="560"/>
@@ -847,7 +875,7 @@ endmodule</string>
       <elementAttributes>
         <entry>
           <string>Bits</string>
-          <int>4</int>
+          <int>7</int>
         </entry>
       </elementAttributes>
       <pos x="1500" y="600"/>

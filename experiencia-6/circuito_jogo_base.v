@@ -46,8 +46,8 @@ output [11:0] db_Q
   .zeraT(zeraT),
   .contaT(contaT),
   .pronto(pronto),
-  .errou(errou),
-  .acertou(acertou),
+  .errou(perdeu),
+  .acertou(ganhou),
   .db_estado(db_estado_hex)
   );
 
