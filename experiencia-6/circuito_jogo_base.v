@@ -18,7 +18,7 @@ output db_tem_jogada,
 output db_timeout,
 output db_jogada_correta,
 output db_enderecoIgualRodada,
-output [11:0] db_Q
+output [12:0] db_Q
 );
 
   wire zeraCE, contaCE, zeraCR, contaCR, zeraR, registraR, fimCE, fimCR, zeraT, contaT;
