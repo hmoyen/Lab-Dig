@@ -1,5 +1,5 @@
 Restore Archived Project report for circuito_jogo_base
-Sun Feb 18 10:05:25 2024
+Mon Feb 19 09:43:11 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Sun Feb 18 10:05:25 2024 ;
+; Restore Archived Project Status ; Successful - Mon Feb 19 09:43:11 2024 ;
 ; Revision Name                   ; circuito_jogo_base                    ;
 ; Top-level Entity Name           ; circuito_jogo_base                    ;
 ; Family                          ; Cyclone V                             ;
@@ -47,14 +47,14 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Info: Successfully restored '/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/exp6_T2BA3-atividade2-planejamento.qar' into the '/home/victor/Documentos/USP/LABDIG/GitLabdig/Lab-Dig/experiencia-6/exp6_T2BA3-atividade2-planejamento_restored/' directory
+Info: Successfully restored '/home/victor/Documentos/LABDIG/Lab-Dig/experiencia-6/exp6_T2BA3-atividade2-planejamento.qar' into the '/home/victor/Documentos/LABDIG/Lab-Dig/experiencia-6/exp6_T2BA3-atividade2-planejamento_restored/' directory
 Info: Generated report 'circuito_jogo_base.restore.rpt'
 Info (23030): Evaluation of Tcl script /home/victor/intelFPGA_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 581 megabytes
-    Info: Processing ended: Sun Feb 18 10:05:25 2024
-    Info: Elapsed time: 00:00:00
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Processing ended: Mon Feb 19 09:43:11 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 
 +-------------------------+
