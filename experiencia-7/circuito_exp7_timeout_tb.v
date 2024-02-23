@@ -1,4 +1,4 @@
-module circuito_exp7_tb;
+module circuito_exp7_timeout_tb;
 
     // Sinais para conectar com o DUT
     // Valores iniciais para fins de simulacao (ModelSim)
@@ -67,8 +67,8 @@ module circuito_exp7_tb;
     );
 
     // Geração do arquivo VCD
-    initial $dumpfile("testbench.vcd");
-    initial $dumpvars(0, circuito_exp7_tb);
+    initial $dumpfile("testbench_timeout.vcd");
+    initial $dumpvars(0, circuito_exp7_timeout_tb);
 
     // Geracao dos sinais de entrada (estimulos)
     initial begin
@@ -134,8 +134,16 @@ module circuito_exp7_tb;
       for(jogada_counter=3; jogada_counter<18; jogada_counter = jogada_counter + 1) begin
         for(i=0; i<(jogada_counter); i = i+1) begin
           caso <= caso + 1;
-
-          chaves_in <= sequencia[i];
+          
+          if (jogada_counter == 5 && i==4) begin // timeout na jogada adicional da terceira rodada
+            chaves_in <= 4'b0000;
+            #(6000*clockPeriod);
+            jogada_counter <= 18;
+            i<= 19; // sai do loop
+          end
+          else begin
+            chaves_in <= sequencia[i];
+          end
           #(100*clockPeriod);
           chaves_in <= 4'b0000;
           #(100*clockPeriod);
