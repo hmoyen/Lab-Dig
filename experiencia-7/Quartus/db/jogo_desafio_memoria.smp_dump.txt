@@ -1,0 +1,17 @@
+
+State Machine - |jogo_desafio_memoria|unidade_controle:uc|Eatual
+Name Eatual.derrota Eatual.vitoria Eatual.grava Eatual.tout Eatual.espera_incremento Eatual.proxima_rodada Eatual.ultima_rodada Eatual.proxima_jogada Eatual.comparacao Eatual.registra Eatual.preparacao Eatual.inicio_rodada Eatual.espera Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Eatual.espera 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Eatual.inicio_rodada 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+Eatual.preparacao 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+Eatual.registra 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+Eatual.comparacao 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+Eatual.proxima_jogada 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+Eatual.ultima_rodada 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+Eatual.proxima_rodada 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+Eatual.espera_incremento 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+Eatual.tout 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+Eatual.grava 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.vitoria 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.derrota 1 0 0 0 0 0 0 0 0 0 0 0 0 1 

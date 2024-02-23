@@ -1,0 +1,722 @@
+Analysis & Synthesis report for jogo_desafio_memoria
+Fri Feb 23 02:53:09 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |jogo_desafio_memoria|unidade_controle:uc|Eatual
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0|altsyncram_4dh1:auto_generated
+ 15. Parameter Settings for User Entity Instance: unidade_controle:uc
+ 16. Parameter Settings for User Entity Instance: fluxo_dados:fd|sync_ram_16x4_file:RAM
+ 17. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m:contador_timeout
+ 18. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_2:contador_tempo_display_jogada_inicial
+ 19. Parameter Settings for Inferred Entity Instance: fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "fluxo_dados:fd|contador_m_2:contador_tempo_display_jogada_inicial"
+ 22. Port Connectivity Checks: "fluxo_dados:fd|contador_m:contador_timeout"
+ 23. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:edge_detect"
+ 24. Port Connectivity Checks: "fluxo_dados:fd|comparador_85:comparador_endereco"
+ 25. Port Connectivity Checks: "fluxo_dados:fd|comparador_85:comparador_jogada"
+ 26. Port Connectivity Checks: "fluxo_dados:fd|contador_163:contador_rodada"
+ 27. Port Connectivity Checks: "fluxo_dados:fd|contador_163:contador_endereco"
+ 28. Port Connectivity Checks: "unidade_controle:uc"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Feb 23 02:53:09 2024       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; jogo_desafio_memoria                        ;
+; Top-level Entity Name           ; jogo_desafio_memoria                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 54                                          ;
+; Total pins                      ; 68                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 64                                          ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                 ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                                          ; Setting              ; Default Value        ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                                          ; 5CEBA4F23C7          ;                      ;
+; Top-level entity name                                                           ; jogo_desafio_memoria ; jogo_desafio_memoria ;
+; Family name                                                                     ; Cyclone V            ; Cyclone V            ;
+; Use smart compilation                                                           ; Off                  ; Off                  ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                   ; On                   ;
+; Enable compact report table                                                     ; Off                  ; Off                  ;
+; Restructure Multiplexers                                                        ; Auto                 ; Auto                 ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                  ; Off                  ;
+; Create Debugging Nodes for IP Cores                                             ; Off                  ; Off                  ;
+; Preserve fewer node names                                                       ; On                   ; On                   ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable               ; Enable               ;
+; Verilog Version                                                                 ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                                    ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                                        ; Auto                 ; Auto                 ;
+; Safe State Machine                                                              ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                                  ; On                   ; On                   ;
+; Extract VHDL State Machines                                                     ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                               ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                                      ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                                       ; On                   ; On                   ;
+; Parallel Synthesis                                                              ; On                   ; On                   ;
+; DSP Block Balancing                                                             ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                                              ; On                   ; On                   ;
+; Power-Up Don't Care                                                             ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                                    ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                                      ; On                   ; On                   ;
+; Ignore CARRY Buffers                                                            ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                                          ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                                           ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                                            ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                                             ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                  ; Off                  ;
+; Optimization Technique                                                          ; Balanced             ; Balanced             ;
+; Carry Chain Length                                                              ; 70                   ; 70                   ;
+; Auto Carry Chains                                                               ; On                   ; On                   ;
+; Auto Open-Drain Pins                                                            ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                  ; Off                  ;
+; Auto ROM Replacement                                                            ; On                   ; On                   ;
+; Auto RAM Replacement                                                            ; On                   ; On                   ;
+; Auto DSP Block Replacement                                                      ; On                   ; On                   ;
+; Auto Shift Register Replacement                                                 ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                                   ; On                   ; On                   ;
+; Strict RAM Replacement                                                          ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                               ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                                          ; Off                  ; Off                  ;
+; Auto Resource Sharing                                                           ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                                              ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                                              ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                               ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                                         ; On                   ; On                   ;
+; Report Parameter Settings                                                       ; On                   ; On                   ;
+; Report Source Assignments                                                       ; On                   ; On                   ;
+; Report Connectivity Checks                                                      ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                                           ; 3                    ; 3                    ;
+; Power Optimization During Synthesis                                             ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                               ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                                 ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                  ; 100                  ;
+; Clock MUX Protection                                                            ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                                     ; Off                  ; Off                  ;
+; Block Design Naming                                                             ; Auto                 ; Auto                 ;
+; SDC constraint protection                                                       ; Off                  ; Off                  ;
+; Synthesis Effort                                                                ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                                              ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                                          ; On                   ; On                   ;
+; Automatic Parallel Synthesis                                                    ; On                   ; On                   ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                  ; Off                  ;
++---------------------------------------------------------------------------------+----------------------+----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                           ;
++------------------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                 ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                              ; Library ;
++------------------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
+; ../unidade_controle.v                                            ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/unidade_controle.v                                                       ;         ;
+; ../sync_ram_16x4_file.v                                          ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/sync_ram_16x4_file.v                                                     ;         ;
+; ../registrador_4.v                                               ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/registrador_4.v                                                          ;         ;
+; ../jogo_desafio_memoria.v                                        ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/jogo_desafio_memoria.v                                                   ;         ;
+; ../hexa7seg.v                                                    ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/hexa7seg.v                                                               ;         ;
+; ../fluxo_dados.v                                                 ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v                                                            ;         ;
+; ../edge_detector.v                                               ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/edge_detector.v                                                          ;         ;
+; ../contador_m_2.v                                                ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/contador_m_2.v                                                           ;         ;
+; ../contador_m.v                                                  ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/contador_m.v                                                             ;         ;
+; ../contador_163.v                                                ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/contador_163.v                                                           ;         ;
+; ../comparador_85.v                                               ; yes             ; User Verilog HDL File                                 ; /home/lena/Lab-Dig/experiencia-7/comparador_85.v                                                          ;         ;
+; altsyncram.tdf                                                   ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                             ;         ;
+; stratix_ram_block.inc                                            ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                      ;         ;
+; lpm_mux.inc                                                      ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                ;         ;
+; lpm_decode.inc                                                   ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                             ;         ;
+; aglobal201.inc                                                   ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                             ;         ;
+; a_rdenreg.inc                                                    ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                              ;         ;
+; altrom.inc                                                       ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                 ;         ;
+; altram.inc                                                       ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altram.inc                                 ;         ;
+; altdpram.inc                                                     ; yes             ; Megafunction                                          ; /home/lena/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                               ;         ;
+; db/altsyncram_4dh1.tdf                                           ; yes             ; Auto-Generated Megafunction                           ; /home/lena/Lab-Dig/experiencia-7/Quartus/db/altsyncram_4dh1.tdf                                           ;         ;
+; db/jogo_desafio_memoria.ram0_sync_ram_16x4_file_9e787551.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/lena/Lab-Dig/experiencia-7/Quartus/db/jogo_desafio_memoria.ram0_sync_ram_16x4_file_9e787551.hdl.mif ;         ;
++------------------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 70          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 119         ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 19          ;
+;     -- 5 input functions                    ; 7           ;
+;     -- 4 input functions                    ; 44          ;
+;     -- <=3 input functions                  ; 49          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 54          ;
+;                                             ;             ;
+; I/O pins                                    ; 68          ;
+; Total MLAB memory bits                      ; 0           ;
+; Total block memory bits                     ; 64          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 59          ;
+; Total fan-out                               ; 770         ;
+; Average fan-out                             ; 2.46        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                         ;
++------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                                 ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name          ; Library Name ;
++------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |jogo_desafio_memoria                                      ; 119 (0)             ; 54 (0)                    ; 64                ; 0          ; 68   ; 0            ; |jogo_desafio_memoria                                                                                           ; jogo_desafio_memoria ; work         ;
+;    |fluxo_dados:fd|                                        ; 57 (9)              ; 40 (0)                    ; 64                ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd                                                                            ; fluxo_dados          ; work         ;
+;       |comparador_85:comparador_endereco|                  ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|comparador_85:comparador_endereco                                          ; comparador_85        ; work         ;
+;       |comparador_85:comparador_jogada|                    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|comparador_85:comparador_jogada                                            ; comparador_85        ; work         ;
+;       |contador_163:contador_endereco|                     ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|contador_163:contador_endereco                                             ; contador_163         ; work         ;
+;       |contador_163:contador_rodada|                       ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|contador_163:contador_rodada                                               ; contador_163         ; work         ;
+;       |contador_m:contador_timeout|                        ; 18 (18)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|contador_m:contador_timeout                                                ; contador_m           ; work         ;
+;       |contador_m_2:contador_tempo_display_jogada_inicial| ; 15 (15)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|contador_m_2:contador_tempo_display_jogada_inicial                         ; contador_m_2         ; work         ;
+;       |edge_detector:edge_detect|                          ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|edge_detector:edge_detect                                                  ; edge_detector        ; work         ;
+;       |registrador_4:registrador|                          ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|registrador_4:registrador                                                  ; registrador_4        ; work         ;
+;       |sync_ram_16x4_file:RAM|                             ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|sync_ram_16x4_file:RAM                                                     ; sync_ram_16x4_file   ; work         ;
+;          |altsyncram:ram_rtl_0|                            ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0                                ; altsyncram           ; work         ;
+;             |altsyncram_4dh1:auto_generated|               ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0|altsyncram_4dh1:auto_generated ; altsyncram_4dh1      ; work         ;
+;    |hexa7seg:hexa7seg_CHAVES|                              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|hexa7seg:hexa7seg_CHAVES                                                                  ; hexa7seg             ; work         ;
+;    |hexa7seg:hexa7seg_CONT|                                ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|hexa7seg:hexa7seg_CONT                                                                    ; hexa7seg             ; work         ;
+;    |hexa7seg:hexa7seg_EST|                                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|hexa7seg:hexa7seg_EST                                                                     ; hexa7seg             ; work         ;
+;    |hexa7seg:hexa7seg_MEM|                                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|hexa7seg:hexa7seg_MEM                                                                     ; hexa7seg             ; work         ;
+;    |hexa7seg:hexa7seg_ROD|                                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|hexa7seg:hexa7seg_ROD                                                                     ; hexa7seg             ; work         ;
+;    |unidade_controle:uc|                                   ; 27 (27)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |jogo_desafio_memoria|unidade_controle:uc                                                                       ; unidade_controle     ; work         ;
++------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                ;
++------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------------------------------------------------------------+
+; Name                                                                                                 ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                                              ;
++------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------------------------------------------------------------+
+; fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0|altsyncram_4dh1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 16           ; 4            ; --           ; --           ; 64   ; db/jogo_desafio_memoria.ram0_sync_ram_16x4_file_9e787551.hdl.mif ;
++------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |jogo_desafio_memoria|unidade_controle:uc|Eatual                                                                                                                                                                                                                                            ;
++--------------------------+----------------+----------------+--------------+-------------+--------------------------+-----------------------+----------------------+-----------------------+-------------------+-----------------+-------------------+----------------------+---------------+----------------+
+; Name                     ; Eatual.derrota ; Eatual.vitoria ; Eatual.grava ; Eatual.tout ; Eatual.espera_incremento ; Eatual.proxima_rodada ; Eatual.ultima_rodada ; Eatual.proxima_jogada ; Eatual.comparacao ; Eatual.registra ; Eatual.preparacao ; Eatual.inicio_rodada ; Eatual.espera ; Eatual.inicial ;
++--------------------------+----------------+----------------+--------------+-------------+--------------------------+-----------------------+----------------------+-----------------------+-------------------+-----------------+-------------------+----------------------+---------------+----------------+
+; Eatual.inicial           ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 0              ;
+; Eatual.espera            ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 1             ; 1              ;
+; Eatual.inicio_rodada     ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 1                    ; 0             ; 1              ;
+; Eatual.preparacao        ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 1                 ; 0                    ; 0             ; 1              ;
+; Eatual.registra          ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 1               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.comparacao        ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 1                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.proxima_jogada    ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 1                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.ultima_rodada     ; 0              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 1                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.proxima_rodada    ; 0              ; 0              ; 0            ; 0           ; 0                        ; 1                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.espera_incremento ; 0              ; 0              ; 0            ; 0           ; 1                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.tout              ; 0              ; 0              ; 0            ; 1           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.grava             ; 0              ; 0              ; 1            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.vitoria           ; 0              ; 1              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
+; Eatual.derrota           ; 1              ; 0              ; 0            ; 0           ; 0                        ; 0                     ; 0                    ; 0                     ; 0                 ; 0               ; 0                 ; 0                    ; 0             ; 1              ;
++--------------------------+----------------+----------------+--------------+-------------+--------------------------+-----------------------+----------------------+-----------------------+-------------------+-----------------+-------------------+----------------------+---------------+----------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; unidade_controle:uc|Eatual~4          ; Lost fanout        ;
+; unidade_controle:uc|Eatual~5          ; Lost fanout        ;
+; unidade_controle:uc|Eatual~6          ; Lost fanout        ;
+; unidade_controle:uc|Eatual~7          ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 54    ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 18    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 25    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                  ;
++------------------------------------------------------+-------------------------------------------------+------+
+; Register Name                                        ; Megafunction                                    ; Type ;
++------------------------------------------------------+-------------------------------------------------+------+
+; fluxo_dados:fd|sync_ram_16x4_file:RAM|addr_reg[0..3] ; fluxo_dados:fd|sync_ram_16x4_file:RAM|ram_rtl_0 ; RAM  ;
++------------------------------------------------------+-------------------------------------------------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |jogo_desafio_memoria|fluxo_dados:fd|contador_163:contador_endereco|Q[3]                     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |jogo_desafio_memoria|fluxo_dados:fd|contador_163:contador_rodada|Q[3]                       ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |jogo_desafio_memoria|fluxo_dados:fd|contador_m_2:contador_tempo_display_jogada_inicial|Q[0] ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |jogo_desafio_memoria|fluxo_dados:fd|contador_m:contador_timeout|Q[2]                        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |jogo_desafio_memoria|unidade_controle:uc|Eprox.ultima_rodada                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Source assignments for fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0|altsyncram_4dh1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                 ;
++---------------------------------+--------------------+------+----------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                  ;
++---------------------------------+--------------------+------+----------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: unidade_controle:uc ;
++-------------------+-------+--------------------------------------+
+; Parameter Name    ; Value ; Type                                 ;
++-------------------+-------+--------------------------------------+
+; inicial           ; 0000  ; Unsigned Binary                      ;
+; preparacao        ; 0011  ; Unsigned Binary                      ;
+; inicio_rodada     ; 0010  ; Unsigned Binary                      ;
+; espera            ; 0001  ; Unsigned Binary                      ;
+; registra          ; 0100  ; Unsigned Binary                      ;
+; comparacao        ; 0101  ; Unsigned Binary                      ;
+; proxima_jogada    ; 0110  ; Unsigned Binary                      ;
+; ultima_rodada     ; 0111  ; Unsigned Binary                      ;
+; proxima_rodada    ; 1000  ; Unsigned Binary                      ;
+; derrota           ; 1110  ; Unsigned Binary                      ;
+; vitoria           ; 1101  ; Unsigned Binary                      ;
+; tout              ; 1011  ; Unsigned Binary                      ;
+; espera_incremento ; 1001  ; Unsigned Binary                      ;
+; grava             ; 1100  ; Unsigned Binary                      ;
++-------------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxo_dados:fd|sync_ram_16x4_file:RAM ;
++----------------+--------------+----------------------------------------------------+
+; Parameter Name ; Value        ; Type                                               ;
++----------------+--------------+----------------------------------------------------+
+; BINFILE        ; ram_init.txt ; String                                             ;
++----------------+--------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m:contador_timeout ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; M              ; 5000  ; Signed Integer                                                 ;
+; N              ; 13    ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_2:contador_tempo_display_jogada_inicial ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; M              ; 2000  ; Signed Integer                                                                        ;
+; N              ; 13    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0            ;
++------------------------------------+------------------------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                                            ; Type           ;
++------------------------------------+------------------------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                                ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                                               ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                              ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                                               ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                              ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                                ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                                                      ; Untyped        ;
+; WIDTH_A                            ; 4                                                                ; Untyped        ;
+; WIDTHAD_A                          ; 4                                                                ; Untyped        ;
+; NUMWORDS_A                         ; 16                                                               ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                                     ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                                             ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                                             ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                                             ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                                             ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                                             ; Untyped        ;
+; WIDTH_B                            ; 1                                                                ; Untyped        ;
+; WIDTHAD_B                          ; 1                                                                ; Untyped        ;
+; NUMWORDS_B                         ; 1                                                                ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                                           ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                                           ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                                           ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                                           ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                                     ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                                           ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                                             ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                                             ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                                             ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                                             ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                                             ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                                             ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                                ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                                ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                             ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                                ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                        ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                             ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                             ; Untyped        ;
+; INIT_FILE                          ; db/jogo_desafio_memoria.ram0_sync_ram_16x4_file_9e787551.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                                           ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                                ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                                           ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                                           ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                                           ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                                           ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                                  ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                                  ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                                            ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                            ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                                                ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                                                        ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_4dh1                                                  ; Untyped        ;
++------------------------------------+------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                       ;
++-------------------------------------------+------------------------------------------------------------+
+; Name                                      ; Value                                                      ;
++-------------------------------------------+------------------------------------------------------------+
+; Number of entity instances                ; 1                                                          ;
+; Entity Instance                           ; fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                ;
+;     -- WIDTH_A                            ; 4                                                          ;
+;     -- NUMWORDS_A                         ; 16                                                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                               ;
+;     -- WIDTH_B                            ; 1                                                          ;
+;     -- NUMWORDS_B                         ; 1                                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                  ;
++-------------------------------------------+------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|contador_m_2:contador_tempo_display_jogada_inicial" ;
++---------+--------+----------+-----------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                         ;
++---------+--------+----------+-----------------------------------------------------------------+
+; zera_as ; Input  ; Info     ; Stuck at GND                                                    ;
+; Q       ; Output ; Info     ; Explicitly unconnected                                          ;
+; meio    ; Output ; Info     ; Explicitly unconnected                                          ;
++---------+--------+----------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|contador_m:contador_timeout" ;
++---------+--------+----------+------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                  ;
++---------+--------+----------+------------------------------------------+
+; zera_as ; Input  ; Info     ; Stuck at GND                             ;
+; meio    ; Output ; Info     ; Explicitly unconnected                   ;
++---------+--------+----------+------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|edge_detector:edge_detect" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|comparador_85:comparador_endereco" ;
++------+--------+----------+---------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                           ;
++------+--------+----------+---------------------------------------------------+
+; ALBi ; Input  ; Info     ; Stuck at GND                                      ;
+; AGBi ; Input  ; Info     ; Stuck at GND                                      ;
+; AEBi ; Input  ; Info     ; Stuck at VCC                                      ;
+; ALBo ; Output ; Info     ; Explicitly unconnected                            ;
+; AGBo ; Output ; Info     ; Explicitly unconnected                            ;
++------+--------+----------+---------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|comparador_85:comparador_jogada" ;
++------+--------+----------+-------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                         ;
++------+--------+----------+-------------------------------------------------+
+; ALBi ; Input  ; Info     ; Stuck at GND                                    ;
+; AGBi ; Input  ; Info     ; Stuck at GND                                    ;
+; AEBi ; Input  ; Info     ; Stuck at VCC                                    ;
+; ALBo ; Output ; Info     ; Explicitly unconnected                          ;
+; AGBo ; Output ; Info     ; Explicitly unconnected                          ;
++------+--------+----------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|contador_163:contador_rodada" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC                                  ;
+; ent  ; Input ; Info     ; Stuck at VCC                                  ;
+; D    ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|contador_163:contador_endereco" ;
++------+-------+----------+-------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                         ;
++------+-------+----------+-------------------------------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC                                    ;
+; ent  ; Input ; Info     ; Stuck at VCC                                    ;
+; D    ; Input ; Info     ; Stuck at GND                                    ;
++------+-------+----------+-------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "unidade_controle:uc"                                                                                ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; exibe_jogada_inicial ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 54                          ;
+;     CLR               ; 14                          ;
+;     ENA               ; 8                           ;
+;     ENA CLR           ; 4                           ;
+;     ENA SCLR          ; 13                          ;
+;     SCLR              ; 13                          ;
+;     plain             ; 2                           ;
+; arriav_lcell_comb     ; 127                         ;
+;     arith             ; 26                          ;
+;         1 data inputs ; 26                          ;
+;     normal            ; 101                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 44                          ;
+;         5 data inputs ; 7                           ;
+;         6 data inputs ; 19                          ;
+; boundary_port         ; 68                          ;
+; stratixv_ram_block    ; 4                           ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.92                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Feb 23 02:53:02 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off jogo_desafio_memoria -c jogo_desafio_memoria
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/unidade_controle.v
+    Info (12023): Found entity 1: unidade_controle File: /home/lena/Lab-Dig/experiencia-7/unidade_controle.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/sync_ram_16x4_file.v
+    Info (12023): Found entity 1: sync_ram_16x4_file File: /home/lena/Lab-Dig/experiencia-7/sync_ram_16x4_file.v Line: 19
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/registrador_4.v
+    Info (12023): Found entity 1: registrador_4 File: /home/lena/Lab-Dig/experiencia-7/registrador_4.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/jogo_desafio_memoria.v
+    Info (12023): Found entity 1: jogo_desafio_memoria File: /home/lena/Lab-Dig/experiencia-7/jogo_desafio_memoria.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/hexa7seg.v
+    Info (12023): Found entity 1: hexa7seg File: /home/lena/Lab-Dig/experiencia-7/hexa7seg.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v
+    Info (12023): Found entity 1: fluxo_dados File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/edge_detector.v
+    Info (12023): Found entity 1: edge_detector File: /home/lena/Lab-Dig/experiencia-7/edge_detector.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/contador_m_2.v
+    Info (12023): Found entity 1: contador_m_2 File: /home/lena/Lab-Dig/experiencia-7/contador_m_2.v Line: 19
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/contador_m.v
+    Info (12023): Found entity 1: contador_m File: /home/lena/Lab-Dig/experiencia-7/contador_m.v Line: 19
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/contador_163.v
+    Info (12023): Found entity 1: contador_163 File: /home/lena/Lab-Dig/experiencia-7/contador_163.v Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file /home/lena/Lab-Dig/experiencia-7/comparador_85.v
+    Info (12023): Found entity 1: comparador_85 File: /home/lena/Lab-Dig/experiencia-7/comparador_85.v Line: 16
+Warning (10236): Verilog HDL Implicit Net warning at fluxo_dados.v(134): created implicit net for "zera_timeout" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 134
+Info (12127): Elaborating entity "jogo_desafio_memoria" for the top level hierarchy
+Info (12128): Elaborating entity "unidade_controle" for hierarchy "unidade_controle:uc" File: /home/lena/Lab-Dig/experiencia-7/jogo_desafio_memoria.v Line: 58
+Warning (10034): Output port "exibe_jogada_inicial" at unidade_controle.v(39) has no driver File: /home/lena/Lab-Dig/experiencia-7/unidade_controle.v Line: 39
+Info (12128): Elaborating entity "fluxo_dados" for hierarchy "fluxo_dados:fd" File: /home/lena/Lab-Dig/experiencia-7/jogo_desafio_memoria.v Line: 89
+Warning (10036): Verilog HDL or VHDL warning at fluxo_dados.v(134): object "zera_timeout" assigned a value but never read File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 134
+Info (12128): Elaborating entity "sync_ram_16x4_file" for hierarchy "fluxo_dados:fd|sync_ram_16x4_file:RAM" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 44
+Info (12128): Elaborating entity "contador_163" for hierarchy "fluxo_dados:fd|contador_163:contador_endereco" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 56
+Warning (10230): Verilog HDL assignment warning at contador_163.v(25): truncated value with size 32 to match size of target (4) File: /home/lena/Lab-Dig/experiencia-7/contador_163.v Line: 25
+Info (12128): Elaborating entity "registrador_4" for hierarchy "fluxo_dados:fd|registrador_4:registrador" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 76
+Info (12128): Elaborating entity "comparador_85" for hierarchy "fluxo_dados:fd|comparador_85:comparador_jogada" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 88
+Info (12128): Elaborating entity "edge_detector" for hierarchy "fluxo_dados:fd|edge_detector:edge_detect" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 108
+Info (12128): Elaborating entity "contador_m" for hierarchy "fluxo_dados:fd|contador_m:contador_timeout" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 119
+Warning (10230): Verilog HDL assignment warning at contador_m.v(40): truncated value with size 32 to match size of target (13) File: /home/lena/Lab-Dig/experiencia-7/contador_m.v Line: 40
+Info (12128): Elaborating entity "contador_m_2" for hierarchy "fluxo_dados:fd|contador_m_2:contador_tempo_display_jogada_inicial" File: /home/lena/Lab-Dig/experiencia-7/fluxo_dados.v Line: 130
+Warning (10230): Verilog HDL assignment warning at contador_m_2.v(40): truncated value with size 32 to match size of target (13) File: /home/lena/Lab-Dig/experiencia-7/contador_m_2.v Line: 40
+Info (12128): Elaborating entity "hexa7seg" for hierarchy "hexa7seg:hexa7seg_CHAVES" File: /home/lena/Lab-Dig/experiencia-7/jogo_desafio_memoria.v Line: 95
+Warning (276021): Created node "fluxo_dados:fd|sync_ram_16x4_file:RAM|ram" as a single-port RAM by generating altsyncram megafunction to implement register logic. Power-up values at the outputs of the RAM are different from the original design. File: /home/lena/Lab-Dig/experiencia-7/sync_ram_16x4_file.v Line: 31
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "fluxo_dados:fd|sync_ram_16x4_file:RAM|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 4
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/jogo_desafio_memoria.ram0_sync_ram_16x4_file_9e787551.hdl.mif
+Info (12130): Elaborated megafunction instantiation "fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "fluxo_dados:fd|sync_ram_16x4_file:RAM|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "4"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/jogo_desafio_memoria.ram0_sync_ram_16x4_file_9e787551.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4dh1.tdf
+    Info (12023): Found entity 1: altsyncram_4dh1 File: /home/lena/Lab-Dig/experiencia-7/Quartus/db/altsyncram_4dh1.tdf Line: 28
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 198 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 61 output pins
+    Info (21061): Implemented 126 logic cells
+    Info (21064): Implemented 4 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 484 megabytes
+    Info: Processing ended: Fri Feb 23 02:53:09 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
+
+

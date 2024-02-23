@@ -1,0 +1,25 @@
+Quartus Prime Archive log --	/home/lena/Lab-Dig/experiencia-7/Quartus/jogo_desafio_memoria.qarlog
+
+Archive:	/home/lena/Lab-Dig/experiencia-7/Quartus/jogo_desafio_memoria.qar
+Date:		Fri Feb 23 02:57:23 2024
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/lena/Lab-Dig/experiencia-7/Quartus/jogo_desafio_memoria.qpf
+/home/lena/Lab-Dig/experiencia-7/Quartus/jogo_desafio_memoria.qsf
+/home/lena/Lab-Dig/experiencia-7/comparador_85.v
+/home/lena/Lab-Dig/experiencia-7/contador_163.v
+/home/lena/Lab-Dig/experiencia-7/contador_m.v
+/home/lena/Lab-Dig/experiencia-7/contador_m_2.v
+/home/lena/Lab-Dig/experiencia-7/edge_detector.v
+/home/lena/Lab-Dig/experiencia-7/fluxo_dados.v
+/home/lena/Lab-Dig/experiencia-7/hexa7seg.v
+/home/lena/Lab-Dig/experiencia-7/jogo_desafio_memoria.v
+/home/lena/Lab-Dig/experiencia-7/registrador_4.v
+/home/lena/Lab-Dig/experiencia-7/sync_ram_16x4_file.v
+/home/lena/Lab-Dig/experiencia-7/unidade_controle.v
+/home/lena/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 14 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
