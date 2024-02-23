@@ -138,7 +138,7 @@ wire fim_rodada;
     assign fimCE = fim_rodada;
     assign db_rodada = s_rodada;
     
-    assign leds = (contaTI) ? s_dado : grava ? 4'b0000 : botoes ;
+    assign leds = (contaTI) ? s_dado : botoes ;
 	  //assign conta_timeout = zeraR | contaC | registraR | zeraC;
 
 endmodule
