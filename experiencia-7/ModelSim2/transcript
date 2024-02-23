@@ -1,0 +1,26 @@
+# Loading project exp7
+vsim work.circuito_exp7_errado_tb
+# vsim work.circuito_exp7_errado_tb 
+# Start time: 14:03:44 on Feb 23,2024
+# Loading work.circuito_exp7_errado_tb
+# Loading work.jogo_desafio_memoria
+# Loading work.unidade_controle
+# Loading work.fluxo_dados
+# Loading work.sync_ram_16x4_file
+# Loading work.contador_163
+# Loading work.registrador_4
+# Loading work.comparador_85
+# Loading work.edge_detector
+# Loading work.contador_m
+# Loading work.contador_m_2
+# Loading work.hexa7seg
+add wave -position insertpoint sim:/circuito_exp7_errado_tb/*
+add wave -position insertpoint sim:/circuito_exp7_errado_tb/dut/uc/*
+add wave -position insertpoint sim:/circuito_exp7_errado_tb/dut/fd/*
+do wave.do
+run -all
+# Inicio da simulacao
+# Break key hit
+# Break in Module circuito_exp7_errado_tb at /home/lena/Lab-Dig/experiencia-7/circuito_exp7_errado_tb.v line 43
+# End time: 14:06:48 on Feb 23,2024, Elapsed time: 0:03:04
+# Errors: 0, Warnings: 2

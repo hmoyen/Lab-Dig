@@ -123,13 +123,13 @@ module circuito_exp7_errado_tb;
       caso = 3;
       chaves_in = sequencia[0];
       
-      #(10*clockPeriod);
+      #(100*clockPeriod);
       chaves_in <= 4'b0000;
-      #(10*clockPeriod);
+      #(100*clockPeriod);
       chaves_in = sequencia[1];
-      #(10*clockPeriod);
+      #(100*clockPeriod);
       chaves_in <= 4'b0000;
-      #(10*clockPeriod);
+      #(100*clockPeriod);
 
       for(jogada_counter=3; jogada_counter<18; jogada_counter = jogada_counter + 1) begin
         for(i=0; i<(jogada_counter); i = i+1) begin
