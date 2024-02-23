@@ -11,7 +11,7 @@ module fluxo_dados(
     input        contaT, // conta do contador timeout
     input        zeraTI, // clear do  contador timeout inicial do jogo
     input        contaTI, // conta do contador timeout inicial do jogo
-    input  [3:0] chaves, // chaves de entrada
+    input  [3:0] botoes, // chaves de entrada
     input        grava,  //sinal de controle pra gravar a nova jogada
     output       jogada_correta, // chaves iguais a memoria
     output       enderecoIgualRodada, // endereco igual a rodada
@@ -37,7 +37,7 @@ wire fim_rodada;
     sync_ram_16x4_file RAM(
       .clk (clock),
       .we(grava),
-      .data(chaves),
+      .data(botoes),
       .addr(s_endereco_ram),
       .q(s_dado)
 
@@ -71,7 +71,7 @@ wire fim_rodada;
         .clock(clock),
         .clear(zeraR),
         .enable(registraR),
-        .D(chaves),
+        .D(botoes),
         .Q(s_jogada)
     );
 
@@ -130,7 +130,7 @@ wire fim_rodada;
 	  );
 
     assign s_endereco_ram = grava ? s_rodada : s_endereco;
-    assign db_tem_jogada = |chaves;
+    assign db_tem_jogada = |botoes;
     assign zera_timeout = registraR | zeraR;
     assign db_contagem = s_endereco;
     assign db_jogada = s_jogada;
