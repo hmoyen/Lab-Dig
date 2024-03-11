@@ -21,9 +21,11 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "FMBSP3"; //Seu SSID da Rede WIFI
-const char* password = "cruzeirotri2014"; // A Senha da Rede WIFI
-const char* mqtt_server = "192.168.0.2"; 
+#define REFRESH_RATE 100
+
+const char* ssid = "LAB_DIGITAL"; //Seu SSID da Rede WIFI
+const char* password = "C1-17*2018@labdig"; // A Senha da Rede WIFI
+const char* mqtt_server = "192.168.17.190 "; 
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -31,6 +33,8 @@ unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE	(50)
 char msg[MSG_BUFFER_SIZE];
 int value = 0;
+const int buttonPin3 = 3;
+const int buttonPin0 = 0u;
 
 void setup_wifi() {
 
@@ -116,10 +120,14 @@ void loop() {
   client.loop();
 
   unsigned long now = millis();
-  if (now - lastMsg > 2000) {
+  if (now - lastMsg > REFRESH_RATE) {
     lastMsg = now;
     ++value;
-    snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
+    pinMode(buttonPin3, INPUT);
+    pinMode(buttonPin0, INPUT);
+    int state3 = digitalRead(3);
+    int state0 = digitalRead(0);
+    snprintf (msg, MSG_BUFFER_SIZE, "PIN3 IS #%ld and PIN0 IS #%ld", state3, state0 );
     Serial.print("Publish message: ");
     Serial.println(msg);
     client.publish("outTopic", msg);
