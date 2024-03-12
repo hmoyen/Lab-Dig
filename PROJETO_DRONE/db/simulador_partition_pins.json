@@ -1,0 +1,101 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "venceu",
+					"strict" : false
+				},
+				{
+					"name" : "perdeu",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[3]",
+					"strict" : false
+				},
+				{
+					"name" : "iniciar",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "controle[0]",
+					"strict" : false
+				},
+				{
+					"name" : "controle[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

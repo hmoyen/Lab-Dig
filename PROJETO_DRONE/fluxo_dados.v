@@ -29,6 +29,23 @@ contador_163 contador_posicao_horizontal(
     .Q(posicao_horizontal),
     .rco(fim_mapa) 
 );
+contador_m_2 contador_tempo_jogada(
+    .clock(clock),
+    .zera_as(1'b0),
+    .zera_s(zeraT),
+    .conta(contaT),
+    .Q(),
+    .fim(fim_espera),
+    .meio()
+);
+
+sync_ram_16x4_file mapa_jogo(
+    .clk(clock),
+    .we(1'b0),
+    .data(4'b0),
+    .addr(posicao_horizontal + 1),
+    .q(obstaculos)
+);
 
 contador_4_mais_menos contador_posicao_vertical(
     .clock(clock), 
@@ -42,34 +59,6 @@ contador_4_mais_menos contador_posicao_vertical(
     .rco()
 );
 
-contador_m_2 contador_tempo_jogada(
-    .clock(clock),
-    .zera_as(1'b0),
-    .zera_s(zeraT),
-    .conta(contaT),
-    .Q(),
-    .fim(fim_espera),
-    .meio()
-);
-
-// comparador_85 compara_colisao(
-//     .ALBi(1'b0), 
-//     .AGBi(1'b0), 
-//     .AEBi(1'b1), 
-//     .A(posicao_vertical), 
-//     .B(obstaculos[posicao_vertical]), 
-//     .ALBo(), 
-//     .AGBo(), 
-//     .AEBo(colisao)
-// );
-
-sync_ram_16x4_file mapa_jogo(
-    .clk(clock),
-    .we(1'b0),
-    .data(4'b0),
-    .addr(posicao_horizontal + 1),
-    .q(obstaculos)
-);
 
 converte_2b_4b conversor_posicao(
     .posicao_2b(posicao_vertical),
