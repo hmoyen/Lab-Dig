@@ -1,0 +1,251 @@
+|simulador_drone
+clock => clock.IN2
+reset => reset.IN2
+iniciar => iniciar.IN2
+controle[0] => controle[0].IN1
+controle[1] => controle[1].IN1
+venceu << unidade_controle:uc.venceu
+perdeu << unidade_controle:uc.perdeu
+db_posicao_horizontal[0] << fluxo_dados:fd.db_posicao_horizontal
+db_posicao_horizontal[1] << fluxo_dados:fd.db_posicao_horizontal
+db_posicao_horizontal[2] << fluxo_dados:fd.db_posicao_horizontal
+db_posicao_horizontal[3] << fluxo_dados:fd.db_posicao_horizontal
+db_posicao_vertical[0] << fluxo_dados:fd.db_posicao_vertical
+db_posicao_vertical[1] << fluxo_dados:fd.db_posicao_vertical
+db_posicao_vertical[2] << fluxo_dados:fd.db_posicao_vertical
+db_posicao_vertical[3] << fluxo_dados:fd.db_posicao_vertical
+db_obstaculos[0] << fluxo_dados:fd.db_obstaculos
+db_obstaculos[1] << fluxo_dados:fd.db_obstaculos
+db_obstaculos[2] << fluxo_dados:fd.db_obstaculos
+db_obstaculos[3] << fluxo_dados:fd.db_obstaculos
+db_estado[0] << unidade_controle:uc.db_estado
+db_estado[1] << unidade_controle:uc.db_estado
+db_estado[2] << unidade_controle:uc.db_estado
+db_estado[3] << unidade_controle:uc.db_estado
+
+
+|simulador_drone|unidade_controle:uc
+clock => Eatual~1.DATAIN
+reset => Eatual~3.DATAIN
+iniciar => Selector0.IN1
+iniciar => Eprox.inicial.DATAB
+iniciar => Selector2.IN1
+iniciar => Selector3.IN1
+fim_espera => Eprox.deslocamento.DATAB
+fim_espera => Selector1.IN2
+fim_mapa => Selector3.IN3
+fim_mapa => Selector1.IN3
+colisao => Selector2.IN3
+colisao => Eprox.proximo.DATAB
+zeraPosicoes <= zeraPosicoes.DB_MAX_OUTPUT_PORT_TYPE
+contaT <= contaT.DB_MAX_OUTPUT_PORT_TYPE
+zeraT <= zeraT.DB_MAX_OUTPUT_PORT_TYPE
+desloca <= desloca.DB_MAX_OUTPUT_PORT_TYPE
+venceu <= db_estado[3].DB_MAX_OUTPUT_PORT_TYPE
+perdeu <= perdeu.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[3] <= db_estado[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd
+reset => ~NO_FANOUT~
+iniciar => ~NO_FANOUT~
+controle[0] => controle[0].IN1
+controle[1] => controle[1].IN1
+clock => clock.IN4
+desloca => desloca.IN2
+zeraPosicoes => _.IN1
+zeraPosicoes => _.IN1
+contaT => contaT.IN1
+zeraT => zeraT.IN1
+colisao <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+fim_espera <= contador_m_2:contador_tempo_jogada.fim
+fim_mapa <= contador_163:contador_posicao_horizontal.rco
+db_posicao_horizontal[0] <= contador_163:contador_posicao_horizontal.Q
+db_posicao_horizontal[1] <= contador_163:contador_posicao_horizontal.Q
+db_posicao_horizontal[2] <= contador_163:contador_posicao_horizontal.Q
+db_posicao_horizontal[3] <= contador_163:contador_posicao_horizontal.Q
+db_posicao_vertical[0] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_posicao_vertical[1] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_posicao_vertical[2] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_posicao_vertical[3] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_obstaculos[0] <= sync_ram_16x4_file:mapa_jogo.q
+db_obstaculos[1] <= sync_ram_16x4_file:mapa_jogo.q
+db_obstaculos[2] <= sync_ram_16x4_file:mapa_jogo.q
+db_obstaculos[3] <= sync_ram_16x4_file:mapa_jogo.q
+
+
+|simulador_drone|fluxo_dados:fd|contador_163:contador_posicao_horizontal
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clock => Q[3]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ent => always0.IN0
+ent => always1.IN1
+enp => always0.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+D[3] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_m_2:contador_tempo_jogada
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clock => Q[3]~reg0.CLK
+clock => Q[4]~reg0.CLK
+clock => Q[5]~reg0.CLK
+clock => Q[6]~reg0.CLK
+clock => Q[7]~reg0.CLK
+clock => Q[8]~reg0.CLK
+clock => Q[9]~reg0.CLK
+clock => Q[10]~reg0.CLK
+clock => Q[11]~reg0.CLK
+clock => Q[12]~reg0.CLK
+zera_as => Q[0]~reg0.ACLR
+zera_as => Q[1]~reg0.ACLR
+zera_as => Q[2]~reg0.ACLR
+zera_as => Q[3]~reg0.ACLR
+zera_as => Q[4]~reg0.ACLR
+zera_as => Q[5]~reg0.ACLR
+zera_as => Q[6]~reg0.ACLR
+zera_as => Q[7]~reg0.ACLR
+zera_as => Q[8]~reg0.ACLR
+zera_as => Q[9]~reg0.ACLR
+zera_as => Q[10]~reg0.ACLR
+zera_as => Q[11]~reg0.ACLR
+zera_as => Q[12]~reg0.ACLR
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[8] <= Q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[9] <= Q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[10] <= Q[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[11] <= Q[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[12] <= Q[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|sync_ram_16x4_file:mapa_jogo
+clk => ram.we_a.CLK
+clk => ram.waddr_a[3].CLK
+clk => ram.waddr_a[2].CLK
+clk => ram.waddr_a[1].CLK
+clk => ram.waddr_a[0].CLK
+clk => ram.data_a[3].CLK
+clk => ram.data_a[2].CLK
+clk => ram.data_a[1].CLK
+clk => ram.data_a[0].CLK
+clk => addr_reg[0].CLK
+clk => addr_reg[1].CLK
+clk => addr_reg[2].CLK
+clk => addr_reg[3].CLK
+clk => ram.CLK0
+we => ram.we_a.DATAIN
+we => ram.WE
+data[0] => ram.data_a[0].DATAIN
+data[0] => ram.DATAIN
+data[1] => ram.data_a[1].DATAIN
+data[1] => ram.DATAIN1
+data[2] => ram.data_a[2].DATAIN
+data[2] => ram.DATAIN2
+data[3] => ram.data_a[3].DATAIN
+data[3] => ram.DATAIN3
+addr[0] => ram.waddr_a[0].DATAIN
+addr[0] => addr_reg[0].DATAIN
+addr[0] => ram.WADDR
+addr[1] => ram.waddr_a[1].DATAIN
+addr[1] => addr_reg[1].DATAIN
+addr[1] => ram.WADDR1
+addr[2] => ram.waddr_a[2].DATAIN
+addr[2] => addr_reg[2].DATAIN
+addr[2] => ram.WADDR2
+addr[3] => ram.waddr_a[3].DATAIN
+addr[3] => addr_reg[3].DATAIN
+addr[3] => ram.WADDR3
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+q[2] <= ram.DATAOUT2
+q[3] <= ram.DATAOUT3
+
+
+|simulador_drone|fluxo_dados:fd|contador_4_mais_menos:contador_posicao_vertical
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+soma => always0.IN1
+sub => always0.IN1
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => always1.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|converte_2b_4b:conversor_posicao
+posicao_2b[0] => Equal0.IN1
+posicao_2b[0] => Equal1.IN0
+posicao_2b[0] => Equal2.IN1
+posicao_2b[1] => Equal0.IN0
+posicao_2b[1] => Equal1.IN1
+posicao_2b[1] => Equal2.IN0
+posicao_4b[0] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+posicao_4b[1] <= posicao_4b.DB_MAX_OUTPUT_PORT_TYPE
+posicao_4b[2] <= posicao_4b.DB_MAX_OUTPUT_PORT_TYPE
+posicao_4b[3] <= posicao_4b.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -31,7 +31,6 @@ module unidade_controle (
     // Define estados
     parameter inicial    = 4'b0000;  // 0
     parameter preparacao = 4'b0001;  // 1
-    parameter inicio_rodada = 4'b0010; // 2
     parameter espera     = 4'b0011; // 3
     parameter deslocamento     = 4'b0100; // 4
     parameter checa_colisao     = 4'b0101; // 5
@@ -54,12 +53,11 @@ module unidade_controle (
     always @* begin
         case (Eatual)
             inicial:    Eprox = iniciar ? preparacao : inicial;
-            preparacao: Eprox = inicio_rodada;
-            inicio_rodada: Eprox = espera;
+            preparacao: Eprox = espera;
             espera:     Eprox = fim_espera ? deslocamento : espera;
             deslocamento: Eprox = checa_colisao;
             checa_colisao: Eprox = colisao ? derrota : proximo;
-            proximo:    Eprox = fim_mapa ? vitoria : inicio_rodada; 
+            proximo:    Eprox = fim_mapa ? vitoria : espera; 
             derrota:   Eprox = iniciar ? preparacao : derrota;
             vitoria:   Eprox = iniciar ? preparacao : vitoria;
             
@@ -71,7 +69,7 @@ module unidade_controle (
     always @* begin
         zeraPosicoes = (Eatual == inicial || Eatual == preparacao) ? 1 : 0;
         contaT = (Eatual == espera) ? 1 : 0;
-        zeraT = (Eatual == inicial || Eatual == preparacao || Eatual == inicio_rodada || Eatual == proximo) ? 1 : 0; 
+        zeraT = (Eatual == inicial || Eatual == preparacao || Eatual == proximo) ? 1 : 0; 
         desloca = (Eatual == deslocamento) ? 1 : 0;
         venceu = (Eatual == vitoria) ? 1 : 0;
         perdeu = (Eatual == derrota) ? 1 : 0;
@@ -80,7 +78,6 @@ module unidade_controle (
         case (Eatual)
             inicial:    db_estado = 4'b0000;  // 0
             preparacao: db_estado = 4'b0001;  // 1
-            inicio_rodada: db_estado = 4'b0010;  // 2
             espera:     db_estado = 4'b0011;  // 3
             deslocamento: db_estado = 4'b0100;  // 4
             checa_colisao: db_estado = 4'b0101;  // 5

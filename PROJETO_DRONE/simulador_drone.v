@@ -9,7 +9,6 @@ module simulador_drone(
     output [3:0] db_posicao_vertical,
     output [3:0] db_obstaculos,
     output [3:0] db_estado
-
 );
 
 wire desloca, zeraPosicoes, colisao, fim_espera, fim_mapa, contaT, zeraT;
@@ -47,7 +46,7 @@ fluxo_dados fd(
     .db_obstaculos(db_obstaculos)
 );
 
-
-
-
 endmodule
+
+
+

@@ -1,0 +1,287 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/20.1
+vcomparador_85
+Z0 !s110 1710163484
+!i10b 1
+!s100 bckB8^W=VE]I2a21^PB@D0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IXfTD`B<gR?26>J2PjajV60
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE
+Z4 w1710131020
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/comparador_85.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/comparador_85.v
+!i122 0
+L0 16 14
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1710163484.000000
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/comparador_85.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/comparador_85.v|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+vcontador_163
+R0
+!i10b 1
+!s100 6Bz:SlPP`3YUIDnZHDi`c2
+R1
+IF[dDU7J7C[5^nm?zZ?CKo0
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_163.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_163.v
+!i122 2
+L0 16 16
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_163.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_163.v|
+!i113 1
+R7
+R8
+vcontador_4_mais_menos
+R0
+!i10b 1
+!s100 En6[Y4V1Y_oTbKT0D[n:f3
+R1
+IoCFB:4e<738Ki:GHMc@ff0
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_4_mais_menos.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_4_mais_menos.v
+!i122 1
+L0 2 19
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_4_mais_menos.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_4_mais_menos.v|
+!i113 1
+R7
+R8
+vcontador_m
+R0
+!i10b 1
+!s100 ?hd;8G8]A;D[JK6bf72h<0
+R1
+If56BT;UXlWXV_?4iBDLWS2
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m.v
+!i122 3
+Z9 L0 19 37
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m.v|
+!i113 1
+R7
+R8
+vcontador_m_2
+R0
+!i10b 1
+!s100 >dNk:QDj;C@aeN48hJ5_m1
+R1
+Ihm[62bEZ7PN^lM58hc0X?0
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m_2.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m_2.v
+!i122 4
+R9
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m_2.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m_2.v|
+!i113 1
+R7
+R8
+vconverte_2b_4b
+R0
+!i10b 1
+!s100 QOJFhSnMX`K^SU<Wg?j0K0
+R1
+I>d?Yj10lG]IB]=kQ8V76o0
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/converte_2b_4b.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/converte_2b_4b.v
+!i122 5
+L0 1 13
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/converte_2b_4b.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/converte_2b_4b.v|
+!i113 1
+R7
+R8
+vfluxo_dados
+R0
+!i10b 1
+!s100 k4h=j9<dAbCi8ED8UKkX<2
+R1
+I>38cE?7EeO;TLSIO<Bl[C0
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/fluxo_dados.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/fluxo_dados.v
+!i122 6
+L0 1 91
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/fluxo_dados.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/fluxo_dados.v|
+!i113 1
+R7
+R8
+vregistrador_4
+Z10 !s110 1710163485
+!i10b 1
+!s100 45NaE0zN5R1c;nb0e8L`23
+R1
+IS[>fGGb9G?iP1P1mK7_XG0
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/registrador_4.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/registrador_4.v
+!i122 7
+L0 13 20
+R5
+r1
+!s85 0
+31
+Z11 !s108 1710163485.000000
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/registrador_4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/registrador_4.v|
+!i113 1
+R7
+R8
+vsimulador_drone
+R10
+!i10b 1
+!s100 3_OaY0HRUIo?0>eLa`YdC0
+R1
+IZTG@Sgm5B3[bHYWB6Ul_Z0
+R2
+R3
+w1710163193
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone.v
+!i122 8
+L0 1 56
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone.v|
+!i113 1
+R7
+R8
+vsimulador_drone_tb
+R10
+!i10b 1
+!s100 83Yh8[QCPnGE<DGKHXToF2
+R1
+IQ@Jh^nF;lK9eedFMeK;1I0
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone_tb.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone_tb.v
+!i122 9
+L0 1 86
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone_tb.v|
+!i113 1
+R7
+R8
+vsync_ram_16x4_file
+R10
+!i10b 1
+!s100 U@0ffiHnFLWNdfRD_PEmK0
+R1
+II:T5]E3A8K[3RA_U2im?C3
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/sync_ram_16x4_file.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/sync_ram_16x4_file.v
+!i122 10
+L0 19 38
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/sync_ram_16x4_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/sync_ram_16x4_file.v|
+!i113 1
+R7
+R8
+vunidade_controle
+R10
+!i10b 1
+!s100 IcCd7`1__^OodHOaNjJln0
+R1
+I;IOlhFSbMU9cnNNMOUNZI3
+R2
+R3
+R4
+8C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/unidade_controle.v
+FC:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/unidade_controle.v
+!i122 11
+L0 15 81
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/unidade_controle.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/unidade_controle.v|
+!i113 1
+R7
+R8
