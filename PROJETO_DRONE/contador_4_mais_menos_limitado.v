@@ -1,5 +1,5 @@
 
-module contador_4_mais_menos ( clock, clr, ld, soma, sub, enp, D, Q, rco);
+module contador_4_mais_menos_limitado ( clock, clr, ld, soma, sub, enp, D, Q, rco);
     input clock, clr, ld, enp, soma, sub;
     input [1:0] D;
     output reg [1:0] Q;

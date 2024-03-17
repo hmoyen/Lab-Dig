@@ -16,13 +16,18 @@ module unidade_controle (
     input      clock,
     input      reset,
     input      iniciar,
+    input      confirma,
     input      fim_espera,
     input      fim_mapa,
     input      colisao,
     output reg zeraPosicoes,
     output reg contaT,
     output reg zeraT,
-    output reg desloca,
+    output reg escolhe_modo,
+    output reg escolhe_vida,
+    output reg move_drone,
+    output reg desloca_horizontal,
+    output reg resetaVidas,
     output reg venceu,
     output reg perdeu,
     output reg [3:0] db_estado
@@ -30,6 +35,8 @@ module unidade_controle (
 
     // Define estados
     parameter inicial    = 4'b0000;  // 0
+    parameter modo       = 4'b0010;  // 2
+    parameter vidas      = 4'b1001;  // 9
     parameter preparacao = 4'b0001;  // 1
     parameter espera     = 4'b0011; // 3
     parameter deslocamento     = 4'b0100; // 4
@@ -52,7 +59,9 @@ module unidade_controle (
     // Logica de proximo estado
     always @* begin
         case (Eatual)
-            inicial:    Eprox = iniciar ? preparacao : inicial;
+            inicial:    Eprox = iniciar ? modo : inicial;
+            modo:       Eprox = confirma ? vidas : modo;
+            vidas:      Eprox = confirma ? preparacao : vidas;
             preparacao: Eprox = espera;
             espera:     Eprox = fim_espera ? deslocamento : espera;
             deslocamento: Eprox = checa_colisao;
@@ -60,7 +69,6 @@ module unidade_controle (
             proximo:    Eprox = fim_mapa ? vitoria : espera; 
             derrota:   Eprox = iniciar ? preparacao : derrota;
             vitoria:   Eprox = iniciar ? preparacao : vitoria;
-            
             default:     Eprox = inicial;
         endcase
     end
@@ -68,15 +76,21 @@ module unidade_controle (
     // Logica de saida (maquina Moore)
     always @* begin
         zeraPosicoes = (Eatual == inicial || Eatual == preparacao) ? 1 : 0;
+        resetaVidas = (Eatual == modo || Eatual == inicial) ? 1 : 0;
         contaT = (Eatual == espera) ? 1 : 0;
         zeraT = (Eatual == inicial || Eatual == preparacao || Eatual == proximo) ? 1 : 0; 
-        desloca = (Eatual == deslocamento) ? 1 : 0;
+        move_drone = (Eatual == espera) ? 1 : 0;
+        desloca_horizontal = (Eatual == deslocamento) ? 1 : 0;
         venceu = (Eatual == vitoria) ? 1 : 0;
         perdeu = (Eatual == derrota) ? 1 : 0;
+        escolhe_modo = (Eatual == modo) ? 1 : 0;
+        escolhe_vida = (Eatual == vidas) ? 1 : 0;
         
         // Saida de depuracao (estado) 
         case (Eatual)
             inicial:    db_estado = 4'b0000;  // 0
+            modo:       db_estado = 4'b0010;  // 2
+            vidas:      db_estado = 4'b1001;  // 9
             preparacao: db_estado = 4'b0001;  // 1
             espera:     db_estado = 4'b0011;  // 3
             deslocamento: db_estado = 4'b0100;  // 4
