@@ -11,44 +11,28 @@ module simulador_drone(
     output [3:0] db_obstaculos,
     output [3:0] db_estado,
     output [1:0] db_modo,
-    output [2:0] db_fim_espera_intero
+    output [2:0] colisao_counter_out
 );
 
-wire move_drone, desloca_horizontal, zeraPosicoes, colisao, fim_espera, fim_mapa, contaT, zeraT, escolhe_menu;
+wire move_drone, desloca_horizontal, zeraPosicoes, colisao, fim_espera, fim_mapa, contaT, zeraT, escolhe_modo, escolhe_vida, resetaVidas, confirma_pulso;
 
 //wire [3:0] posicao_horizontal, posicao_vertical;
 
-unidade_controle uc(
-    .clock(clock),
-    .reset(reset),
-    .iniciar(iniciar),
-    .confirma(confirma),
-    .fim_espera(fim_espera),
-    .fim_mapa(fim_mapa),
-    .colisao(colisao),
-    .zeraPosicoes(zeraPosicoes),
-    .contaT(contaT),
-    .zeraT(zeraT),
-    .move_drone(move_drone),
-    .desloca_horizontal(desloca_horizontal),
-    .escolhe_menu(escolhe_menu),
-    .venceu(venceu),
-    .perdeu(perdeu),
-    .db_estado(db_estado)
-);
 
 fluxo_dados fd(
     .reset(reset),
     .iniciar(iniciar),
     .controle(controle),
-    .confirma(confirma),
+    .confirma(confirma_pulso),
     .clock(clock),
     .zeraPosicoes(zeraPosicoes),
+    .resetaVidas(resetaVidas),
     .contaT(contaT),
     .zeraT(zeraT),
     .move_drone(move_drone),
     .desloca_horizontal(desloca_horizontal),
-    .escolhe_menu(escolhe_menu),
+    .escolhe_modo(escolhe_modo),
+    .escolhe_vida(escolhe_vida),
     .colisao(colisao),
     .fim_espera(fim_espera),
     .fim_mapa(fim_mapa),
@@ -56,13 +40,35 @@ fluxo_dados fd(
     .db_posicao_vertical(db_posicao_vertical),
     .db_obstaculos(db_obstaculos),
     .modo(db_modo),
-    .db_fim_espera_intero(db_fim_espera_intero)
+    .colisao_counter_out(colisao_counter_out)
+);
+unidade_controle uc(
+    .clock(clock),
+    .reset(reset),
+    .iniciar(iniciar),
+    .confirma(confirma_pulso),
+    .fim_espera(fim_espera),
+    .fim_mapa(fim_mapa),
+    .colisao(colisao),
+    .zeraPosicoes(zeraPosicoes),
+    .contaT(contaT),
+    .zeraT(zeraT),
+    .escolhe_modo(escolhe_modo),
+    .escolhe_vida(escolhe_vida),
+    .move_drone(move_drone),
+    .resetaVidas(resetaVidas),
+    .desloca_horizontal(desloca_horizontal),
+    .venceu(venceu),
+    .perdeu(perdeu),
+    .db_estado(db_estado)
 );
 
-// hexa7seg posicao_horizontal_hex7(
-//     .hexa(posicao_vertical),
-//     .display()
-// );
+edge_detector confirma_edge(
+    .clock(clock),
+    .reset(),
+    .sinal(confirma),
+    .pulso(confirma_pulso)
+);
 
 endmodule
 
@@ -108,7 +114,24 @@ module sync_ram_16x4_file #(
     initial 
     begin : INICIA_RAM
         // leitura do conteudo a partir de um arquivo
-        $readmemb(BINFILE, ram);
+        //$readmemb(BINFILE, ram);
+        ram[0] <= 4'b0000;
+        ram[1] <= 4'b0010;
+        ram[2] <= 4'b0100;
+        ram[3] <= 4'b1000;
+        ram[4] <= 4'b0100;
+        ram[5] <= 4'b0010;
+        ram[6] <= 4'b0001;
+        ram[7] <= 4'b0001;
+        ram[8] <= 4'b0010;
+        ram[9] <= 4'b0010;
+        ram[10] <= 4'b0100;
+        ram[11] <= 4'b0100;
+        ram[12] <= 4'b1000;
+        ram[13] <= 4'b1000;
+        ram[14] <= 4'b0001;
+        ram[15] <= 4'b0100;
+
     end 
 
     always @ (posedge clk)
@@ -182,7 +205,7 @@ module comparador_85 (ALBi, AGBi, AEBi, A, B, ALBo, AGBo, AEBo);
     assign AEBo = ((A == B) && AEBi);
 
 endmodule /* comparador_85 */
-module contador_4_mais_menos ( clock, clr, ld, soma, sub, enp, D, Q, rco);
+module contador_4_mais_menos_limitado ( clock, clr, ld, soma, sub, enp, D, Q, rco);
     input clock, clr, ld, enp, soma, sub;
     input [1:0] D;
     output reg [1:0] Q;
@@ -199,6 +222,55 @@ module contador_4_mais_menos ( clock, clr, ld, soma, sub, enp, D, Q, rco);
  
     always @ (Q or enp)
         if (enp && (Q == 2'b00))   rco = 1;
+        else                       rco = 0;
+endmodule//------------------------------------------------------------------
+// Arquivo   : contador_163.v
+// Projeto   : Experiencia 3 - Um Fluxo de Dados Simples
+//------------------------------------------------------------------
+// Descricao : Contador binario de 4 bits, modulo 16
+//             similar ao componente 74163
+//
+// baseado no componente Vrcntr4u.v do livro Digital Design Principles 
+// and Practices, Fifth Edition, by John F. Wakerly              
+//------------------------------------------------------------------
+// Revisoes  :
+//     Data        Versao  Autor             Descricao
+//     14/12/2023  1.0     Edson Midorikawa  versao inicial
+//------------------------------------------------------------------
+//
+module contador_5 ( clock, clr, ld, ent, enp, D, Q, rco );
+    input clock, clr, ld, ent, enp;
+    input [2:0] D;
+    output reg [2:0] Q;
+    output reg rco;
+
+    always @ (posedge clock)
+        if (~clr)               Q <= 3'd0;
+        else if (~ld)           Q <= D;
+        else if (ent && enp)    Q <= Q + 1;
+        else                    Q <= Q;
+ 
+    always @ (Q or ent)
+        if (ent && (Q == 3'b111))   rco = 1;
+        else                       rco = 0;
+endmodule
+module contador_1_5_mais_menos_limitado ( clock, clr, ld, soma, sub, enp, D, Q, rco);
+    input clock, clr, ld, enp, soma, sub;
+    input [2:0] D;
+    output reg [2:0] Q;
+    output reg rco;
+
+    always @ (posedge clock)
+        if (~clr)               Q <= 3'b000;
+        else if (~ld)           Q <= D;
+        else if (enp) begin
+            if (soma == 1 && Q!=3'b101)        Q <= Q + 1;
+            else if (sub == 1 && Q!=3'b001)     Q <= Q - 1;
+        end
+        else                    Q <= Q;
+ 
+    always @ (Q or enp)
+        if (enp && (Q == 3'b00))   rco = 1;
         else                       rco = 0;
 endmodule
 /*---------------Laboratorio Digital-------------------------------------
@@ -328,7 +400,7 @@ endmodule
  *-----------------------------------------------------------------------
  */
 
-module contador_m_05 #(parameter M=10, N=10)
+module contador_m_05 #(parameter M=500, N=10)
   (
    input  wire          clock,
    input  wire          zera_as,
@@ -427,11 +499,13 @@ input [1:0] controle,
 input confirma,
 input clock,
 input zeraPosicoes,
+input resetaVidas,
 input contaT,
 input zeraT,
 input move_drone,
 input desloca_horizontal,
-input escolhe_menu,
+input escolhe_modo,
+input escolhe_vida,
 output colisao,
 output fim_espera,
 output fim_mapa,
@@ -439,15 +513,15 @@ output [3:0] db_posicao_horizontal,
 output [3:0] db_posicao_vertical,
 output [3:0] db_obstaculos,
 output [1:0] modo,
-output [2:0] db_fim_espera_intero
+output [2:0] colisao_counter_out
 );
 
 wire [1:0] posicao_vertical;
 wire [3:0] obstaculos, posicao_horizontal;
-wire [2:0] fim_espera_interno;
+wire [2:0] fim_espera_interno, vidas, colisao_counter;
 wire [1:0] modo_interno;
 wire [1:0] borda_controle;
-wire borda;
+wire borda, colisao_interno;
 
 
 contador_163 contador_posicao_horizontal(
@@ -499,7 +573,7 @@ sync_ram_16x4_file mapa_jogo(
     .q(obstaculos)
 );
 
-contador_4_mais_menos contador_posicao_vertical(
+contador_4_mais_menos_limitado contador_posicao_vertical(
     .clock(clock), 
     .clr(1'b1), 
     .ld(~zeraPosicoes), 
@@ -518,11 +592,35 @@ contador_3_mais_menos contador_modo( // 0 = FACIL, 1 = MEDIO, 2 = DIFICIL
     .ld(1'b1),
     .soma(controle[0]),
     .sub(controle[1]),
-    .enp(escolhe_menu & borda),
+    .enp(escolhe_modo & borda),
     .D(),
     .Q(modo_interno),
     .rco()
 );
+
+contador_1_5_mais_menos_limitado contador_vidas(
+    .clock(clock), 
+    .clr(1'b1), 
+    .ld(~resetaVidas), 
+    .soma(controle[0]), 
+    .sub(controle[1]), 
+    .enp(escolhe_vida & borda), 
+    .D(3'b001), 
+    .Q(vidas), 
+    .rco()
+);
+
+contador_5 contador_colisao(
+    .clock(clock),
+    .clr(~zeraPosicoes),
+    .ld(1'b1),
+    .ent(colisao_interno),
+    .enp(desloca_horizontal),
+    .D(),
+    .Q(colisao_counter),
+    .rco()
+);
+
 
 edge_detector detector_borda0(
     .clock(clock),
@@ -546,18 +644,12 @@ converte_2b_4b conversor_posicao( // ENCODER
 
 assign db_posicao_horizontal = posicao_horizontal;
 assign db_obstaculos = obstaculos;
-assign colisao = obstaculos[posicao_vertical] == 1 ? 1'b1 : 1'b0;
+assign colisao_interno = obstaculos[posicao_vertical] == 1 ? 1'b1 : 1'b0;
 assign fim_espera = fim_espera_interno[modo_interno];
 assign modo = modo_interno;
-assign db_fim_espera_intero = fim_espera_interno;
 assign borda = borda_controle[0] | borda_controle[1];
-
-
-
-
-
-
-
+assign colisao = ((colisao_interno == 1) & (colisao_counter == vidas)) ? 1'b1 : 1'b0;
+assign colisao_counter_out = colisao_counter;
 
 endmodule//------------------------------------------------------------------
 // Arquivo   : exp4_unidade_controle.v
@@ -584,9 +676,11 @@ module unidade_controle (
     output reg zeraPosicoes,
     output reg contaT,
     output reg zeraT,
-    output reg escolhe_menu,
+    output reg escolhe_modo,
+    output reg escolhe_vida,
     output reg move_drone,
     output reg desloca_horizontal,
+    output reg resetaVidas,
     output reg venceu,
     output reg perdeu,
     output reg [3:0] db_estado
@@ -594,7 +688,8 @@ module unidade_controle (
 
     // Define estados
     parameter inicial    = 4'b0000;  // 0
-    parameter menu       = 4'b0010;  // 2
+    parameter modo       = 4'b0010;  // 2
+    parameter vidas      = 4'b1001;  // 9
     parameter preparacao = 4'b0001;  // 1
     parameter espera     = 4'b0011; // 3
     parameter deslocamento     = 4'b0100; // 4
@@ -617,15 +712,16 @@ module unidade_controle (
     // Logica de proximo estado
     always @* begin
         case (Eatual)
-            inicial:    Eprox = iniciar ? menu : inicial;
-            menu:       Eprox = confirma ? preparacao : menu;
+            inicial:    Eprox = iniciar ? modo : inicial;
+            modo:       Eprox = confirma ? vidas : modo;
+            vidas:      Eprox = confirma ? preparacao : vidas;
             preparacao: Eprox = espera;
             espera:     Eprox = fim_espera ? deslocamento : espera;
             deslocamento: Eprox = checa_colisao;
             checa_colisao: Eprox = colisao ? derrota : proximo;
             proximo:    Eprox = fim_mapa ? vitoria : espera; 
-            derrota:   Eprox = iniciar ? preparacao : derrota;
-            vitoria:   Eprox = iniciar ? preparacao : vitoria;
+            derrota:   Eprox = iniciar ? modo : derrota;
+            vitoria:   Eprox = iniciar ? modo : vitoria;
             default:     Eprox = inicial;
         endcase
     end
@@ -633,18 +729,21 @@ module unidade_controle (
     // Logica de saida (maquina Moore)
     always @* begin
         zeraPosicoes = (Eatual == inicial || Eatual == preparacao) ? 1 : 0;
+        resetaVidas = (Eatual == modo || Eatual == inicial) ? 1 : 0;
         contaT = (Eatual == espera) ? 1 : 0;
         zeraT = (Eatual == inicial || Eatual == preparacao || Eatual == proximo) ? 1 : 0; 
         move_drone = (Eatual == espera) ? 1 : 0;
         desloca_horizontal = (Eatual == deslocamento) ? 1 : 0;
         venceu = (Eatual == vitoria) ? 1 : 0;
         perdeu = (Eatual == derrota) ? 1 : 0;
-        escolhe_menu = (Eatual == menu) ? 1 : 0;
+        escolhe_modo = (Eatual == modo) ? 1 : 0;
+        escolhe_vida = (Eatual == vidas) ? 1 : 0;
         
         // Saida de depuracao (estado) 
         case (Eatual)
             inicial:    db_estado = 4'b0000;  // 0
-            menu:       db_estado = 4'b0010;  // 2
+            modo:       db_estado = 4'b0010;  // 2
+            vidas:      db_estado = 4'b1001;  // 9
             preparacao: db_estado = 4'b0001;  // 1
             espera:     db_estado = 4'b0011;  // 3
             deslocamento: db_estado = 4'b0100;  // 4

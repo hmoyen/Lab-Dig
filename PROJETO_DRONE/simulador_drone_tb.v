@@ -47,10 +47,11 @@ reg [20:0] caso;
     caso = 0;
     // Teste 1: Resetar circuito
     caso = 1;
+    #(10*clockPeriod);
     // Gerar pulso de reset
     @(negedge clock);
     reset = 1;
-    #(clockPeriod);
+    #(10*clockPeriod);
     reset = 0;
     // Esperar
     #(10*clockPeriod);
@@ -58,7 +59,7 @@ reg [20:0] caso;
     // Teste 2: iniciar = 1 por 5 períodos de clock
     caso = 2;
     iniciar = 1;
-    #(2*clockPeriod);
+    #(5*clockPeriod);
     iniciar = 0;
     #(10*clockPeriod);
 

@@ -18,26 +18,6 @@ wire move_drone, desloca_horizontal, zeraPosicoes, colisao, fim_espera, fim_mapa
 
 //wire [3:0] posicao_horizontal, posicao_vertical;
 
-unidade_controle uc(
-    .clock(clock),
-    .reset(reset),
-    .iniciar(iniciar),
-    .confirma(confirma_pulso),
-    .fim_espera(fim_espera),
-    .fim_mapa(fim_mapa),
-    .colisao(colisao),
-    .zeraPosicoes(zeraPosicoes),
-    .contaT(contaT),
-    .zeraT(zeraT),
-    .escolhe_modo(escolhe_modo),
-    .escolhe_vida(escolhe_vida),
-    .move_drone(move_drone),
-    .resetaVidas(resetaVidas),
-    .desloca_horizontal(desloca_horizontal),
-    .venceu(venceu),
-    .perdeu(perdeu),
-    .db_estado(db_estado)
-);
 
 fluxo_dados fd(
     .reset(reset),
@@ -62,6 +42,26 @@ fluxo_dados fd(
     .modo(db_modo),
     .colisao_counter_out(colisao_counter_out)
 );
+unidade_controle uc(
+    .clock(clock),
+    .reset(reset),
+    .iniciar(iniciar),
+    .confirma(confirma_pulso),
+    .fim_espera(fim_espera),
+    .fim_mapa(fim_mapa),
+    .colisao(colisao),
+    .zeraPosicoes(zeraPosicoes),
+    .contaT(contaT),
+    .zeraT(zeraT),
+    .escolhe_modo(escolhe_modo),
+    .escolhe_vida(escolhe_vida),
+    .move_drone(move_drone),
+    .resetaVidas(resetaVidas),
+    .desloca_horizontal(desloca_horizontal),
+    .venceu(venceu),
+    .perdeu(perdeu),
+    .db_estado(db_estado)
+);
 
 edge_detector confirma_edge(
     .clock(clock),
@@ -69,11 +69,6 @@ edge_detector confirma_edge(
     .sinal(confirma),
     .pulso(confirma_pulso)
 );
-
-// hexa7seg posicao_horizontal_hex7(
-//     .hexa(posicao_vertical),
-//     .display()
-// );
 
 endmodule
 

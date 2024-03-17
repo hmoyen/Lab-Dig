@@ -67,8 +67,8 @@ module unidade_controle (
             deslocamento: Eprox = checa_colisao;
             checa_colisao: Eprox = colisao ? derrota : proximo;
             proximo:    Eprox = fim_mapa ? vitoria : espera; 
-            derrota:   Eprox = iniciar ? preparacao : derrota;
-            vitoria:   Eprox = iniciar ? preparacao : vitoria;
+            derrota:   Eprox = iniciar ? modo : derrota;
+            vitoria:   Eprox = iniciar ? modo : vitoria;
             default:     Eprox = inicial;
         endcase
     end
