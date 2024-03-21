@@ -17,17 +17,18 @@ module unidade_controle (
     input      reset,
     input      iniciar,
     input      confirma,
-    input      fim_espera,
+    input      timeout,
     input      fim_mapa,
     input      colisao,
+    input      borda_movimento,
     output reg zeraPosicoes,
     output reg contaT,
     output reg zeraT,
     output reg escolhe_modo,
     output reg escolhe_vida,
-    output reg move_drone,
-    output reg desloca_horizontal,
+    output reg desloca,
     output reg resetaVidas,
+    output reg checa_colisao_out,
     output reg venceu,
     output reg perdeu,
     output reg [3:0] db_estado
@@ -40,7 +41,7 @@ module unidade_controle (
     parameter preparacao = 4'b0001;  // 1
     parameter espera     = 4'b0011; // 3
     parameter deslocamento     = 4'b0100; // 4
-    parameter checa_colisao     = 4'b0101; // 5
+    parameter checa_colisao    = 4'b0101; // 5
     parameter proximo     = 4'b0110; // 6
     parameter derrota     = 4'b0111; // 7
     parameter vitoria     = 4'b1000; // 8
@@ -63,7 +64,8 @@ module unidade_controle (
             modo:       Eprox = confirma ? vidas : modo;
             vidas:      Eprox = confirma ? preparacao : vidas;
             preparacao: Eprox = espera;
-            espera:     Eprox = fim_espera ? deslocamento : espera;
+            espera:     Eprox = timeout ? derrota : 
+                                borda_movimento ? deslocamento : espera;
             deslocamento: Eprox = checa_colisao;
             checa_colisao: Eprox = colisao ? derrota : proximo;
             proximo:    Eprox = fim_mapa ? vitoria : espera; 
@@ -79,12 +81,12 @@ module unidade_controle (
         resetaVidas = (Eatual == modo || Eatual == inicial) ? 1 : 0;
         contaT = (Eatual == espera) ? 1 : 0;
         zeraT = (Eatual == inicial || Eatual == preparacao || Eatual == proximo) ? 1 : 0; 
-        move_drone = (Eatual == espera) ? 1 : 0;
-        desloca_horizontal = (Eatual == deslocamento) ? 1 : 0;
+        desloca = (Eatual == espera) ? 1 : 0;
         venceu = (Eatual == vitoria) ? 1 : 0;
         perdeu = (Eatual == derrota) ? 1 : 0;
         escolhe_modo = (Eatual == modo) ? 1 : 0;
         escolhe_vida = (Eatual == vidas) ? 1 : 0;
+        checa_colisao_out = (Eatual == checa_colisao) ? 1 : 0;
         
         // Saida de depuracao (estado) 
         case (Eatual)
@@ -94,7 +96,7 @@ module unidade_controle (
             preparacao: db_estado = 4'b0001;  // 1
             espera:     db_estado = 4'b0011;  // 3
             deslocamento: db_estado = 4'b0100;  // 4
-            checa_colisao: db_estado = 4'b0101;  // 5
+            checa_colisao_out: db_estado = 4'b0101;  // 5
             proximo:    db_estado = 4'b0110;  // 6
             derrota:   db_estado = 4'b0111;  // 7
             vitoria:   db_estado = 4'b1000;  // 8

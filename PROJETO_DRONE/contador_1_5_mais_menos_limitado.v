@@ -9,8 +9,15 @@ module contador_1_5_mais_menos_limitado ( clock, clr, ld, soma, sub, enp, D, Q, 
         if (~clr)               Q <= 3'b000;
         else if (~ld)           Q <= D;
         else if (enp) begin
-            if (soma == 1 && Q!=3'b101)        Q <= Q + 1;
-            else if (sub == 1 && Q!=3'b001)     Q <= Q - 1;
+            if (soma == 1) begin
+                if (Q==3'b101)  Q <= 3'b001;
+                else            Q <= Q + 3'b001;
+            end        
+            else if (sub == 1) begin
+                if (Q==3'b001)     Q <= 3'b101;
+                else            Q <= Q - 3'b001;
+            end
+            else                Q <= Q;
         end
         else                    Q <= Q;
  

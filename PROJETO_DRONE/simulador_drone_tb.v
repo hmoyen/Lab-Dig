@@ -3,12 +3,13 @@ module simulador_drone_tb;
 reg clock = 0;
 reg reset = 0;
 reg iniciar = 0;
-reg [1:0] controle = 2'b00;
+reg [1:0] controle_vertical = 2'b00;
+reg [1:0] controle_horizontal = 2'b00;
 reg confirma = 0;
 wire venceu, perdeu;
-wire [3:0] db_posicao_horizontal, db_posicao_vertical, db_obstaculos, db_estado;
+wire [6:0] db_posicao_horizontal, db_posicao_vertical, db_obstaculos, db_estado;
 wire [1:0] db_modo;
-wire [2:0] colisao_counter_out;
+wire [6:0] colisao_counter_out, db_vidas;
 integer i;
 
 
@@ -16,7 +17,8 @@ simulador_drone dut(
     .clock(clock),
     .reset(reset),
     .iniciar(iniciar),
-    .controle(controle),
+    .controle_vertical(controle_vertical),
+    .controle_horizontal(controle_horizontal),
     .confirma(confirma),
     .venceu(venceu),
     .perdeu(perdeu),
@@ -25,7 +27,8 @@ simulador_drone dut(
     .db_obstaculos(db_obstaculos),
     .db_estado(db_estado),
     .db_modo(db_modo),
-    .colisao_counter_out(colisao_counter_out)
+    .colisao_counter_out(colisao_counter_out),
+    .db_vidas(db_vidas)
 );
 
 parameter clockPeriod = 1000;
@@ -67,20 +70,20 @@ reg [20:0] caso;
     //COLOCAR NO MODO FACIL
     caso = 5;
     #(10*clockPeriod);
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     confirma = 1;
     #(10*clockPeriod);
     confirma = 0;
     #(10*clockPeriod);
 
     //CASO 6: ESCOLHER 3 VIDAS
-    controle = 2'b01;
+    controle_vertical = 2'b01;
     #(10*clockPeriod);
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(10*clockPeriod);
-    controle = 2'b01;
+    controle_vertical = 2'b01;
     #(10*clockPeriod);
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(10*clockPeriod);
     confirma = 1;
     #(10*clockPeriod);
@@ -88,65 +91,65 @@ reg [20:0] caso;
 
 
 
-    // //Teste 3: controle = 00
+    // //Teste 3: controle_vertical = 00
     // caso = 3;
-    // controle = 2'b01;
+    // controle_vertical = 2'b01;
     // #(2002*clockPeriod);
 
     for (i = 0 ;i < 6 ; i = i + 1) begin
       caso = 8 + i;
-      controle = 2'b00;
+      controle_vertical = 2'b00;
       #(2002*clockPeriod);
     end
 
-    //Teste 4: controle = 10
+    //Teste 4: controle_vertical = 10
     caso = 4;
-    controle = 2'b10;
+    controle_vertical = 2'b10;
     #(5*clockPeriod);
-    controle = 2'b00;
+    controle_vertical = 2'b00;
         #(5*clockPeriod);
-    controle = 2'b10;
+    controle_vertical = 2'b10;
     #(2002*clockPeriod);
 
-    //Teste 4: controle = 00
+    //Teste 4: controle_vertical = 00
     caso = 5;
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(2002*clockPeriod);
 
-    //Teste 4: controle = 01
+    //Teste 4: controle_vertical = 01
     caso = 6;
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(5*clockPeriod);
-    controle = 2'b01;
+    controle_vertical = 2'b01;
     #(5*clockPeriod);
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(5*clockPeriod);
-    controle = 2'b01;
+    controle_vertical = 2'b01;
     #(2002*clockPeriod);
 
-    //Teste 4: controle = 10
+    //Teste 4: controle_vertical = 10
     caso = 7;
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(5*clockPeriod);
-    controle = 2'b01;
+    controle_vertical = 2'b01;
     #(2002*clockPeriod);
 
     for (i = 0 ;i < 6 ; i = i + 1) begin
       caso = 8 + i;
-      controle = 2'b00;
+      controle_vertical = 2'b00;
       #(2002*clockPeriod);
     end
     
     caso = 15;
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(5*clockPeriod);
-    controle = 2'b10;
+    controle_vertical = 2'b10;
     #(3*2002*clockPeriod);
 
     caso = 16;
-    controle = 2'b00;
+    controle_vertical = 2'b00;
     #(5*clockPeriod);
-    controle = 2'b01;
+    controle_vertical = 2'b01;
     #(3*2002*clockPeriod);
 
       
