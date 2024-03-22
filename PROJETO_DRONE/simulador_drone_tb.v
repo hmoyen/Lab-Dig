@@ -67,10 +67,13 @@ reg [20:0] caso;
     #(10*clockPeriod);
 
 
-    //COLOCAR NO MODO FACIL
+    //COLOCAR NO MODO MEDIO
     caso = 5;
     #(10*clockPeriod);
+    controle_vertical = 2'b01;
+    #(10*clockPeriod);
     controle_vertical = 2'b00;
+    #(10*clockPeriod);
     confirma = 1;
     #(10*clockPeriod);
     confirma = 0;
@@ -87,6 +90,19 @@ reg [20:0] caso;
     #(10*clockPeriod);
     confirma = 1;
     #(10*clockPeriod);
+    confirma = 0;
+    #(10*clockPeriod);
+
+    //CASO8: ESCOLHER MAPA 1
+    caso = 8;
+    controle_vertical = 2'b01;
+    #(10*clockPeriod);
+    controle_vertical = 2'b00;
+    #(10*clockPeriod);
+    confirma = 1;
+    #(10*clockPeriod);
+    confirma = 0;
+    #(10*clockPeriod);
 
     //CASO 7: ANDAR PRA FRENTE
     caso = 7;
@@ -102,8 +118,12 @@ reg [20:0] caso;
     controle_vertical = 2'b00;
     #(500*clockPeriod);
 
-    //CASO 9: ANDAR 2 PRA FRENTE
+    //CASO 9: TENTAR SUBIR 1 E ANDAR 2 PRA FRENTE
     caso = 9;
+    controle_vertical = 2'b01;
+    #(500*clockPeriod);
+    controle_vertical = 2'b00;
+    #(500*clockPeriod);
     controle_horizontal = 2'b01;
     #(500*clockPeriod);
     controle_horizontal = 2'b00;
@@ -127,14 +147,14 @@ reg [20:0] caso;
     controle_vertical = 2'b00;
     #(500*clockPeriod);
 
-    for(i = 0; i < 15; i = i + 1) begin
+    for(i = 0; i < 24; i = i + 1) begin
       #(500*clockPeriod);
-      controle_horizontal = 2'b01;
+      //controle_horizontal = 2'b01;
       #(500*clockPeriod);
-      controle_horizontal = 2'b00;
+      //controle_horizontal = 2'b00;
+    end
 
     $stop;
-    end
   end
 
 

@@ -16,7 +16,7 @@
 //------------------------------------------------------------------
 //
 
-module sync_ram_16x4_file #(
+module sync_ram_16x4_file1 #(
     parameter BINFILE = "ram_init.txt"
 )
 (

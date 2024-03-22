@@ -14,6 +14,7 @@ input escolhe_modo,
 input escolhe_vida,
 input checa_colisao,
 input atualiza,
+input escolhe_mapa,
 output colisao,
 output timeout,
 output fim_mapa,
@@ -27,11 +28,12 @@ output [2:0] vidas_out
 );
 
 wire [1:0] posicao_vertical;
-wire [3:0] obstaculos, posicao_horizontal;
-wire [2:0] timeout_interno, vidas, colisao_counter;
+wire [3:0] posicao_horizontal;
+wire [2:0] timeout_interno, vidas, colisao_counter, mapa;
 wire [1:0] modo_interno;
 wire [1:0] borda_controle_vertical, borda_controle_horizontal;
 wire borda_vertical, borda_horizontal, colisao_interno, colisao_interno_pulso, borda;
+wire [3:0] obstaculos [2:0];
 
 
 contador_16_mais_menos_limitado contador_posicao_horizontal(
@@ -89,13 +91,23 @@ contador_m_16 contador_tempo_jogada_dificl(
     .meio()
 );
 
-sync_ram_16x4_file mapa_jogo(
+sync_ram_16x4_file1 mapa_0_jogo(
     .clk(clock),
     .we(1'b0),
     .data(4'b0),
     .addr(posicao_horizontal),
-    .q(obstaculos)
+    .q(obstaculos[0])
 );
+
+sync_ram_16x4_file2 mapa_1_jogo(
+    .clk(clock),
+    .we(1'b0),
+    .data(4'b0),
+    .addr(posicao_horizontal),
+    .q(obstaculos[1])
+);
+
+
 
 
 contador_3_mais_menos contador_modo( // 0 = FACIL, 1 = MEDIO, 2 = DIFICIL
@@ -110,6 +122,7 @@ contador_3_mais_menos contador_modo( // 0 = FACIL, 1 = MEDIO, 2 = DIFICIL
     .rco()
 );
 
+
 contador_1_5_mais_menos_limitado contador_vidas(
     .clock(clock), 
     .clr(1'b1), 
@@ -121,6 +134,20 @@ contador_1_5_mais_menos_limitado contador_vidas(
     .Q(vidas), 
     .rco()
 );
+
+contador_1_5_mais_menos_limitado contador_mapas(
+    .clock(clock), 
+    .clr(1'b1), 
+    .ld(~resetaVidas), //o sinal para resetar vidas e para mapas seria bem semelhante, entao mantemos um unico sinal
+    .soma(controle_vertical[0]), 
+    .sub(controle_vertical[1]), 
+    .enp(escolhe_mapa & borda_vertical), 
+    .D(3'b000), 
+    .Q(mapa), 
+    .rco()
+);
+
+
 
 contador_5 contador_colisao(
     .clock(clock),
@@ -175,17 +202,23 @@ converte_2b_4b conversor_posicao( // ENCODER
     .posicao_4b(db_posicao_vertical)
 );
 
+//POSICOES, TIMEOUT E MODOS
 assign db_posicao_horizontal = posicao_horizontal;
-assign db_obstaculos = obstaculos;
-assign colisao_interno = obstaculos[posicao_vertical] == 1 ? 1'b1 : 1'b0;
 assign timeout = timeout_interno[modo_interno];
 assign modo = modo_interno;
+assign vidas_out = vidas;
+assign fim_mapa = posicao_horizontal == 4'b1111 ? 1'b1 : 1'b0;
+
+//BORDAS
 assign borda_vertical = {borda_controle_vertical[0], borda_controle_vertical[1]} != 2'b00 ? 1'b1 : 1'b0;
 assign borda_horizontal = {borda_controle_horizontal[0], borda_controle_horizontal[1]} != 2'b00 ? 1'b1 : 1'b0;
 assign borda = {borda_horizontal, borda_vertical} != 2'b00 ? 1'b1 : 1'b0;
 assign borda_movimento = borda;
-assign colisao = ((colisao_interno == 1) & (colisao_counter == vidas)) ? 1'b1 : 1'b0;
+
+//COLISAO E OBSTACULOS
+assign db_obstaculos = obstaculos[mapa];
+assign colisao = ((colisao_counter == vidas)) ? 1'b1 : 1'b0;
 assign colisao_counter_out = colisao_counter;
-assign vidas_out = vidas;
-assign fim_mapa = posicao_horizontal == 4'b1111 ? 1'b1 : 1'b0;
+assign colisao_interno = obstaculos[mapa][posicao_vertical] == 1 ? 1'b1 : 1'b0;
+
 endmodule

@@ -7,7 +7,7 @@ module simulador_drone(
     input confirma,
     output venceu,
     output perdeu,
-    output timeout,
+    output timeout_out,
     output [6:0] db_posicao_horizontal,
     output [6:0] db_posicao_vertical,
     output [6:0] db_obstaculos,
@@ -19,7 +19,7 @@ module simulador_drone(
 
 wire desloca, desloca_horizontal, zeraPosicoes, colisao, fim_mapa,
     contaT, zeraT, escolhe_modo, escolhe_vida, resetaVidas,
-    confirma_pulso, checa_colisao, timeout, borda_movimento, atualiza;
+    confirma_pulso, checa_colisao, timeout, borda_movimento, atualiza, escolhe_mapa;
 
 wire [3:0] posicao_horizontal, posicao_vertical, obstaculos, estado;
 wire [2:0] vidas, colisao_counter;
@@ -41,6 +41,7 @@ fluxo_dados fd(
     .escolhe_vida(escolhe_vida),
     .checa_colisao(checa_colisao),
     .atualiza(atualiza),
+    .escolhe_mapa(escolhe_mapa),
     .colisao(colisao),
     .timeout(timeout),
     .fim_mapa(fim_mapa),
@@ -70,8 +71,10 @@ unidade_controle uc(
     .resetaVidas(resetaVidas),
     .checa_colisao_out(checa_colisao),
     .atualiza_out(atualiza),
+    .escolhe_mapa(escolhe_mapa),
     .venceu(venceu),
     .perdeu(perdeu),
+    .timeout_out(timeout_out),
     .db_estado(estado)
 );
 

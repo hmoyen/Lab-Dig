@@ -30,8 +30,10 @@ module unidade_controle (
     output reg resetaVidas,
     output reg checa_colisao_out,
     output reg atualiza_out,
+    output reg escolhe_mapa,
     output reg venceu,
     output reg perdeu,
+    output reg timeout_out,
     output reg [3:0] db_estado
 );
 
@@ -39,6 +41,7 @@ module unidade_controle (
     parameter inicial    = 4'b0000;  // 0
     parameter modo       = 4'b0010;  // 2
     parameter vidas      = 4'b1001;  // 9
+    parameter mapa       = 4'b1100;  // C
     parameter preparacao = 4'b0001;  // 1
     parameter espera     = 4'b0011; // 3
     parameter deslocamento     = 4'b0100; // 4
@@ -47,6 +50,7 @@ module unidade_controle (
     parameter proximo     = 4'b0110; // 6
     parameter derrota     = 4'b0111; // 7
     parameter vitoria     = 4'b1000; // 8
+    parameter tout     = 4'b1011; // B
     
     // Variaveis de estado
     reg [3:0] Eatual, Eprox;
@@ -64,9 +68,10 @@ module unidade_controle (
         case (Eatual)
             inicial:    Eprox = iniciar ? modo : inicial;
             modo:       Eprox = confirma ? vidas : modo;
-            vidas:      Eprox = confirma ? preparacao : vidas;
+            vidas:      Eprox = confirma ? mapa : vidas;
+            mapa:      Eprox = confirma ? preparacao : mapa;
             preparacao: Eprox = espera;
-            espera:     Eprox = timeout ? derrota : 
+            espera:     Eprox = timeout ? tout : 
                                 borda_movimento ? deslocamento : espera;
             deslocamento: Eprox = atualiza_posicao;
             atualiza_posicao: Eprox = checa_colisao;
@@ -74,6 +79,8 @@ module unidade_controle (
             proximo:    Eprox = fim_mapa ? vitoria : espera; 
             derrota:   Eprox = iniciar ? modo : derrota;
             vitoria:   Eprox = iniciar ? modo : vitoria;
+            tout:   Eprox = iniciar ? modo : tout;
+
             default:     Eprox = inicial;
         endcase
     end
@@ -83,7 +90,7 @@ module unidade_controle (
         zeraPosicoes = (Eatual == inicial || Eatual == preparacao) ? 1 : 0;
         resetaVidas = (Eatual == modo || Eatual == inicial) ? 1 : 0;
         contaT = (Eatual == espera) ? 1 : 0;
-        zeraT = (Eatual == inicial || Eatual == preparacao || Eatual == proximo) ? 1 : 0; 
+        zeraT = (Eatual == inicial || Eatual == preparacao) ? 1 : 0; 
         desloca = (Eatual == espera) ? 1 : 0;
         venceu = (Eatual == vitoria) ? 1 : 0;
         perdeu = (Eatual == derrota) ? 1 : 0;
@@ -91,6 +98,8 @@ module unidade_controle (
         escolhe_vida = (Eatual == vidas) ? 1 : 0;
         checa_colisao_out = (Eatual == checa_colisao) ? 1 : 0;
         atualiza_out = (Eatual == atualiza_posicao) ? 1 : 0;
+        timeout_out = (Eatual == tout) ? 1 : 0;
+        escolhe_mapa = (Eatual == mapa) ? 1 : 0;
         
         // Saida de depuracao (estado) 
         case (Eatual)
@@ -104,6 +113,8 @@ module unidade_controle (
             proximo:    db_estado = 4'b0110;  // 6
             derrota:   db_estado = 4'b0111;  // 7
             vitoria:   db_estado = 4'b1000;  // 8
+            tout:   db_estado = 4'b1011;  // B
+            mapa:   db_estado = 4'b1100;  // C
 
             default:     db_estado = 4'b1111;  // F
         endcase

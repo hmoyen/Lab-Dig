@@ -1,0 +1,66 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Fri Mar 22 20:10:50 2024
+[*]
+[dumpfile] "/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/testbench_drone.vcd"
+[dumpfile_mtime] "Fri Mar 22 20:10:43 2024"
+[dumpfile_size] 2122819
+[savefile] "/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/OndaGTK.gtkw"
+[timestart] 0
+[size] 1920 1029
+[pos] -1 -1
+*-20.000000 2574000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] simulador_drone_tb.
+[treeopen] simulador_drone_tb.dut.
+[treeopen] simulador_drone_tb.dut.fd.
+[sst_width] 334
+[signals_width] 274
+[sst_expanded] 1
+[sst_vpaned_height] 298
+@200
+-CLK, CASO, ESTADO
+@28
+simulador_drone_tb.clock
+@24
+simulador_drone_tb.caso[20:0]
+@22
+simulador_drone_tb.dut.uc.Eatual[3:0]
+@200
+-SINAIS USER
+@28
+simulador_drone_tb.iniciar
+simulador_drone_tb.reset
+simulador_drone_tb.confirma
+simulador_drone_tb.controle_horizontal[1:0]
+simulador_drone_tb.controle_vertical[1:0]
+@200
+-MODO, VIDAS
+@28
+simulador_drone_tb.dut.fd.modo[1:0]
+simulador_drone_tb.dut.fd.vidas[2:0]
+@29
+simulador_drone_tb.dut.fd.mapa[2:0]
+@200
+-POSICOES E OBSTACULO
+@24
+simulador_drone_tb.dut.fd.db_posicao_horizontal[3:0]
+@28
+simulador_drone_tb.dut.fd.db_posicao_vertical[3:0]
+simulador_drone_tb.dut.obstaculos[3:0]
+@200
+-COLISOES
+@24
+simulador_drone_tb.dut.fd.colisao_counter[2:0]
+@28
+simulador_drone_tb.dut.fd.colisao_interno
+simulador_drone_tb.dut.fd.colisao_interno_pulso
+@200
+-SAÍDAS
+@28
+simulador_drone_tb.venceu
+simulador_drone_tb.perdeu
+simulador_drone_tb.dut.timeout
+simulador_drone_tb.dut.contaT
+simulador_drone_tb.dut.timeout_out
+[pattern_trace] 1
+[pattern_trace] 0
