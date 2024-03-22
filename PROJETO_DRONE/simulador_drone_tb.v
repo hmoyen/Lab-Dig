@@ -88,74 +88,54 @@ reg [20:0] caso;
     confirma = 1;
     #(10*clockPeriod);
 
-
-
-
-    // //Teste 3: controle_vertical = 00
-    // caso = 3;
-    // controle_vertical = 2'b01;
-    // #(2002*clockPeriod);
-
-    for (i = 0 ;i < 6 ; i = i + 1) begin
-      caso = 8 + i;
-      controle_vertical = 2'b00;
-      #(2002*clockPeriod);
-    end
-
-    //Teste 4: controle_vertical = 10
-    caso = 4;
-    controle_vertical = 2'b10;
-    #(5*clockPeriod);
-    controle_vertical = 2'b00;
-        #(5*clockPeriod);
-    controle_vertical = 2'b10;
-    #(2002*clockPeriod);
-
-    //Teste 4: controle_vertical = 00
-    caso = 5;
-    controle_vertical = 2'b00;
-    #(2002*clockPeriod);
-
-    //Teste 4: controle_vertical = 01
-    caso = 6;
-    controle_vertical = 2'b00;
-    #(5*clockPeriod);
-    controle_vertical = 2'b01;
-    #(5*clockPeriod);
-    controle_vertical = 2'b00;
-    #(5*clockPeriod);
-    controle_vertical = 2'b01;
-    #(2002*clockPeriod);
-
-    //Teste 4: controle_vertical = 10
+    //CASO 7: ANDAR PRA FRENTE
     caso = 7;
-    controle_vertical = 2'b00;
-    #(5*clockPeriod);
-    controle_vertical = 2'b01;
-    #(2002*clockPeriod);
+    controle_horizontal = 2'b01;
+    #(500*clockPeriod);
+    controle_horizontal = 2'b00;
+    #(500*clockPeriod);
 
-    for (i = 0 ;i < 6 ; i = i + 1) begin
-      caso = 8 + i;
-      controle_vertical = 2'b00;
-      #(2002*clockPeriod);
-    end
-    
-    caso = 15;
+    //CASO 8: SUBIR 1
+    caso = 8;
+    controle_vertical = 2'b01;
+    #(500*clockPeriod);
     controle_vertical = 2'b00;
-    #(5*clockPeriod);
+    #(500*clockPeriod);
+
+    //CASO 9: ANDAR 2 PRA FRENTE
+    caso = 9;
+    controle_horizontal = 2'b01;
+    #(500*clockPeriod);
+    controle_horizontal = 2'b00;
+    #(500*clockPeriod);
+    controle_horizontal = 2'b01;
+    #(500*clockPeriod);
+    controle_horizontal = 2'b00;
+    #(500*clockPeriod);
+
+    //CASO 10: ANDAR 1 PRA TRAS
+    caso = 10;
+    controle_horizontal = 2'b10;
+    #(500*clockPeriod);
+    controle_horizontal = 2'b00;
+    #(500*clockPeriod);
+
+    //CASO 11: DESCER 2
+    caso = 11;
     controle_vertical = 2'b10;
-    #(3*2002*clockPeriod);
-
-    caso = 16;
+    #(500*clockPeriod);
     controle_vertical = 2'b00;
-    #(5*clockPeriod);
-    controle_vertical = 2'b01;
-    #(3*2002*clockPeriod);
+    #(500*clockPeriod);
 
-      
+    for(i = 0; i < 15; i = i + 1) begin
+      #(500*clockPeriod);
+      controle_horizontal = 2'b01;
+      #(500*clockPeriod);
+      controle_horizontal = 2'b00;
 
     $stop;
     end
+  end
 
 
 endmodule

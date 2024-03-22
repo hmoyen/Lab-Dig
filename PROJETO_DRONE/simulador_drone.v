@@ -17,7 +17,9 @@ module simulador_drone(
     output [6:0] db_vidas
 );
 
-wire desloca, desloca_horizontal, zeraPosicoes, colisao, fim_mapa, contaT, zeraT, escolhe_modo, escolhe_vida, resetaVidas, confirma_pulso, checa_colisao, timeout, borda_movimento;
+wire desloca, desloca_horizontal, zeraPosicoes, colisao, fim_mapa,
+    contaT, zeraT, escolhe_modo, escolhe_vida, resetaVidas,
+    confirma_pulso, checa_colisao, timeout, borda_movimento, atualiza;
 
 wire [3:0] posicao_horizontal, posicao_vertical, obstaculos, estado;
 wire [2:0] vidas, colisao_counter;
@@ -38,6 +40,7 @@ fluxo_dados fd(
     .escolhe_modo(escolhe_modo),
     .escolhe_vida(escolhe_vida),
     .checa_colisao(checa_colisao),
+    .atualiza(atualiza),
     .colisao(colisao),
     .timeout(timeout),
     .fim_mapa(fim_mapa),
@@ -66,6 +69,7 @@ unidade_controle uc(
     .desloca(desloca),
     .resetaVidas(resetaVidas),
     .checa_colisao_out(checa_colisao),
+    .atualiza_out(atualiza),
     .venceu(venceu),
     .perdeu(perdeu),
     .db_estado(estado)

@@ -29,6 +29,7 @@ module unidade_controle (
     output reg desloca,
     output reg resetaVidas,
     output reg checa_colisao_out,
+    output reg atualiza_out,
     output reg venceu,
     output reg perdeu,
     output reg [3:0] db_estado
@@ -41,6 +42,7 @@ module unidade_controle (
     parameter preparacao = 4'b0001;  // 1
     parameter espera     = 4'b0011; // 3
     parameter deslocamento     = 4'b0100; // 4
+    parameter atualiza_posicao    = 4'b1010; // A
     parameter checa_colisao    = 4'b0101; // 5
     parameter proximo     = 4'b0110; // 6
     parameter derrota     = 4'b0111; // 7
@@ -66,7 +68,8 @@ module unidade_controle (
             preparacao: Eprox = espera;
             espera:     Eprox = timeout ? derrota : 
                                 borda_movimento ? deslocamento : espera;
-            deslocamento: Eprox = checa_colisao;
+            deslocamento: Eprox = atualiza_posicao;
+            atualiza_posicao: Eprox = checa_colisao;
             checa_colisao: Eprox = colisao ? derrota : proximo;
             proximo:    Eprox = fim_mapa ? vitoria : espera; 
             derrota:   Eprox = iniciar ? modo : derrota;
@@ -87,6 +90,7 @@ module unidade_controle (
         escolhe_modo = (Eatual == modo) ? 1 : 0;
         escolhe_vida = (Eatual == vidas) ? 1 : 0;
         checa_colisao_out = (Eatual == checa_colisao) ? 1 : 0;
+        atualiza_out = (Eatual == atualiza_posicao) ? 1 : 0;
         
         // Saida de depuracao (estado) 
         case (Eatual)

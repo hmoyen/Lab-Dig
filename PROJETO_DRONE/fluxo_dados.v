@@ -13,6 +13,7 @@ input desloca,
 input escolhe_modo,
 input escolhe_vida,
 input checa_colisao,
+input atualiza,
 output colisao,
 output timeout,
 output fim_mapa,
@@ -30,7 +31,7 @@ wire [3:0] obstaculos, posicao_horizontal;
 wire [2:0] timeout_interno, vidas, colisao_counter;
 wire [1:0] modo_interno;
 wire [1:0] borda_controle_vertical, borda_controle_horizontal;
-wire borda_vertical, borda_horizontal, colisao_interno, colisao_interno_pulso;
+wire borda_vertical, borda_horizontal, colisao_interno, colisao_interno_pulso, borda;
 
 
 contador_16_mais_menos_limitado contador_posicao_horizontal(
@@ -164,7 +165,7 @@ edge_detector detector_borda_horizontal_1(
 edge_detector detector_colisao_pulso(
     .clock(clock),
     .reset(1'b0),
-    .sinal(colisao_interno & checa_colisao),
+    .sinal(colisao_interno & atualiza),
     .pulso(colisao_interno_pulso)
 );
 
@@ -179,11 +180,12 @@ assign db_obstaculos = obstaculos;
 assign colisao_interno = obstaculos[posicao_vertical] == 1 ? 1'b1 : 1'b0;
 assign timeout = timeout_interno[modo_interno];
 assign modo = modo_interno;
-assign borda_vertical = borda_controle_vertical[0] | borda_controle_vertical[1];
-assign borda_horizontal = borda_controle_horizontal[0] | borda_controle_horizontal[1];
-assign borda = borda_controle_horizontal | borda_controle_vertical;
+assign borda_vertical = {borda_controle_vertical[0], borda_controle_vertical[1]} != 2'b00 ? 1'b1 : 1'b0;
+assign borda_horizontal = {borda_controle_horizontal[0], borda_controle_horizontal[1]} != 2'b00 ? 1'b1 : 1'b0;
+assign borda = {borda_horizontal, borda_vertical} != 2'b00 ? 1'b1 : 1'b0;
 assign borda_movimento = borda;
 assign colisao = ((colisao_interno == 1) & (colisao_counter == vidas)) ? 1'b1 : 1'b0;
 assign colisao_counter_out = colisao_counter;
 assign vidas_out = vidas;
+assign fim_mapa = posicao_horizontal == 4'b1111 ? 1'b1 : 1'b0;
 endmodule
