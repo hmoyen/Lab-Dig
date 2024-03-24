@@ -53,7 +53,7 @@ def handle_move(player):
 
 def main(windows):
     clock = pygame.time.Clock()
-    background, bg_image= get_background("Blue.png")
+    background, bg_image= get_background("Blue.png")    
     
     player = Player(100, 100, 50, 50)
     listener = Teclado()
@@ -61,9 +61,14 @@ def main(windows):
     state = 'menu'
     input = 'teclado' # teclado ou joystick
     
+    pygame.mixer.init()
+    pygame.mixer.music.load('assets/Song/BackgroundSong.mp3')
+    pygame.mixer.music.play()
+    
     run = True
     while run:
         clock.tick(FPS)
+        
         
         if input == 'teclado':
             keys = listener.get_keys()
@@ -83,4 +88,4 @@ def main(windows):
 
 
 if __name__ == "__main__":
-    main(window)
+    main(window)        

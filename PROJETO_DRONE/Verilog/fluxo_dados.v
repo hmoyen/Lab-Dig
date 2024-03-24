@@ -138,7 +138,8 @@ contador_1_5_mais_menos_limitado contador_vidas(
 contador_1_5_mais_menos_limitado contador_mapas(
     .clock(clock), 
     .clr(1'b1), 
-    .ld(~resetaVidas), //o sinal para resetar vidas e para mapas seria bem semelhante, entao mantemos um unico sinal
+    .ld(~resetaVidas), //o sinal para resetar vidas e 
+                    //para mapas seria bem semelhante, entao mantemos um unico sinal
     .soma(controle_vertical[0]), 
     .sub(controle_vertical[1]), 
     .enp(escolhe_mapa & borda_vertical), 
@@ -160,6 +161,12 @@ contador_5 contador_colisao(
     .rco()
 );
 
+edge_detector detector_colisao_pulso(
+    .clock(clock),
+    .reset(1'b0),
+    .sinal(colisao_interno & atualiza),
+    .pulso(colisao_interno_pulso)
+);
 
 edge_detector detector_borda_vertical_0(
     .clock(clock),
@@ -189,12 +196,6 @@ edge_detector detector_borda_horizontal_1(
     .pulso(borda_controle_horizontal[1])
 );
 
-edge_detector detector_colisao_pulso(
-    .clock(clock),
-    .reset(1'b0),
-    .sinal(colisao_interno & atualiza),
-    .pulso(colisao_interno_pulso)
-);
 
 
 converte_2b_4b conversor_posicao( // ENCODER
@@ -220,5 +221,7 @@ assign db_obstaculos = obstaculos[mapa];
 assign colisao = ((colisao_counter == vidas)) ? 1'b1 : 1'b0;
 assign colisao_counter_out = colisao_counter;
 assign colisao_interno = obstaculos[mapa][posicao_vertical] == 1 ? 1'b1 : 1'b0;
+
+
 
 endmodule
