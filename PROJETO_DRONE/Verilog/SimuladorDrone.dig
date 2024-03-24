@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>External</elementName>
+      <elementAttributes>
+        <entry>
+          <string>applicationType</string>
+          <appType>IVERILOG</appType>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>simulador_drone</string>
+        </entry>
+        <entry>
+          <string>externalInputs</string>
+          <string>clock,reset,iniciar,controle:2,confirma</string>
+        </entry>
+        <entry>
+          <string>Code</string>
+          <string>module simulador_drone(
+    input clock,
+    input reset,
+    input iniciar,
+    input [1:0] controle,
+    input confirma,
+    output venceu,
+    output perdeu,
+    output [3:0] db_posicao_horizontal,
+    output [3:0] db_posicao_vertical,
+    output [3:0] db_obstaculos,
+    output [3:0] db_estado,
+    output [1:0] db_modo,
+    output [2:0] colisao_counter_out
+);
+
+wire move_drone, desloca_horizontal, zeraPosicoes, colisao, fim_espera, fim_mapa, contaT, zeraT, escolhe_modo, escolhe_vida, resetaVidas, confirma_pulso;
+
+//wire [3:0] posicao_horizontal, posicao_vertical;
+
+
+fluxo_dados fd(
+    .reset(reset),
+    .iniciar(iniciar),
+    .controle(controle),
+    .confirma(confirma_pulso),
+    .clock(clock),
+    .zeraPosicoes(zeraPosicoes),
+    .resetaVidas(resetaVidas),
+    .contaT(contaT),
+    .zeraT(zeraT),
+    .move_drone(move_drone),
+    .desloca_horizontal(desloca_horizontal),
+    .escolhe_modo(escolhe_modo),
+    .escolhe_vida(escolhe_vida),
+    .colisao(colisao),
+    .fim_espera(fim_espera),
+    .fim_mapa(fim_mapa),
+    .db_posicao_horizontal(db_posicao_horizontal),
+    .db_posicao_vertical(db_posicao_vertical),
+    .db_obstaculos(db_obstaculos),
+    .modo(db_modo),
+    .colisao_counter_out(colisao_counter_out)
+);
+unidade_controle uc(
+    .clock(clock),
+    .reset(reset),
+    .iniciar(iniciar),
+    .confirma(confirma_pulso),
+    .fim_espera(fim_espera),
+    .fim_mapa(fim_mapa),
+    .colisao(colisao),
+    .zeraPosicoes(zeraPosicoes),
+    .contaT(contaT),
+    .zeraT(zeraT),
+    .escolhe_modo(escolhe_modo),
+    .escolhe_vida(escolhe_vida),
+    .move_drone(move_drone),
+    .resetaVidas(resetaVidas),
+    .desloca_horizontal(desloca_horizontal),
+    .venceu(venceu),
+    .perdeu(perdeu),
+    .db_estado(db_estado)
+);
+
+edge_detector confirma_edge(
+    .clock(clock),
+    .reset(),
+    .sinal(confirma),
+    .pulso(confirma_pulso)
+);
+
+endmodule
+
+
+
+//------------------------------------------------------------------
+// Arquivo   : sync_ram_16x4_file.v
+// Projeto   : Experiencia 7 - Projeto do Jogo do Desafio da Memória
+ 
+//------------------------------------------------------------------
+// Descricao : RAM sincrona 16x4
+//
+//   - conteudo inicial armazenado em arquivo .txt
+//   - descricao baseada em template &apos;single_port_ram_with_init.v&apos; 
+//     do Intel Quartus Prime
+//             
+//------------------------------------------------------------------
+// Revisoes  :
+//     Data        Versao  Autor             Descricao
+//     02/02/2024  1.0     Edson Midorikawa  versao inicial
+//------------------------------------------------------------------
+//
+
+module sync_ram_16x4_file #(
+    parameter BINFILE = &quot;ram_init.txt&quot;
+)
+(
+    input        clk,
+    input        we,
+    input  [3:0] data,
+    input  [3:0] addr,
+    output [3:0] q
+);
+
+    // Variavel RAM (armazena dados)
+    reg [3:0] ram[15:0];
+
+    // Registra endereco de acesso
+    reg [3:0] addr_reg;
+
+    // Especifica conteudo inicial da RAM
+    // a partir da leitura de arquivo usando $readmemb
+    initial 
+    begin : INICIA_RAM
+        // leitura do conteudo a partir de um arquivo
+        //$readmemb(BINFILE, ram);
+        ram[0] &lt;= 4&apos;b0000;
+        ram[1] &lt;= 4&apos;b0010;
+        ram[2] &lt;= 4&apos;b0100;
+        ram[3] &lt;= 4&apos;b1000;
+        ram[4] &lt;= 4&apos;b0100;
+        ram[5] &lt;= 4&apos;b0010;
+        ram[6] &lt;= 4&apos;b0001;
+        ram[7] &lt;= 4&apos;b0001;
+        ram[8] &lt;= 4&apos;b0010;
+        ram[9] &lt;= 4&apos;b0010;
+        ram[10] &lt;= 4&apos;b0100;
+        ram[11] &lt;= 4&apos;b0100;
+        ram[12] &lt;= 4&apos;b1000;
+        ram[13] &lt;= 4&apos;b1000;
+        ram[14] &lt;= 4&apos;b0001;
+        ram[15] &lt;= 4&apos;b0100;
+
+    end 
+
+    always @ (posedge clk)
+    begin
+        // Escrita da memoria
+        if (we)
+            ram[addr] &lt;= data;
+
+        addr_reg &lt;= addr;
+    end
+
+    // Atribuicao continua retorna dado
+    assign q = ram[addr_reg];
+
+endmodule//------------------------------------------------------------------
+// Arquivo   : contador_163.v
+// Projeto   : Experiencia 3 - Um Fluxo de Dados Simples
+//------------------------------------------------------------------
+// Descricao : Contador binario de 4 bits, modulo 16
+//             similar ao componente 74163
+//
+// baseado no componente Vrcntr4u.v do livro Digital Design Principles 
+// and Practices, Fifth Edition, by John F. Wakerly              
+//------------------------------------------------------------------
+// Revisoes  :
+//     Data        Versao  Autor             Descricao
+//     14/12/2023  1.0     Edson Midorikawa  versao inicial
+//------------------------------------------------------------------
+//
+module contador_163 ( clock, clr, ld, ent, enp, D, Q, rco );
+    input clock, clr, ld, ent, enp;
+    input [3:0] D;
+    output reg [3:0] Q;
+    output reg rco;
+
+    always @ (posedge clock)
+        if (~clr)               Q &lt;= 4&apos;d0;
+        else if (~ld)           Q &lt;= D;
+        else if (ent &amp;&amp; enp)    Q &lt;= Q + 1;
+        else                    Q &lt;= Q;
+ 
+    always @ (Q or ent)
+        if (ent &amp;&amp; (Q == 4&apos;d15))   rco = 1;
+        else                       rco = 0;
+endmodule/* -----------------------------------------------------------------
+ *  Arquivo   : comparador_85.v
+ *  Projeto   : Experiencia 3 - Um Fluxo de Dados Simples
+ * -----------------------------------------------------------------
+ * Descricao : comparador de magnitude de 4 bits 
+ *             similar ao CI 7485
+ *             baseado em descricao comportamental disponivel em	
+ * https://web.eecs.umich.edu/~jhayes/iscas.restore/74L85b.v
+ * -----------------------------------------------------------------
+ * Revisoes  :
+ *     Data        Versao  Autor             Descricao
+ *     21/12/2023  1.0     Edson Midorikawa  criacao
+ * -----------------------------------------------------------------
+ */
+
+module comparador_85 (ALBi, AGBi, AEBi, A, B, ALBo, AGBo, AEBo);
+
+    input[3:0] A, B;
+    input      ALBi, AGBi, AEBi;
+    output     ALBo, AGBo, AEBo;
+    wire[4:0]  CSL, CSG;
+
+    assign CSL  = ~A + B + ALBi;
+    assign ALBo = ~CSL[4];
+    assign CSG  = A + ~B + AGBi;
+    assign AGBo = ~CSG[4];
+    assign AEBo = ((A == B) &amp;&amp; AEBi);
+
+endmodule /* comparador_85 */
+module contador_4_mais_menos_limitado ( clock, clr, ld, soma, sub, enp, D, Q, rco);
+    input clock, clr, ld, enp, soma, sub;
+    input [1:0] D;
+    output reg [1:0] Q;
+    output reg rco;
+
+    always @ (posedge clock)
+        if (~clr)               Q &lt;= 2&apos;b0;
+        else if (~ld)           Q &lt;= D;
+        else if (enp) begin
+            if (soma == 1 &amp;&amp; Q!=2&apos;b11)        Q &lt;= Q + 1;
+            else if (sub == 1 &amp;&amp; Q!=2&apos;b00)     Q &lt;= Q - 1;
+        end
+        else                    Q &lt;= Q;
+ 
+    always @ (Q or enp)
+        if (enp &amp;&amp; (Q == 2&apos;b00))   rco = 1;
+        else                       rco = 0;
+endmodule//------------------------------------------------------------------
+// Arquivo   : contador_163.v
+// Projeto   : Experiencia 3 - Um Fluxo de Dados Simples
+//------------------------------------------------------------------
+// Descricao : Contador binario de 4 bits, modulo 16
+//             similar ao componente 74163
+//
+// baseado no componente Vrcntr4u.v do livro Digital Design Principles 
+// and Practices, Fifth Edition, by John F. Wakerly              
+//------------------------------------------------------------------
+// Revisoes  :
+//     Data        Versao  Autor             Descricao
+//     14/12/2023  1.0     Edson Midorikawa  versao inicial
+//------------------------------------------------------------------
+//
+module contador_5 ( clock, clr, ld, ent, enp, D, Q, rco );
+    input clock, clr, ld, ent, enp;
+    input [2:0] D;
+    output reg [2:0] Q;
+    output reg rco;
+
+    always @ (posedge clock)
+        if (~clr)               Q &lt;= 3&apos;d0;
+        else if (~ld)           Q &lt;= D;
+        else if (ent &amp;&amp; enp)    Q &lt;= Q + 1;
+        else                    Q &lt;= Q;
+ 
+    always @ (Q or ent)
+        if (ent &amp;&amp; (Q == 3&apos;b111))   rco = 1;
+        else                       rco = 0;
+endmodule
+module contador_1_5_mais_menos_limitado ( clock, clr, ld, soma, sub, enp, D, Q, rco);
+    input clock, clr, ld, enp, soma, sub;
+    input [2:0] D;
+    output reg [2:0] Q;
+    output reg rco;
+
+    always @ (posedge clock)
+        if (~clr)               Q &lt;= 3&apos;b000;
+        else if (~ld)           Q &lt;= D;
+        else if (enp) begin
+            if (soma == 1 &amp;&amp; Q!=3&apos;b101)        Q &lt;= Q + 1;
+            else if (sub == 1 &amp;&amp; Q!=3&apos;b001)     Q &lt;= Q - 1;
+        end
+        else                    Q &lt;= Q;
+ 
+    always @ (Q or enp)
+        if (enp &amp;&amp; (Q == 3&apos;b00))   rco = 1;
+        else                       rco = 0;
+endmodule
+/*---------------Laboratorio Digital-------------------------------------
+ * Arquivo   : contador_m.v
+ * Projeto   : Experiencia 5 - Desenvolvimento de Projeto de 
+ *                             Circuitos Digitais em FPGA
+ *-----------------------------------------------------------------------
+ * Descricao : contador binario, modulo m, com parametros 
+ *             M (modulo do contador) e N (numero de bits),
+ *             sinais para clear assincrono (zera_as) e sincrono (zera_s)
+ *             e saidas de fim e meio de contagem
+ *             
+ *-----------------------------------------------------------------------
+ * Revisoes  :
+ *     Data        Versao  Autor             Descricao
+ *     30/01/2024  1.0     Edson Midorikawa  criacao
+ *-----------------------------------------------------------------------
+ */
+
+module contador_m_2 #(parameter M=2000, N=13)
+  (
+   input  wire          clock,
+   input  wire          zera_as,
+   input  wire          zera_s,
+   input  wire          conta,
+   output reg  [N-1:0]  Q,
+   output reg           fim,
+   output reg           meio
+  );
+
+  always @(posedge clock or posedge zera_as) begin
+    if (zera_as) begin
+      Q &lt;= 0;
+    end else if (clock) begin
+      if (zera_s) begin
+        Q &lt;= 0;
+      end else if (conta) begin
+        if (Q == M-1) begin
+          Q &lt;= 0;
+        end else begin
+          Q &lt;= Q + 1;
+        end
+      end
+    end
+  end
+
+  // Saidas
+  always @ (Q)
+      if (Q == M-1)   fim = 1;
+      else            fim = 0;
+
+  always @ (Q)
+      if (Q == M/2-1) meio = 1;
+      else            meio = 0;
+
+endmodule
+
+/*---------------Laboratorio Digital-------------------------------------
+ * Arquivo   : contador_m.v
+ * Projeto   : Experiencia 5 - Desenvolvimento de Projeto de 
+ *                             Circuitos Digitais em FPGA
+ *-----------------------------------------------------------------------
+ * Descricao : contador binario, modulo m, com parametros 
+ *             M (modulo do contador) e N (numero de bits),
+ *             sinais para clear assincrono (zera_as) e sincrono (zera_s)
+ *             e saidas de fim e meio de contagem
+ *             
+ *-----------------------------------------------------------------------
+ * Revisoes  :
+ *     Data        Versao  Autor             Descricao
+ *     30/01/2024  1.0     Edson Midorikawa  criacao
+ *-----------------------------------------------------------------------
+ */
+
+module contador_m_1 #(parameter M=1000, N=11)
+  (
+   input  wire          clock,
+   input  wire          zera_as,
+   input  wire          zera_s,
+   input  wire          conta,
+   output reg  [N-1:0]  Q,
+   output reg           fim,
+   output reg           meio
+  );
+
+  always @(posedge clock or posedge zera_as) begin
+    if (zera_as) begin
+      Q &lt;= 0;
+    end else if (clock) begin
+      if (zera_s) begin
+        Q &lt;= 0;
+      end else if (conta) begin
+        if (Q == M-1) begin
+          Q &lt;= 0;
+        end else begin
+          Q &lt;= Q + 1;
+        end
+      end
+    end
+  end
+
+  // Saidas
+  always @ (Q)
+      if (Q == M-1)   fim = 1;
+      else            fim = 0;
+
+  always @ (Q)
+      if (Q == M/2-1) meio = 1;
+      else            meio = 0;
+
+endmodule
+
+/*---------------Laboratorio Digital-------------------------------------
+ * Arquivo   : contador_m.v
+ * Projeto   : Experiencia 5 - Desenvolvimento de Projeto de 
+ *                             Circuitos Digitais em FPGA
+ *-----------------------------------------------------------------------
+ * Descricao : contador binario, modulo m, com parametros 
+ *             M (modulo do contador) e N (numero de bits),
+ *             sinais para clear assincrono (zera_as) e sincrono (zera_s)
+ *             e saidas de fim e meio de contagem
+ *             
+ *-----------------------------------------------------------------------
+ * Revisoes  :
+ *     Data        Versao  Autor             Descricao
+ *     30/01/2024  1.0     Edson Midorikawa  criacao
+ *-----------------------------------------------------------------------
+ */
+
+module contador_m_05 #(parameter M=500, N=10)
+  (
+   input  wire          clock,
+   input  wire          zera_as,
+   input  wire          zera_s,
+   input  wire          conta,
+   output reg  [N-1:0]  Q,
+   output reg           fim,
+   output reg           meio
+  );
+
+  always @(posedge clock or posedge zera_as) begin
+    if (zera_as) begin
+      Q &lt;= 0;
+    end else if (clock) begin
+      if (zera_s) begin
+        Q &lt;= 0;
+      end else if (conta) begin
+        if (Q == M-1) begin
+          Q &lt;= 0;
+        end else begin
+          Q &lt;= Q + 1;
+        end
+      end
+    end
+  end
+
+  // Saidas
+  always @ (Q)
+      if (Q == M-1)   fim = 1;
+      else            fim = 0;
+
+  always @ (Q)
+      if (Q == M/2-1) meio = 1;
+      else            meio = 0;
+
+endmodule
+module converte_2b_4b( 
+    input  [1:0] posicao_2b,
+    output [3:0] posicao_4b
+);
+
+
+assign posicao_4b = posicao_2b == 2&apos;b00 ? 4&apos;b0001 :
+                    posicao_2b == 2&apos;b01 ? 4&apos;b0010 :
+                    posicao_2b == 2&apos;b10 ? 4&apos;b0100 :
+                    posicao_2b == 2&apos;b11 ? 4&apos;b1000 : 4&apos;bxxxx; 
+
+
+endmodule/* ------------------------------------------------------------------------
+ *  Arquivo   : edge_detector.v
+ *  Projeto   : Experiencia 5 - Desenvolvimento de Projeto de
+ *                              Circuitos Digitais com FPGA
+ * ------------------------------------------------------------------------
+ *  Descricao : detector de borda
+ *              gera um pulso na saida de 1 periodo de clock
+ *              a partir da detecao da borda de subida sa entrada
+ * 
+ *              sinal de reset ativo em alto
+ * 
+ *              &gt; codigo adaptado a partir de codigo VHDL disponivel em
+ *                https://surf-vhdl.com/how-to-design-a-good-edge-detector/
+ * ------------------------------------------------------------------------
+ *  Revisoes  :
+ *      Data        Versao  Autor             Descricao
+ *      26/01/2024  1.0     Edson Midorikawa  versao inicial
+ * ------------------------------------------------------------------------
+ */
+ 
+module edge_detector (
+    input  clock,
+    input  reset,
+    input  sinal,
+    output pulso
+);
+
+    reg reg0;
+    reg reg1;
+
+    always @(posedge clock or posedge reset) begin
+        if (reset) begin
+            reg0 &lt;= 1&apos;b0;
+            reg1 &lt;= 1&apos;b0;
+        end else if (clock) begin
+            reg0 &lt;= sinal;
+            reg1 &lt;= reg0;
+        end
+    end
+
+    assign pulso = ~reg1 &amp; reg0;
+
+endmodule
+module fluxo_dados(
+input reset,
+input iniciar,
+input [1:0] controle,
+input confirma,
+input clock,
+input zeraPosicoes,
+input resetaVidas,
+input contaT,
+input zeraT,
+input move_drone,
+input desloca_horizontal,
+input escolhe_modo,
+input escolhe_vida,
+output colisao,
+output fim_espera,
+output fim_mapa,
+output [3:0] db_posicao_horizontal,
+output [3:0] db_posicao_vertical,
+output [3:0] db_obstaculos,
+output [1:0] modo,
+output [2:0] colisao_counter_out
+);
+
+wire [1:0] posicao_vertical;
+wire [3:0] obstaculos, posicao_horizontal;
+wire [2:0] fim_espera_interno, vidas, colisao_counter;
+wire [1:0] modo_interno;
+wire [1:0] borda_controle;
+wire borda, colisao_interno;
+
+
+contador_163 contador_posicao_horizontal(
+    .clock(clock),
+    .clr(~zeraPosicoes),
+    .ld(1&apos;b1),
+    .ent(1&apos;b1),
+    .enp(desloca_horizontal),
+    .D(),
+    .Q(posicao_horizontal),
+    .rco(fim_mapa) 
+);
+
+contador_m_2 contador_tempo_jogada_facil(
+    .clock(clock),
+    .zera_as(1&apos;b0),
+    .zera_s(zeraT),
+    .conta(contaT),
+    .Q(),
+    .fim(fim_espera_interno[0]),
+    .meio()
+);
+
+contador_m_1 contador_tempo_jogada_medio(
+    .clock(clock),
+    .zera_as(1&apos;b0),
+    .zera_s(zeraT),
+    .conta(contaT),
+    .Q(),
+    .fim(fim_espera_interno[1]),
+    .meio()
+);
+
+contador_m_05 contador_tempo_jogada_dificl(
+    .clock(clock),
+    .zera_as(1&apos;b0),
+    .zera_s(zeraT),
+    .conta(contaT),
+    .Q(),
+    .fim(fim_espera_interno[2]),
+    .meio()
+);
+
+sync_ram_16x4_file mapa_jogo(
+    .clk(clock),
+    .we(1&apos;b0),
+    .data(4&apos;b0),
+    .addr(posicao_horizontal + 4&apos;b0001),
+    .q(obstaculos)
+);
+
+contador_4_mais_menos_limitado contador_posicao_vertical(
+    .clock(clock), 
+    .clr(1&apos;b1), 
+    .ld(~zeraPosicoes), 
+    .soma(controle[0]), 
+    .sub(controle[1]), 
+    .enp(move_drone &amp; borda), 
+    .D(2&apos;b10), 
+    .Q(posicao_vertical), 
+    .rco()
+);
+
+
+contador_3_mais_menos contador_modo( // 0 = FACIL, 1 = MEDIO, 2 = DIFICIL
+    .clock(clock),
+    .clr(~iniciar),
+    .ld(1&apos;b1),
+    .soma(controle[0]),
+    .sub(controle[1]),
+    .enp(escolhe_modo &amp; borda),
+    .D(),
+    .Q(modo_interno),
+    .rco()
+);
+
+contador_1_5_mais_menos_limitado contador_vidas(
+    .clock(clock), 
+    .clr(1&apos;b1), 
+    .ld(~resetaVidas), 
+    .soma(controle[0]), 
+    .sub(controle[1]), 
+    .enp(escolhe_vida &amp; borda), 
+    .D(3&apos;b001), 
+    .Q(vidas), 
+    .rco()
+);
+
+contador_5 contador_colisao(
+    .clock(clock),
+    .clr(~zeraPosicoes),
+    .ld(1&apos;b1),
+    .ent(colisao_interno),
+    .enp(desloca_horizontal),
+    .D(),
+    .Q(colisao_counter),
+    .rco()
+);
+
+
+edge_detector detector_borda0(
+    .clock(clock),
+    .reset(1&apos;b0),
+    .sinal(controle[0]),
+    .pulso(borda_controle[0])
+);
+
+edge_detector detector_borda1(
+    .clock(clock),
+    .reset(1&apos;b0),
+    .sinal(controle[1]),
+    .pulso(borda_controle[1])
+);
+
+
+converte_2b_4b conversor_posicao( // ENCODER
+    .posicao_2b(posicao_vertical),
+    .posicao_4b(db_posicao_vertical)
+);
+
+assign db_posicao_horizontal = posicao_horizontal;
+assign db_obstaculos = obstaculos;
+assign colisao_interno = obstaculos[posicao_vertical] == 1 ? 1&apos;b1 : 1&apos;b0;
+assign fim_espera = fim_espera_interno[modo_interno];
+assign modo = modo_interno;
+assign borda = borda_controle[0] | borda_controle[1];
+assign colisao = ((colisao_interno == 1) &amp; (colisao_counter == vidas)) ? 1&apos;b1 : 1&apos;b0;
+assign colisao_counter_out = colisao_counter;
+
+endmodule//------------------------------------------------------------------
+// Arquivo   : exp4_unidade_controle.v
+// Projeto   : Experiencia 4 - Projeto de uma Unidade de Controle
+//------------------------------------------------------------------
+// Descricao : Unidade de controle
+//
+// usar este codigo como template (modelo) para codificar 
+// máquinas de estado de unidades de controle            
+//------------------------------------------------------------------
+// Revisoes  :
+//     Data        Versao  Autor             Descricao
+//     14/01/2024  1.0     Edson Midorikawa  versao inicial
+//------------------------------------------------------------------
+//
+module unidade_controle (
+    input      clock,
+    input      reset,
+    input      iniciar,
+    input      confirma,
+    input      fim_espera,
+    input      fim_mapa,
+    input      colisao,
+    output reg zeraPosicoes,
+    output reg contaT,
+    output reg zeraT,
+    output reg escolhe_modo,
+    output reg escolhe_vida,
+    output reg move_drone,
+    output reg desloca_horizontal,
+    output reg resetaVidas,
+    output reg venceu,
+    output reg perdeu,
+    output reg [3:0] db_estado
+);
+
+    // Define estados
+    parameter inicial    = 4&apos;b0000;  // 0
+    parameter modo       = 4&apos;b0010;  // 2
+    parameter vidas      = 4&apos;b1001;  // 9
+    parameter preparacao = 4&apos;b0001;  // 1
+    parameter espera     = 4&apos;b0011; // 3
+    parameter deslocamento     = 4&apos;b0100; // 4
+    parameter checa_colisao     = 4&apos;b0101; // 5
+    parameter proximo     = 4&apos;b0110; // 6
+    parameter derrota     = 4&apos;b0111; // 7
+    parameter vitoria     = 4&apos;b1000; // 8
+    
+    // Variaveis de estado
+    reg [3:0] Eatual, Eprox;
+
+    // Memoria de estado
+    always @(posedge clock or posedge reset) begin
+        if (reset)
+            Eatual &lt;= inicial;
+        else
+            Eatual &lt;= Eprox;
+    end
+
+    // Logica de proximo estado
+    always @* begin
+        case (Eatual)
+            inicial:    Eprox = iniciar ? modo : inicial;
+            modo:       Eprox = confirma ? vidas : modo;
+            vidas:      Eprox = confirma ? preparacao : vidas;
+            preparacao: Eprox = espera;
+            espera:     Eprox = fim_espera ? deslocamento : espera;
+            deslocamento: Eprox = checa_colisao;
+            checa_colisao: Eprox = colisao ? derrota : proximo;
+            proximo:    Eprox = fim_mapa ? vitoria : espera; 
+            derrota:   Eprox = iniciar ? modo : derrota;
+            vitoria:   Eprox = iniciar ? modo : vitoria;
+            default:     Eprox = inicial;
+        endcase
+    end
+
+    // Logica de saida (maquina Moore)
+    always @* begin
+        zeraPosicoes = (Eatual == inicial || Eatual == preparacao) ? 1 : 0;
+        resetaVidas = (Eatual == modo || Eatual == inicial) ? 1 : 0;
+        contaT = (Eatual == espera) ? 1 : 0;
+        zeraT = (Eatual == inicial || Eatual == preparacao || Eatual == proximo) ? 1 : 0; 
+        move_drone = (Eatual == espera) ? 1 : 0;
+        desloca_horizontal = (Eatual == deslocamento) ? 1 : 0;
+        venceu = (Eatual == vitoria) ? 1 : 0;
+        perdeu = (Eatual == derrota) ? 1 : 0;
+        escolhe_modo = (Eatual == modo) ? 1 : 0;
+        escolhe_vida = (Eatual == vidas) ? 1 : 0;
+        
+        // Saida de depuracao (estado) 
+        case (Eatual)
+            inicial:    db_estado = 4&apos;b0000;  // 0
+            modo:       db_estado = 4&apos;b0010;  // 2
+            vidas:      db_estado = 4&apos;b1001;  // 9
+            preparacao: db_estado = 4&apos;b0001;  // 1
+            espera:     db_estado = 4&apos;b0011;  // 3
+            deslocamento: db_estado = 4&apos;b0100;  // 4
+            checa_colisao: db_estado = 4&apos;b0101;  // 5
+            proximo:    db_estado = 4&apos;b0110;  // 6
+            derrota:   db_estado = 4&apos;b0111;  // 7
+            vitoria:   db_estado = 4&apos;b1000;  // 8
+
+            default:     db_estado = 4&apos;b1111;  // F
+        endcase
+    end
+
+endmodule
+module contador_3_mais_menos ( clock, clr, ld, soma, sub, enp, D, Q, rco);
+    input clock, clr, ld, enp, soma, sub;
+    input [1:0] D;
+    output reg [1:0] Q;
+    output reg rco;
+
+    always @ (posedge clock) begin
+        if (~clr)               Q &lt;= 2&apos;b0;
+        else if (~ld)           Q &lt;= D;
+        else if (enp) begin
+
+            if (soma == 1) begin
+                if (Q==2&apos;b10)               Q &lt;= 2&apos;b0;
+                else                        Q &lt;= Q + 1;
+            end 
+
+            else if (sub == 1) begin
+                if (Q==2&apos;b00)               Q &lt;= 2&apos;b10;
+                else                        Q &lt;= Q - 1;
+            end 
+
+        end
+
+        else  begin
+            Q &lt;= Q;
+        end 
+
+    end
+    
+ 
+    always @ (Q or enp)
+        if (enp &amp;&amp; (Q == 2&apos;b00))   rco = 1;
+        else                       rco = 0;
+endmodule</string>
+        </entry>
+        <entry>
+          <string>externalOutputs</string>
+          <string>venceu,perdeu,db_posicao_horizontal:4,db_posicao_vertical:4,db_obstaculos:4,db_estado:4,db_modo:2,colisao_counter_out:3</string>
+        </entry>
+        <entry>
+          <string>Width</string>
+          <int>30</int>
+        </entry>
+      </elementAttributes>
+      <pos x="5520" y="980"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>CLOCK</string>
+        </entry>
+        <entry>
+          <string>Frequency</string>
+          <int>1000</int>
+        </entry>
+        <entry>
+          <string>runRealTime</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="5280" y="900"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>RESET</string>
+        </entry>
+      </elementAttributes>
+      <pos x="5040" y="1000"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>INICIAR</string>
+        </entry>
+      </elementAttributes>
+      <pos x="5040" y="1080"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>SOMA</string>
+        </entry>
+      </elementAttributes>
+      <pos x="5040" y="1160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>SUBTRAI</string>
+        </entry>
+      </elementAttributes>
+      <pos x="5040" y="1220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>CONFIRMA</string>
+        </entry>
+      </elementAttributes>
+      <pos x="5040" y="1300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>1,1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>2</string>
+        </entry>
+      </elementAttributes>
+      <pos x="5100" y="1180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>VENCEU</string>
+        </entry>
+      </elementAttributes>
+      <pos x="6400" y="940"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PERDEU</string>
+        </entry>
+      </elementAttributes>
+      <pos x="6400" y="980"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>MODO</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>2</int>
+        </entry>
+      </elementAttributes>
+      <pos x="6400" y="1180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Seven-Seg-Hex</elementName>
+      <elementAttributes/>
+      <pos x="6640" y="860"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>4</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1,1,1,1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="6780" y="960"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Seven-Seg-Hex</elementName>
+      <elementAttributes/>
+      <pos x="6640" y="1100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="6880" y="900"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="6880" y="940"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="6880" y="980"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="6880" y="1020"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>FODASE</string>
+        </entry>
+      </elementAttributes>
+      <pos x="6780" y="780"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>FIM_ESPERA_INT</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="6220" y="1300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>4</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1,1,1,1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="6940" y="960"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="7040" y="900"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="7040" y="940"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="7040" y="980"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="7040" y="1020"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="6740" y="960"/>
+      <p2 x="6780" y="960"/>
+    </wire>
+    <wire>
+      <p1 x="6800" y="960"/>
+      <p2 x="6840" y="960"/>
+    </wire>
+    <wire>
+      <p1 x="6960" y="960"/>
+      <p2 x="7000" y="960"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="1120"/>
+      <p2 x="6220" y="1120"/>
+    </wire>
+    <wire>
+      <p1 x="5280" y="900"/>
+      <p2 x="5380" y="900"/>
+    </wire>
+    <wire>
+      <p1 x="6840" y="900"/>
+      <p2 x="6880" y="900"/>
+    </wire>
+    <wire>
+      <p1 x="7000" y="900"/>
+      <p2 x="7040" y="900"/>
+    </wire>
+    <wire>
+      <p1 x="5040" y="1220"/>
+      <p2 x="5060" y="1220"/>
+    </wire>
+    <wire>
+      <p1 x="5500" y="1060"/>
+      <p2 x="5520" y="1060"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="1060"/>
+      <p2 x="6420" y="1060"/>
+    </wire>
+    <wire>
+      <p1 x="5040" y="1160"/>
+      <p2 x="5060" y="1160"/>
+    </wire>
+    <wire>
+      <p1 x="5040" y="1000"/>
+      <p2 x="5520" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="1000"/>
+      <p2 x="6380" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="6800" y="1000"/>
+      <p2 x="6880" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="6960" y="1000"/>
+      <p2 x="7040" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="1100"/>
+      <p2 x="6300" y="1100"/>
+    </wire>
+    <wire>
+      <p1 x="6780" y="780"/>
+      <p2 x="6800" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="6800" y="780"/>
+      <p2 x="7100" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="6280" y="940"/>
+      <p2 x="6400" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="6860" y="940"/>
+      <p2 x="6880" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="7020" y="940"/>
+      <p2 x="7040" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="6620" y="1260"/>
+      <p2 x="6680" y="1260"/>
+    </wire>
+    <wire>
+      <p1 x="5320" y="1040"/>
+      <p2 x="5520" y="1040"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="1040"/>
+      <p2 x="6740" y="1040"/>
+    </wire>
+    <wire>
+      <p1 x="5060" y="1200"/>
+      <p2 x="5100" y="1200"/>
+    </wire>
+    <wire>
+      <p1 x="5380" y="980"/>
+      <p2 x="5520" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="980"/>
+      <p2 x="6280" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="6380" y="980"/>
+      <p2 x="6400" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="6800" y="980"/>
+      <p2 x="6860" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="6960" y="980"/>
+      <p2 x="7020" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="5040" y="1300"/>
+      <p2 x="5500" y="1300"/>
+    </wire>
+    <wire>
+      <p1 x="6700" y="1300"/>
+      <p2 x="7100" y="1300"/>
+    </wire>
+    <wire>
+      <p1 x="6320" y="1140"/>
+      <p2 x="6620" y="1140"/>
+    </wire>
+    <wire>
+      <p1 x="6720" y="820"/>
+      <p2 x="6800" y="820"/>
+    </wire>
+    <wire>
+      <p1 x="5040" y="1080"/>
+      <p2 x="5080" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="1080"/>
+      <p2 x="6320" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="6420" y="1080"/>
+      <p2 x="6940" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="5060" y="1180"/>
+      <p2 x="5100" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="5120" y="1180"/>
+      <p2 x="5320" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="6300" y="1180"/>
+      <p2 x="6400" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="5080" y="1020"/>
+      <p2 x="5520" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="6120" y="1020"/>
+      <p2 x="6680" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="6800" y="1020"/>
+      <p2 x="6880" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="6700" y="1020"/>
+      <p2 x="6720" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="6960" y="1020"/>
+      <p2 x="7040" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="6720" y="820"/>
+      <p2 x="6720" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="7040" y="980"/>
+      <p2 x="7040" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="5380" y="900"/>
+      <p2 x="5380" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="5060" y="1160"/>
+      <p2 x="5060" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="5060" y="1200"/>
+      <p2 x="5060" y="1220"/>
+    </wire>
+    <wire>
+      <p1 x="5320" y="1040"/>
+      <p2 x="5320" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="6280" y="940"/>
+      <p2 x="6280" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="6220" y="1120"/>
+      <p2 x="6220" y="1300"/>
+    </wire>
+    <wire>
+      <p1 x="6860" y="940"/>
+      <p2 x="6860" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="6800" y="780"/>
+      <p2 x="6800" y="820"/>
+    </wire>
+    <wire>
+      <p1 x="6740" y="960"/>
+      <p2 x="6740" y="1040"/>
+    </wire>
+    <wire>
+      <p1 x="6420" y="1060"/>
+      <p2 x="6420" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="5080" y="1020"/>
+      <p2 x="5080" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="6680" y="1000"/>
+      <p2 x="6680" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="6680" y="1240"/>
+      <p2 x="6680" y="1260"/>
+    </wire>
+    <wire>
+      <p1 x="7000" y="900"/>
+      <p2 x="7000" y="960"/>
+    </wire>
+    <wire>
+      <p1 x="6300" y="1100"/>
+      <p2 x="6300" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="6620" y="1140"/>
+      <p2 x="6620" y="1260"/>
+    </wire>
+    <wire>
+      <p1 x="6940" y="960"/>
+      <p2 x="6940" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="6880" y="980"/>
+      <p2 x="6880" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="6380" y="980"/>
+      <p2 x="6380" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="6700" y="1000"/>
+      <p2 x="6700" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="6700" y="1240"/>
+      <p2 x="6700" y="1300"/>
+    </wire>
+    <wire>
+      <p1 x="7020" y="940"/>
+      <p2 x="7020" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="6320" y="1080"/>
+      <p2 x="6320" y="1140"/>
+    </wire>
+    <wire>
+      <p1 x="6840" y="900"/>
+      <p2 x="6840" y="960"/>
+    </wire>
+    <wire>
+      <p1 x="5500" y="1060"/>
+      <p2 x="5500" y="1300"/>
+    </wire>
+    <wire>
+      <p1 x="7100" y="780"/>
+      <p2 x="7100" y="1300"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

@@ -1,0 +1,78 @@
+C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module contador_m
+
+Top level modules:
+	contador_m
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/converte_2b_4b.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/converte_2b_4b.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module converte_2b_4b
+
+Top level modules:
+	converte_2b_4b
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_4_mais_menos.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_4_mais_menos.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module contador_4_mais_menos
+
+Top level modules:
+	contador_4_mais_menos
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/unidade_controle.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/unidade_controle.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module unidade_controle
+
+Top level modules:
+	unidade_controle
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/comparador_85.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/comparador_85.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module comparador_85
+
+Top level modules:
+	comparador_85
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone_tb.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/simulador_drone_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module simulador_drone_tb
+
+Top level modules:
+	simulador_drone_tb
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/sync_ram_16x4_file.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/sync_ram_16x4_file.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sync_ram_16x4_file
+
+Top level modules:
+	sync_ram_16x4_file
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m_2.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_m_2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module contador_m_2
+
+Top level modules:
+	contador_m_2
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/fluxo_dados.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/fluxo_dados.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module fluxo_dados
+
+Top level modules:
+	fluxo_dados
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/registrador_4.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/registrador_4.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module registrador_4
+
+Top level modules:
+	registrador_4
+
+} {} {}} C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_163.v {1 {vlog -work work -stats=none C:/Projetos/T2BA3/PROJETO/Semanha1/Lab-Dig-main/Lab-Dig-main/PROJETO_DRONE/contador_163.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module contador_163
+
+Top level modules:
+	contador_163
+
+} {} {}}

@@ -1,0 +1,28 @@
+Quartus Prime Archive log --	/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/simulador.qarlog
+
+Archive:	/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/simulador.qar
+Date:		Mon Mar 11 22:37:30 2024
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/comparador_85.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/contador_163.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/contador_4_mais_menos.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/contador_m.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/contador_m_2.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/converte_2b_4b.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/edge_detector.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/fluxo_dados.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/hexa7seg.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/ram_init.txt
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/registrador_4.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/simulador.qpf
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/simulador.qsf
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/simulador_drone.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/sync_ram_16x4_file.v
+/home/victor/Documentos/USP/LABDIG/Git/Lab-Dig/PROJETO_DRONE/unidade_controle.v
+/home/victor/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 17 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
