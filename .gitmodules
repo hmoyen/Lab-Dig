@@ -1,0 +1,3 @@
+[submodule "PROJETO_DRONE/sky_simulator"]
+	path = PROJETO_DRONE/sky_simulator
+	url = git@github.com:hmoyen/sky_simulator.git
