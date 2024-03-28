@@ -1,0 +1,801 @@
+|simulador_drone
+clock => clock.IN3
+reset => reset.IN2
+iniciar => iniciar.IN2
+controle_vertical[0] => db_controle_vertical[0].IN1
+controle_vertical[1] => db_controle_vertical[1].IN1
+controle_horizontal[0] => db_controle_horizontal[0].IN1
+controle_horizontal[1] => db_controle_horizontal[1].IN1
+confirma => confirma.IN1
+venceu << unidade_controle:uc.venceu
+perdeu << unidade_controle:uc.perdeu
+timeout_out << unidade_controle:uc.timeout_out
+db_posicao_horizontal[0] << hexa7seg:display_posicao_horizontal.display
+db_posicao_horizontal[1] << hexa7seg:display_posicao_horizontal.display
+db_posicao_horizontal[2] << hexa7seg:display_posicao_horizontal.display
+db_posicao_horizontal[3] << hexa7seg:display_posicao_horizontal.display
+db_posicao_horizontal[4] << hexa7seg:display_posicao_horizontal.display
+db_posicao_horizontal[5] << hexa7seg:display_posicao_horizontal.display
+db_posicao_horizontal[6] << hexa7seg:display_posicao_horizontal.display
+db_posicao_vertical[0] << hexa7seg:display_posicao_vertical.display
+db_posicao_vertical[1] << hexa7seg:display_posicao_vertical.display
+db_posicao_vertical[2] << hexa7seg:display_posicao_vertical.display
+db_posicao_vertical[3] << hexa7seg:display_posicao_vertical.display
+db_posicao_vertical[4] << hexa7seg:display_posicao_vertical.display
+db_posicao_vertical[5] << hexa7seg:display_posicao_vertical.display
+db_posicao_vertical[6] << hexa7seg:display_posicao_vertical.display
+db_obstaculos[0] << hexa7seg:display_obstaculos.display
+db_obstaculos[1] << hexa7seg:display_obstaculos.display
+db_obstaculos[2] << hexa7seg:display_obstaculos.display
+db_obstaculos[3] << hexa7seg:display_obstaculos.display
+db_obstaculos[4] << hexa7seg:display_obstaculos.display
+db_obstaculos[5] << hexa7seg:display_obstaculos.display
+db_obstaculos[6] << hexa7seg:display_obstaculos.display
+db_estado[0] << hexa7seg:display_estado.display
+db_estado[1] << hexa7seg:display_estado.display
+db_estado[2] << hexa7seg:display_estado.display
+db_estado[3] << hexa7seg:display_estado.display
+db_estado[4] << hexa7seg:display_estado.display
+db_estado[5] << hexa7seg:display_estado.display
+db_estado[6] << hexa7seg:display_estado.display
+db_modo[0] << fluxo_dados:fd.modo
+db_modo[1] << fluxo_dados:fd.modo
+colisao_counter_out[0] << hexa7seg:display_colisao_counter.display
+colisao_counter_out[1] << hexa7seg:display_colisao_counter.display
+colisao_counter_out[2] << hexa7seg:display_colisao_counter.display
+colisao_counter_out[3] << hexa7seg:display_colisao_counter.display
+colisao_counter_out[4] << hexa7seg:display_colisao_counter.display
+colisao_counter_out[5] << hexa7seg:display_colisao_counter.display
+colisao_counter_out[6] << hexa7seg:display_colisao_counter.display
+db_vidas[0] << hexa7seg:display_vidas.display
+db_vidas[1] << hexa7seg:display_vidas.display
+db_vidas[2] << hexa7seg:display_vidas.display
+db_vidas[3] << hexa7seg:display_vidas.display
+db_vidas[4] << hexa7seg:display_vidas.display
+db_vidas[5] << hexa7seg:display_vidas.display
+db_vidas[6] << hexa7seg:display_vidas.display
+db_controle_horizontal[0] << db_controle_horizontal[0].DB_MAX_OUTPUT_PORT_TYPE
+db_controle_horizontal[1] << db_controle_horizontal[1].DB_MAX_OUTPUT_PORT_TYPE
+db_controle_vertical[0] << db_controle_vertical[0].DB_MAX_OUTPUT_PORT_TYPE
+db_controle_vertical[1] << db_controle_vertical[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd
+reset => ~NO_FANOUT~
+iniciar => _.IN1
+controle_vertical[0] => controle_vertical[0].IN5
+controle_vertical[1] => controle_vertical[1].IN5
+controle_horizontal[0] => controle_horizontal[0].IN2
+controle_horizontal[1] => controle_horizontal[1].IN2
+confirma => ~NO_FANOUT~
+clock => clock.IN16
+zeraPosicoes => _.IN1
+zeraPosicoes => _.IN1
+zeraPosicoes => _.IN1
+resetaVidas => _.IN1
+resetaVidas => _.IN1
+contaT => contaT.IN3
+zeraT => zeraT.IN3
+desloca => comb.IN1
+desloca => comb.IN1
+escolhe_modo => comb.IN1
+escolhe_vida => comb.IN1
+checa_colisao => checa_colisao.IN1
+atualiza => comb.IN1
+escolhe_mapa => comb.IN1
+colisao <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
+timeout <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+fim_mapa <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+borda_movimento <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+db_posicao_horizontal[0] <= posicao_horizontal[0].DB_MAX_OUTPUT_PORT_TYPE
+db_posicao_horizontal[1] <= posicao_horizontal[1].DB_MAX_OUTPUT_PORT_TYPE
+db_posicao_horizontal[2] <= posicao_horizontal[2].DB_MAX_OUTPUT_PORT_TYPE
+db_posicao_horizontal[3] <= posicao_horizontal[3].DB_MAX_OUTPUT_PORT_TYPE
+db_posicao_vertical[0] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_posicao_vertical[1] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_posicao_vertical[2] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_posicao_vertical[3] <= converte_2b_4b:conversor_posicao.posicao_4b
+db_obstaculos[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+db_obstaculos[1] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+db_obstaculos[2] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+db_obstaculos[3] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+modo[0] <= contador_3_mais_menos:contador_modo.Q
+modo[1] <= contador_3_mais_menos:contador_modo.Q
+colisao_counter_out[0] <= contador_5:contador_colisao.Q
+colisao_counter_out[1] <= contador_5:contador_colisao.Q
+colisao_counter_out[2] <= contador_5:contador_colisao.Q
+vidas_out[0] <= contador_1_5_mais_menos_limitado:contador_vidas.Q
+vidas_out[1] <= contador_1_5_mais_menos_limitado:contador_vidas.Q
+vidas_out[2] <= contador_1_5_mais_menos_limitado:contador_vidas.Q
+
+
+|simulador_drone|fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clock => Q[3]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+soma => always0.IN1
+sub => always0.IN1
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => always1.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+D[3] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_4_mais_menos_limitado:contador_posicao_vertical
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+soma => always0.IN1
+sub => always0.IN1
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => always1.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clock => Q[3]~reg0.CLK
+clock => Q[4]~reg0.CLK
+clock => Q[5]~reg0.CLK
+clock => Q[6]~reg0.CLK
+clock => Q[7]~reg0.CLK
+clock => Q[8]~reg0.CLK
+clock => Q[9]~reg0.CLK
+clock => Q[10]~reg0.CLK
+clock => Q[11]~reg0.CLK
+clock => Q[12]~reg0.CLK
+clock => Q[13]~reg0.CLK
+clock => Q[14]~reg0.CLK
+clock => Q[15]~reg0.CLK
+zera_as => Q[0]~reg0.ACLR
+zera_as => Q[1]~reg0.ACLR
+zera_as => Q[2]~reg0.ACLR
+zera_as => Q[3]~reg0.ACLR
+zera_as => Q[4]~reg0.ACLR
+zera_as => Q[5]~reg0.ACLR
+zera_as => Q[6]~reg0.ACLR
+zera_as => Q[7]~reg0.ACLR
+zera_as => Q[8]~reg0.ACLR
+zera_as => Q[9]~reg0.ACLR
+zera_as => Q[10]~reg0.ACLR
+zera_as => Q[11]~reg0.ACLR
+zera_as => Q[12]~reg0.ACLR
+zera_as => Q[13]~reg0.ACLR
+zera_as => Q[14]~reg0.ACLR
+zera_as => Q[15]~reg0.ACLR
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[8] <= Q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[9] <= Q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[10] <= Q[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[11] <= Q[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[12] <= Q[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[13] <= Q[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[14] <= Q[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[15] <= Q[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clock => Q[3]~reg0.CLK
+clock => Q[4]~reg0.CLK
+clock => Q[5]~reg0.CLK
+clock => Q[6]~reg0.CLK
+clock => Q[7]~reg0.CLK
+clock => Q[8]~reg0.CLK
+clock => Q[9]~reg0.CLK
+clock => Q[10]~reg0.CLK
+clock => Q[11]~reg0.CLK
+clock => Q[12]~reg0.CLK
+clock => Q[13]~reg0.CLK
+clock => Q[14]~reg0.CLK
+clock => Q[15]~reg0.CLK
+zera_as => Q[0]~reg0.ACLR
+zera_as => Q[1]~reg0.ACLR
+zera_as => Q[2]~reg0.ACLR
+zera_as => Q[3]~reg0.ACLR
+zera_as => Q[4]~reg0.ACLR
+zera_as => Q[5]~reg0.ACLR
+zera_as => Q[6]~reg0.ACLR
+zera_as => Q[7]~reg0.ACLR
+zera_as => Q[8]~reg0.ACLR
+zera_as => Q[9]~reg0.ACLR
+zera_as => Q[10]~reg0.ACLR
+zera_as => Q[11]~reg0.ACLR
+zera_as => Q[12]~reg0.ACLR
+zera_as => Q[13]~reg0.ACLR
+zera_as => Q[14]~reg0.ACLR
+zera_as => Q[15]~reg0.ACLR
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[8] <= Q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[9] <= Q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[10] <= Q[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[11] <= Q[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[12] <= Q[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[13] <= Q[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[14] <= Q[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[15] <= Q[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clock => Q[3]~reg0.CLK
+clock => Q[4]~reg0.CLK
+clock => Q[5]~reg0.CLK
+clock => Q[6]~reg0.CLK
+clock => Q[7]~reg0.CLK
+clock => Q[8]~reg0.CLK
+clock => Q[9]~reg0.CLK
+clock => Q[10]~reg0.CLK
+clock => Q[11]~reg0.CLK
+clock => Q[12]~reg0.CLK
+clock => Q[13]~reg0.CLK
+clock => Q[14]~reg0.CLK
+zera_as => Q[0]~reg0.ACLR
+zera_as => Q[1]~reg0.ACLR
+zera_as => Q[2]~reg0.ACLR
+zera_as => Q[3]~reg0.ACLR
+zera_as => Q[4]~reg0.ACLR
+zera_as => Q[5]~reg0.ACLR
+zera_as => Q[6]~reg0.ACLR
+zera_as => Q[7]~reg0.ACLR
+zera_as => Q[8]~reg0.ACLR
+zera_as => Q[9]~reg0.ACLR
+zera_as => Q[10]~reg0.ACLR
+zera_as => Q[11]~reg0.ACLR
+zera_as => Q[12]~reg0.ACLR
+zera_as => Q[13]~reg0.ACLR
+zera_as => Q[14]~reg0.ACLR
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+zera_s => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+conta => Q.OUTPUTSELECT
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[8] <= Q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[9] <= Q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[10] <= Q[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[11] <= Q[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[12] <= Q[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[13] <= Q[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[14] <= Q[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo
+clk => ram.we_a.CLK
+clk => ram.waddr_a[3].CLK
+clk => ram.waddr_a[2].CLK
+clk => ram.waddr_a[1].CLK
+clk => ram.waddr_a[0].CLK
+clk => ram.data_a[3].CLK
+clk => ram.data_a[2].CLK
+clk => ram.data_a[1].CLK
+clk => ram.data_a[0].CLK
+clk => addr_reg[0].CLK
+clk => addr_reg[1].CLK
+clk => addr_reg[2].CLK
+clk => addr_reg[3].CLK
+clk => ram.CLK0
+we => ram.we_a.DATAIN
+we => ram.WE
+data[0] => ram.data_a[0].DATAIN
+data[0] => ram.DATAIN
+data[1] => ram.data_a[1].DATAIN
+data[1] => ram.DATAIN1
+data[2] => ram.data_a[2].DATAIN
+data[2] => ram.DATAIN2
+data[3] => ram.data_a[3].DATAIN
+data[3] => ram.DATAIN3
+addr[0] => ram.waddr_a[0].DATAIN
+addr[0] => addr_reg[0].DATAIN
+addr[0] => ram.WADDR
+addr[1] => ram.waddr_a[1].DATAIN
+addr[1] => addr_reg[1].DATAIN
+addr[1] => ram.WADDR1
+addr[2] => ram.waddr_a[2].DATAIN
+addr[2] => addr_reg[2].DATAIN
+addr[2] => ram.WADDR2
+addr[3] => ram.waddr_a[3].DATAIN
+addr[3] => addr_reg[3].DATAIN
+addr[3] => ram.WADDR3
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+q[2] <= ram.DATAOUT2
+q[3] <= ram.DATAOUT3
+
+
+|simulador_drone|fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo
+clk => ram.we_a.CLK
+clk => ram.waddr_a[3].CLK
+clk => ram.waddr_a[2].CLK
+clk => ram.waddr_a[1].CLK
+clk => ram.waddr_a[0].CLK
+clk => ram.data_a[3].CLK
+clk => ram.data_a[2].CLK
+clk => ram.data_a[1].CLK
+clk => ram.data_a[0].CLK
+clk => addr_reg[0].CLK
+clk => addr_reg[1].CLK
+clk => addr_reg[2].CLK
+clk => addr_reg[3].CLK
+clk => ram.CLK0
+we => ram.we_a.DATAIN
+we => ram.WE
+data[0] => ram.data_a[0].DATAIN
+data[0] => ram.DATAIN
+data[1] => ram.data_a[1].DATAIN
+data[1] => ram.DATAIN1
+data[2] => ram.data_a[2].DATAIN
+data[2] => ram.DATAIN2
+data[3] => ram.data_a[3].DATAIN
+data[3] => ram.DATAIN3
+addr[0] => ram.waddr_a[0].DATAIN
+addr[0] => addr_reg[0].DATAIN
+addr[0] => ram.WADDR
+addr[1] => ram.waddr_a[1].DATAIN
+addr[1] => addr_reg[1].DATAIN
+addr[1] => ram.WADDR1
+addr[2] => ram.waddr_a[2].DATAIN
+addr[2] => addr_reg[2].DATAIN
+addr[2] => ram.WADDR2
+addr[3] => ram.waddr_a[3].DATAIN
+addr[3] => addr_reg[3].DATAIN
+addr[3] => ram.WADDR3
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+q[2] <= ram.DATAOUT2
+q[3] <= ram.DATAOUT3
+
+
+|simulador_drone|fluxo_dados:fd|contador_3_mais_menos:contador_modo
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => always1.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => always1.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_mapas
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+soma => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+sub => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => Q.OUTPUTSELECT
+enp => always1.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|contador_5:contador_colisao
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ent => always0.IN0
+ent => always1.IN1
+enp => always0.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|edge_detector:detector_colisao_pulso
+clock => reg1.CLK
+clock => reg0.CLK
+reset => reg1.ACLR
+reset => reg0.ACLR
+sinal => reg0.DATAIN
+pulso <= pulso.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_vertical_0
+clock => reg1.CLK
+clock => reg0.CLK
+reset => reg1.ACLR
+reset => reg0.ACLR
+sinal => reg0.DATAIN
+pulso <= pulso.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_vertical_1
+clock => reg1.CLK
+clock => reg0.CLK
+reset => reg1.ACLR
+reset => reg0.ACLR
+sinal => reg0.DATAIN
+pulso <= pulso.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_horizontal_0
+clock => reg1.CLK
+clock => reg0.CLK
+reset => reg1.ACLR
+reset => reg0.ACLR
+sinal => reg0.DATAIN
+pulso <= pulso.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_horizontal_1
+clock => reg1.CLK
+clock => reg0.CLK
+reset => reg1.ACLR
+reset => reg0.ACLR
+sinal => reg0.DATAIN
+pulso <= pulso.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|converte_2b_4b:conversor_posicao
+posicao_2b[0] => Equal0.IN1
+posicao_2b[0] => Equal1.IN0
+posicao_2b[0] => Equal2.IN1
+posicao_2b[1] => Equal0.IN0
+posicao_2b[1] => Equal1.IN1
+posicao_2b[1] => Equal2.IN0
+posicao_4b[0] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+posicao_4b[1] <= posicao_4b.DB_MAX_OUTPUT_PORT_TYPE
+posicao_4b[2] <= posicao_4b.DB_MAX_OUTPUT_PORT_TYPE
+posicao_4b[3] <= posicao_4b.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|unidade_controle:uc
+clock => Eatual[0].CLK
+clock => Eatual[1].CLK
+clock => Eatual[2].CLK
+clock => Eatual[3].CLK
+reset => Eatual[0].ACLR
+reset => Eatual[1].ACLR
+reset => Eatual[2].ACLR
+reset => Eatual[3].ACLR
+iniciar => Mux2.IN14
+iniciar => Mux2.IN15
+iniciar => Mux0.IN11
+iniciar => Mux0.IN12
+iniciar => Mux1.IN14
+iniciar => Mux3.IN11
+iniciar => Mux3.IN12
+confirma => Mux0.IN13
+confirma => Mux3.IN13
+confirma => Mux1.IN15
+confirma => Mux3.IN14
+confirma => Mux0.IN10
+confirma => Mux1.IN12
+confirma => Mux2.IN11
+confirma => Mux3.IN8
+timeout => Eprox.OUTPUTSELECT
+timeout => Eprox.OUTPUTSELECT
+timeout => Mux0.IN14
+fim_mapa => Mux0.IN15
+fim_mapa => Mux2.IN13
+fim_mapa => Mux3.IN10
+colisao => Mux3.IN15
+borda_movimento => Eprox.DATAA
+borda_movimento => Eprox.DATAA
+zeraPosicoes <= zeraPosicoes.DB_MAX_OUTPUT_PORT_TYPE
+contaT <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
+zeraT <= zeraPosicoes.DB_MAX_OUTPUT_PORT_TYPE
+escolhe_modo <= Equal5.DB_MAX_OUTPUT_PORT_TYPE
+escolhe_vida <= Equal6.DB_MAX_OUTPUT_PORT_TYPE
+desloca <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
+resetaVidas <= resetaVidas.DB_MAX_OUTPUT_PORT_TYPE
+checa_colisao_out <= Equal7.DB_MAX_OUTPUT_PORT_TYPE
+atualiza_out <= Equal8.DB_MAX_OUTPUT_PORT_TYPE
+escolhe_mapa <= Equal10.DB_MAX_OUTPUT_PORT_TYPE
+venceu <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+perdeu <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
+timeout_out <= Equal9.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|edge_detector:confirma_edge
+clock => reg1.CLK
+clock => reg0.CLK
+reset => reg1.ACLR
+reset => reg0.ACLR
+sinal => reg0.DATAIN
+pulso <= pulso.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|hexa7seg:display_posicao_horizontal
+hexa[0] => Decoder0.IN3
+hexa[1] => Decoder0.IN2
+hexa[2] => Decoder0.IN1
+hexa[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|hexa7seg:display_posicao_vertical
+hexa[0] => Decoder0.IN3
+hexa[1] => Decoder0.IN2
+hexa[2] => Decoder0.IN1
+hexa[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|hexa7seg:display_obstaculos
+hexa[0] => Decoder0.IN3
+hexa[1] => Decoder0.IN2
+hexa[2] => Decoder0.IN1
+hexa[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|hexa7seg:display_estado
+hexa[0] => Decoder0.IN3
+hexa[1] => Decoder0.IN2
+hexa[2] => Decoder0.IN1
+hexa[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|hexa7seg:display_colisao_counter
+hexa[0] => Decoder0.IN3
+hexa[1] => Decoder0.IN2
+hexa[2] => Decoder0.IN1
+hexa[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|hexa7seg:display_vidas
+hexa[0] => Decoder0.IN3
+hexa[1] => Decoder0.IN2
+hexa[2] => Decoder0.IN1
+hexa[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

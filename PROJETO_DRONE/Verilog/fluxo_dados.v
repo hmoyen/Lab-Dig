@@ -15,10 +15,12 @@ input escolhe_vida,
 input checa_colisao,
 input atualiza,
 input escolhe_mapa,
+inout restore,
 output colisao,
 output timeout,
 output fim_mapa,
 output borda_movimento,
+output fim_restore,
 output [3:0] db_posicao_horizontal,
 output [3:0] db_posicao_vertical,
 output [3:0] db_obstaculos,
@@ -28,12 +30,25 @@ output [2:0] vidas_out
 );
 
 wire [1:0] posicao_vertical;
-wire [3:0] posicao_horizontal;
+wire [3:0] posicao_horizontal, index_restore, addr_ram, data_ram;
 wire [2:0] timeout_interno, vidas, colisao_counter, mapa;
 wire [1:0] modo_interno;
 wire [1:0] borda_controle_vertical, borda_controle_horizontal;
-wire borda_vertical, borda_horizontal, colisao_interno, colisao_interno_pulso, borda;
+wire borda_vertical, borda_horizontal, colisao_interno, colisao_interno_pulso, borda, write_ram;
 wire [3:0] obstaculos [2:0];
+wire [3:0] rom_out [2:0];
+
+
+contador_163 contador_restore(
+    .clock(clock),
+    .clr(~(reset | iniciar)),
+    .ld(1'b1),
+    .ent(restore),
+    .enp(1'b1),
+    .D(),
+    .Q(index_restore),
+    .rco(fim_restore)
+);
 
 
 contador_16_mais_menos_limitado contador_posicao_horizontal(
@@ -91,19 +106,31 @@ contador_m_16 contador_tempo_jogada_dificl(
     .meio()
 );
 
+sync_rom_16x4_file1 mapa_0(
+    .clock(clock),
+    .address(index_restore),
+    .data_out(rom_out[0])
+);
+
+sync_rom_16x4_file2 mapa_1(
+    .clock(clock),
+    .address(index_restore),
+    .data_out(rom_out[1])
+);
+
 sync_ram_16x4_file1 mapa_0_jogo(
     .clk(clock),
-    .we(1'b0),
-    .data(4'b0),
-    .addr(posicao_horizontal),
+    .we(write_ram),
+    .data(data_ram),
+    .addr(addr_ram),
     .q(obstaculos[0])
 );
 
 sync_ram_16x4_file2 mapa_1_jogo(
     .clk(clock),
-    .we(1'b0),
-    .data(4'b0),
-    .addr(posicao_horizontal),
+    .we(write_ram),
+    .data(data_ram),
+    .addr(addr_ram),
     .q(obstaculos[1])
 );
 
@@ -222,6 +249,10 @@ assign colisao = ((colisao_counter == vidas)) ? 1'b1 : 1'b0;
 assign colisao_counter_out = colisao_counter;
 assign colisao_interno = obstaculos[mapa][posicao_vertical] == 1 ? 1'b1 : 1'b0;
 
+//RESTORAR OS MAPAS
+assign addr_ram = restore ? index_restore : posicao_horizontal;
+assign write_ram = (colisao_interno_pulso &  checa_colisao) | restore;
+assign data_ram = restore ? rom_out[mapa] : (obstaculos[mapa] - db_posicao_vertical );
 
 
 endmodule

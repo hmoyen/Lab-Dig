@@ -1,0 +1,241 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "venceu",
+					"strict" : false
+				},
+				{
+					"name" : "perdeu",
+					"strict" : false
+				},
+				{
+					"name" : "timeout_out",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[4]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[5]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_horizontal[6]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[4]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[5]",
+					"strict" : false
+				},
+				{
+					"name" : "db_posicao_vertical[6]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[4]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[5]",
+					"strict" : false
+				},
+				{
+					"name" : "db_obstaculos[6]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[4]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[5]",
+					"strict" : false
+				},
+				{
+					"name" : "db_estado[6]",
+					"strict" : false
+				},
+				{
+					"name" : "db_modo[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_modo[1]",
+					"strict" : false
+				},
+				{
+					"name" : "colisao_counter_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "colisao_counter_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "colisao_counter_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "colisao_counter_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "colisao_counter_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "colisao_counter_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "colisao_counter_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "db_vidas[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_vidas[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_vidas[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_vidas[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_vidas[4]",
+					"strict" : false
+				},
+				{
+					"name" : "db_vidas[5]",
+					"strict" : false
+				},
+				{
+					"name" : "db_vidas[6]",
+					"strict" : false
+				},
+				{
+					"name" : "db_controle_horizontal[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_controle_horizontal[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_controle_vertical[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_controle_vertical[1]",
+					"strict" : false
+				},
+				{
+					"name" : "controle_horizontal[0]",
+					"strict" : false
+				},
+				{
+					"name" : "controle_horizontal[1]",
+					"strict" : false
+				},
+				{
+					"name" : "controle_vertical[0]",
+					"strict" : false
+				},
+				{
+					"name" : "controle_vertical[1]",
+					"strict" : false
+				},
+				{
+					"name" : "iniciar",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "confirma",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

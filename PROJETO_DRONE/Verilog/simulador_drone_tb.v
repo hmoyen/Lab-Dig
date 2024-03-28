@@ -100,9 +100,12 @@ reg [20:0] caso;
     controle_vertical = 2'b00;
     #(10*clockPeriod);
     confirma = 1;
+
+    //CASO 9: AGUARDAR RESTORE
+    caso = 9;
     #(10*clockPeriod);
     confirma = 0;
-    #(10*clockPeriod);
+    #(100*clockPeriod);
 
     //CASO 7: ANDAR PRA FRENTE
     caso = 7;

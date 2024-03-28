@@ -53,8 +53,6 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_N16 -to clock
-set_location_assignment PIN_W9 -to controle[1]
-set_location_assignment PIN_U7 -to controle[0]
 set_location_assignment PIN_AA20 -to db_estado[0]
 set_location_assignment PIN_AB20 -to db_estado[1]
 set_location_assignment PIN_Y14 -to db_obstaculos[3]
@@ -103,10 +101,14 @@ set_location_assignment PIN_P14 -to db_vidas[3]
 set_location_assignment PIN_C1 -to db_vidas[4]
 set_location_assignment PIN_C2 -to db_vidas[5]
 set_location_assignment PIN_W19 -to db_vidas[6]
-set_location_assignment PIN_M7 -to confirma
+set_location_assignment PIN_M6 -to confirma
 set_location_assignment PIN_AA2 -to db_modo[0]
 set_location_assignment PIN_AA1 -to db_modo[1]
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE sync_ram_16x4_file2.v
+set_global_assignment -name VERILOG_FILE sync_ram_16x4_file1.v
+set_global_assignment -name VERILOG_FILE contador_m_32.v
+set_global_assignment -name VERILOG_FILE contador_m_24.v
+set_global_assignment -name VERILOG_FILE contador_m_16.v
 set_global_assignment -name VERILOG_FILE unidade_controle.v
 set_global_assignment -name VERILOG_FILE sync_ram_16x4_file.v
 set_global_assignment -name VERILOG_FILE simulador_drone.v
@@ -125,3 +127,13 @@ set_global_assignment -name VERILOG_FILE contador_4_mais_menos_limitado.v
 set_global_assignment -name VERILOG_FILE contador_3_mais_menos.v
 set_global_assignment -name VERILOG_FILE contador_1_5_mais_menos_limitado.v
 set_global_assignment -name VERILOG_FILE comparador_85.v
+set_location_assignment PIN_U1 -to timeout_out
+set_location_assignment PIN_M22 -to controle_horizontal[0]
+set_location_assignment PIN_P19 -to controle_horizontal[1]
+set_location_assignment PIN_R21 -to controle_vertical[0]
+set_location_assignment PIN_T22 -to controle_vertical[1]
+set_location_assignment PIN_W2 -to db_controle_vertical[0]
+set_location_assignment PIN_Y3 -to db_controle_vertical[1]
+set_location_assignment PIN_N2 -to db_controle_horizontal[0]
+set_location_assignment PIN_N1 -to db_controle_horizontal[1]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

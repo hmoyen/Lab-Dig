@@ -21,6 +21,7 @@ module unidade_controle (
     input      fim_mapa,
     input      colisao,
     input      borda_movimento,
+    input      fim_restore,
     output reg zeraPosicoes,
     output reg contaT,
     output reg zeraT,
@@ -31,6 +32,7 @@ module unidade_controle (
     output reg checa_colisao_out,
     output reg atualiza_out,
     output reg escolhe_mapa,
+    output reg restore,
     output reg venceu,
     output reg perdeu,
     output reg timeout_out,
@@ -42,6 +44,7 @@ module unidade_controle (
     parameter modo       = 4'b0010;  // 2
     parameter vidas      = 4'b1001;  // 9
     parameter mapa       = 4'b1100;  // C
+    parameter restoring  = 4'b1101;  // D
     parameter preparacao = 4'b0001;  // 1
     parameter espera     = 4'b0011; // 3
     parameter deslocamento     = 4'b0100; // 4
@@ -69,7 +72,8 @@ module unidade_controle (
             inicial:    Eprox = iniciar ? modo : inicial;
             modo:       Eprox = confirma ? vidas : modo;
             vidas:      Eprox = confirma ? mapa : vidas;
-            mapa:      Eprox = confirma ? preparacao : mapa;
+            mapa:      Eprox = confirma ? restoring : mapa;
+            restoring:  Eprox = fim_restore ? preparacao : restoring;
             preparacao: Eprox = espera;
             espera:     Eprox = timeout ? tout : 
                                 borda_movimento ? deslocamento : espera;
@@ -100,12 +104,14 @@ module unidade_controle (
         atualiza_out = (Eatual == atualiza_posicao) ? 1 : 0;
         timeout_out = (Eatual == tout) ? 1 : 0;
         escolhe_mapa = (Eatual == mapa) ? 1 : 0;
+        restore = (Eatual == restoring || Eatual == preparacao) ? 1 : 0;
         
         // Saida de depuracao (estado) 
         case (Eatual)
             inicial:    db_estado = 4'b0000;  // 0
             modo:       db_estado = 4'b0010;  // 2
             vidas:      db_estado = 4'b1001;  // 9
+            restoring:  db_estado = 4'b1101;  // D
             preparacao: db_estado = 4'b0001;  // 1
             espera:     db_estado = 4'b0011;  // 3
             deslocamento: db_estado = 4'b0100;  // 4
