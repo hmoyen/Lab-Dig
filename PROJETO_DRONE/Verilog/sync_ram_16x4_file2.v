@@ -39,7 +39,7 @@ module sync_ram_16x4_file2 #(
     begin : INICIA_RAM
         // leitura do conteudo a partir de um arquivo
         //$readmemb(BINFILE, ram);
-        ram[0] <= 4'b0000;
+        ram[0] <= 4'b0001;
         ram[1] <= 4'b1010;
         ram[2] <= 4'b0010;
         ram[3] <= 4'b0100;

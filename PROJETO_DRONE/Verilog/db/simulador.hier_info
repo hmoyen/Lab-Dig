@@ -61,14 +61,15 @@ db_controle_vertical[1] << db_controle_vertical[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |simulador_drone|fluxo_dados:fd
-reset => ~NO_FANOUT~
+reset => comb.IN0
+iniciar => comb.IN1
 iniciar => _.IN1
 controle_vertical[0] => controle_vertical[0].IN5
 controle_vertical[1] => controle_vertical[1].IN5
 controle_horizontal[0] => controle_horizontal[0].IN2
 controle_horizontal[1] => controle_horizontal[1].IN2
 confirma => ~NO_FANOUT~
-clock => clock.IN16
+clock => clock.IN19
 zeraPosicoes => _.IN1
 zeraPosicoes => _.IN1
 zeraPosicoes => _.IN1
@@ -83,14 +84,16 @@ escolhe_vida => comb.IN1
 checa_colisao => checa_colisao.IN1
 atualiza => comb.IN1
 escolhe_mapa => comb.IN1
+restore <> contador_163:contador_restore.ent
 colisao <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
 timeout <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 fim_mapa <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 borda_movimento <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
-db_posicao_horizontal[0] <= posicao_horizontal[0].DB_MAX_OUTPUT_PORT_TYPE
-db_posicao_horizontal[1] <= posicao_horizontal[1].DB_MAX_OUTPUT_PORT_TYPE
-db_posicao_horizontal[2] <= posicao_horizontal[2].DB_MAX_OUTPUT_PORT_TYPE
-db_posicao_horizontal[3] <= posicao_horizontal[3].DB_MAX_OUTPUT_PORT_TYPE
+fim_restore <= contador_163:contador_restore.rco
+db_posicao_horizontal[0] <= contador_16_mais_menos_limitado:contador_posicao_horizontal.Q
+db_posicao_horizontal[1] <= contador_16_mais_menos_limitado:contador_posicao_horizontal.Q
+db_posicao_horizontal[2] <= contador_16_mais_menos_limitado:contador_posicao_horizontal.Q
+db_posicao_horizontal[3] <= contador_16_mais_menos_limitado:contador_posicao_horizontal.Q
 db_posicao_vertical[0] <= converte_2b_4b:conversor_posicao.posicao_4b
 db_posicao_vertical[1] <= converte_2b_4b:conversor_posicao.posicao_4b
 db_posicao_vertical[2] <= converte_2b_4b:conversor_posicao.posicao_4b
@@ -107,6 +110,33 @@ colisao_counter_out[2] <= contador_5:contador_colisao.Q
 vidas_out[0] <= contador_1_5_mais_menos_limitado:contador_vidas.Q
 vidas_out[1] <= contador_1_5_mais_menos_limitado:contador_vidas.Q
 vidas_out[2] <= contador_1_5_mais_menos_limitado:contador_vidas.Q
+
+
+|simulador_drone|fluxo_dados:fd|contador_163:contador_restore
+clock => Q[0]~reg0.CLK
+clock => Q[1]~reg0.CLK
+clock => Q[2]~reg0.CLK
+clock => Q[3]~reg0.CLK
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ld => Q.OUTPUTSELECT
+ent => always0.IN0
+ent => always1.IN1
+enp => always0.IN1
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+D[3] => Q.DATAB
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rco <= always1.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |simulador_drone|fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal
@@ -409,6 +439,36 @@ fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|simulador_drone|fluxo_dados:fd|sync_rom_16x4_file1:mapa_0
+clock => data_out[0]~reg0.CLK
+clock => data_out[1]~reg0.CLK
+clock => data_out[2]~reg0.CLK
+clock => data_out[3]~reg0.CLK
+address[0] => Decoder0.IN3
+address[1] => Decoder0.IN2
+address[2] => Decoder0.IN1
+address[3] => Decoder0.IN0
+data_out[0] <= data_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= data_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= data_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= data_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|simulador_drone|fluxo_dados:fd|sync_rom_16x4_file2:mapa_1
+clock => data_out[0]~reg0.CLK
+clock => data_out[1]~reg0.CLK
+clock => data_out[2]~reg0.CLK
+clock => data_out[3]~reg0.CLK
+address[0] => Decoder0.IN3
+address[1] => Decoder0.IN2
+address[2] => Decoder0.IN1
+address[3] => Decoder0.IN0
+data_out[0] <= data_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= data_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= data_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= data_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo
 clk => ram.we_a.CLK
 clk => ram.waddr_a[3].CLK
@@ -674,8 +734,6 @@ confirma => Mux0.IN13
 confirma => Mux3.IN13
 confirma => Mux1.IN15
 confirma => Mux3.IN14
-confirma => Mux0.IN10
-confirma => Mux1.IN12
 confirma => Mux2.IN11
 confirma => Mux3.IN8
 timeout => Eprox.OUTPUTSELECT
@@ -687,6 +745,8 @@ fim_mapa => Mux3.IN10
 colisao => Mux3.IN15
 borda_movimento => Eprox.DATAA
 borda_movimento => Eprox.DATAA
+fim_restore => Mux0.IN10
+fim_restore => Mux1.IN12
 zeraPosicoes <= zeraPosicoes.DB_MAX_OUTPUT_PORT_TYPE
 contaT <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
 zeraT <= zeraPosicoes.DB_MAX_OUTPUT_PORT_TYPE
@@ -697,6 +757,7 @@ resetaVidas <= resetaVidas.DB_MAX_OUTPUT_PORT_TYPE
 checa_colisao_out <= Equal7.DB_MAX_OUTPUT_PORT_TYPE
 atualiza_out <= Equal8.DB_MAX_OUTPUT_PORT_TYPE
 escolhe_mapa <= Equal10.DB_MAX_OUTPUT_PORT_TYPE
+restore <= restore.DB_MAX_OUTPUT_PORT_TYPE
 venceu <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
 perdeu <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
 timeout_out <= Equal9.DB_MAX_OUTPUT_PORT_TYPE

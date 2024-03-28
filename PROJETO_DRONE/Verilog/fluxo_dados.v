@@ -250,7 +250,7 @@ assign colisao_counter_out = colisao_counter;
 assign colisao_interno = obstaculos[mapa][posicao_vertical] == 1 ? 1'b1 : 1'b0;
 
 //RESTORAR OS MAPAS
-assign addr_ram = restore ? index_restore : posicao_horizontal;
+assign addr_ram = restore ? index_restore - 4'b0001: posicao_horizontal;
 assign write_ram = (colisao_interno_pulso &  checa_colisao) | restore;
 assign data_ram = restore ? rom_out[mapa] : (obstaculos[mapa] - db_posicao_vertical );
 

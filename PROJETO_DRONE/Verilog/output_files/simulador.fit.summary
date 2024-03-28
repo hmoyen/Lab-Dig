@@ -1,16 +1,16 @@
-Fitter Status : Successful - Thu Mar 28 11:29:03 2024
+Fitter Status : Successful - Thu Mar 28 14:15:48 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : simulador
 Top-level Entity Name : simulador_drone
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 101 / 18,480 ( < 1 % )
-Total registers : 108
+Logic utilization (in ALMs) : 120 / 18,480 ( < 1 % )
+Total registers : 99
 Total pins : 59 / 224 ( 26 % )
 Total virtual pins : 0
-Total block memory bits : 0 / 3,153,920 ( 0 % )
-Total RAM Blocks : 0 / 308 ( 0 % )
+Total block memory bits : 128 / 3,153,920 ( < 1 % )
+Total RAM Blocks : 1 / 308 ( < 1 % )
 Total DSP Blocks : 0 / 66 ( 0 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

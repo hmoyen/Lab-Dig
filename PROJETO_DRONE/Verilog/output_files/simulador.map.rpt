@@ -1,5 +1,5 @@
 Analysis & Synthesis report for simulador
-Thu Mar 28 11:28:32 2024
+Thu Mar 28 14:15:20 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,37 +13,44 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil
- 12. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio
- 13. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl
- 14. Parameter Settings for User Entity Instance: fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo
- 15. Parameter Settings for User Entity Instance: fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo
- 16. Parameter Settings for User Entity Instance: unidade_controle:uc
- 17. Port Connectivity Checks: "hexa7seg:display_vidas"
- 18. Port Connectivity Checks: "hexa7seg:display_colisao_counter"
- 19. Port Connectivity Checks: "edge_detector:confirma_edge"
- 20. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_horizontal_1"
- 21. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_horizontal_0"
- 22. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_vertical_1"
- 23. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_vertical_0"
- 24. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_colisao_pulso"
- 25. Port Connectivity Checks: "fluxo_dados:fd|contador_5:contador_colisao"
- 26. Port Connectivity Checks: "fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_mapas"
- 27. Port Connectivity Checks: "fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas"
- 28. Port Connectivity Checks: "fluxo_dados:fd|contador_3_mais_menos:contador_modo"
- 29. Port Connectivity Checks: "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo"
- 30. Port Connectivity Checks: "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo"
- 31. Port Connectivity Checks: "fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl"
- 32. Port Connectivity Checks: "fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio"
- 33. Port Connectivity Checks: "fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil"
- 34. Port Connectivity Checks: "fluxo_dados:fd|contador_4_mais_menos_limitado:contador_posicao_vertical"
- 35. Port Connectivity Checks: "fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal"
- 36. Post-Synthesis Netlist Statistics for Top Partition
- 37. Elapsed Time Per Partition
- 38. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0|altsyncram_rig1:auto_generated
+ 14. Source assignments for fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0|altsyncram_8eg1:auto_generated
+ 15. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil
+ 16. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio
+ 17. Parameter Settings for User Entity Instance: fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl
+ 18. Parameter Settings for User Entity Instance: fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo
+ 19. Parameter Settings for User Entity Instance: fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo
+ 20. Parameter Settings for User Entity Instance: unidade_controle:uc
+ 21. Parameter Settings for Inferred Entity Instance: fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0
+ 22. Parameter Settings for Inferred Entity Instance: fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0
+ 23. altsyncram Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "hexa7seg:display_vidas"
+ 25. Port Connectivity Checks: "hexa7seg:display_colisao_counter"
+ 26. Port Connectivity Checks: "edge_detector:confirma_edge"
+ 27. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_horizontal_1"
+ 28. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_horizontal_0"
+ 29. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_vertical_1"
+ 30. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_borda_vertical_0"
+ 31. Port Connectivity Checks: "fluxo_dados:fd|edge_detector:detector_colisao_pulso"
+ 32. Port Connectivity Checks: "fluxo_dados:fd|contador_5:contador_colisao"
+ 33. Port Connectivity Checks: "fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_mapas"
+ 34. Port Connectivity Checks: "fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas"
+ 35. Port Connectivity Checks: "fluxo_dados:fd|contador_3_mais_menos:contador_modo"
+ 36. Port Connectivity Checks: "fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl"
+ 37. Port Connectivity Checks: "fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio"
+ 38. Port Connectivity Checks: "fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil"
+ 39. Port Connectivity Checks: "fluxo_dados:fd|contador_4_mais_menos_limitado:contador_posicao_vertical"
+ 40. Port Connectivity Checks: "fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal"
+ 41. Port Connectivity Checks: "fluxo_dados:fd|contador_163:contador_restore"
+ 42. Port Connectivity Checks: "fluxo_dados:fd"
+ 43. Post-Synthesis Netlist Statistics for Top Partition
+ 44. Elapsed Time Per Partition
+ 45. Analysis & Synthesis Messages
 
 
 
@@ -70,16 +77,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Mar 28 11:28:32 2024       ;
+; Analysis & Synthesis Status     ; Successful - Thu Mar 28 14:15:20 2024       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; simulador                                   ;
 ; Top-level Entity Name           ; simulador_drone                             ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 84                                          ;
+; Total registers                 ; 92                                          ;
 ; Total pins                      ; 59                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
+; Total block memory bits         ; 128                                         ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -194,28 +201,44 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
-+------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path   ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                    ; Library ;
-+------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; sync_ram_16x4_file2.v              ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_ram_16x4_file2.v              ;         ;
-; sync_ram_16x4_file1.v              ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_ram_16x4_file1.v              ;         ;
-; contador_m_32.v                    ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_32.v                    ;         ;
-; contador_m_24.v                    ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_24.v                    ;         ;
-; contador_m_16.v                    ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_16.v                    ;         ;
-; unidade_controle.v                 ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v                 ;         ;
-; simulador_drone.v                  ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v                  ;         ;
-; hexa7seg.v                         ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/hexa7seg.v                         ;         ;
-; fluxo_dados.v                      ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v                      ;         ;
-; edge_detector.v                    ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/edge_detector.v                    ;         ;
-; converte_2b_4b.v                   ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/converte_2b_4b.v                   ;         ;
-; contador_5.v                       ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_5.v                       ;         ;
-; contador_4_mais_menos_limitado.v   ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_4_mais_menos_limitado.v   ;         ;
-; contador_3_mais_menos.v            ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_3_mais_menos.v            ;         ;
-; contador_1_5_mais_menos_limitado.v ; yes             ; User Verilog HDL File        ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_1_5_mais_menos_limitado.v ;         ;
-; contador_16_mais_menos_limitado.v  ; yes             ; Auto-Found Verilog HDL File  ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_16_mais_menos_limitado.v  ;         ;
-+------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                               ;
++----------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                         ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                          ; Library ;
++----------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+; sync_ram_16x4_file2.v                                    ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_ram_16x4_file2.v                                    ;         ;
+; sync_ram_16x4_file1.v                                    ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_ram_16x4_file1.v                                    ;         ;
+; contador_m_32.v                                          ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_32.v                                          ;         ;
+; contador_m_24.v                                          ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_24.v                                          ;         ;
+; contador_m_16.v                                          ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_16.v                                          ;         ;
+; unidade_controle.v                                       ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v                                       ;         ;
+; simulador_drone.v                                        ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v                                        ;         ;
+; hexa7seg.v                                               ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/hexa7seg.v                                               ;         ;
+; fluxo_dados.v                                            ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v                                            ;         ;
+; edge_detector.v                                          ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/edge_detector.v                                          ;         ;
+; converte_2b_4b.v                                         ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/converte_2b_4b.v                                         ;         ;
+; contador_163.v                                           ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_163.v                                           ;         ;
+; contador_5.v                                             ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_5.v                                             ;         ;
+; contador_4_mais_menos_limitado.v                         ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_4_mais_menos_limitado.v                         ;         ;
+; contador_3_mais_menos.v                                  ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_3_mais_menos.v                                  ;         ;
+; contador_1_5_mais_menos_limitado.v                       ; yes             ; User Verilog HDL File                                 ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_1_5_mais_menos_limitado.v                       ;         ;
+; contador_16_mais_menos_limitado.v                        ; yes             ; Auto-Found Verilog HDL File                           ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_16_mais_menos_limitado.v                        ;         ;
+; sync_rom_16x4_file1.v                                    ; yes             ; Auto-Found Verilog HDL File                           ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_rom_16x4_file1.v                                    ;         ;
+; sync_rom_16x4_file2.v                                    ; yes             ; Auto-Found Verilog HDL File                           ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_rom_16x4_file2.v                                    ;         ;
+; altsyncram.tdf                                           ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                       ;         ;
+; stratix_ram_block.inc                                    ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                ;         ;
+; lpm_mux.inc                                              ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                          ;         ;
+; lpm_decode.inc                                           ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                       ;         ;
+; aglobal201.inc                                           ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                       ;         ;
+; a_rdenreg.inc                                            ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                        ;         ;
+; altrom.inc                                               ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                           ;         ;
+; altram.inc                                               ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altram.inc                                           ;         ;
+; altdpram.inc                                             ; yes             ; Megafunction                                          ; /home/victor/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                         ;         ;
+; db/altsyncram_rig1.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/db/altsyncram_rig1.tdf                                   ;         ;
+; db/simulador.ram0_sync_ram_16x4_file2_68d4b2f7_0.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/db/simulador.ram0_sync_ram_16x4_file2_68d4b2f7_0.hdl.mif ;         ;
+; db/altsyncram_8eg1.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/db/altsyncram_8eg1.tdf                                   ;         ;
+; db/simulador.ram0_sync_ram_16x4_file1_68d4b2f4.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/db/simulador.ram0_sync_ram_16x4_file1_68d4b2f4.hdl.mif   ;         ;
++----------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -223,60 +246,81 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 102         ;
+; Estimate of Logic utilization (ALMs needed) ; 120         ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 169         ;
-;     -- 7 input functions                    ; 2           ;
-;     -- 6 input functions                    ; 30          ;
-;     -- 5 input functions                    ; 17          ;
-;     -- 4 input functions                    ; 46          ;
-;     -- <=3 input functions                  ; 74          ;
+; Combinational ALUT usage for logic          ; 203         ;
+;     -- 7 input functions                    ; 1           ;
+;     -- 6 input functions                    ; 34          ;
+;     -- 5 input functions                    ; 24          ;
+;     -- 4 input functions                    ; 61          ;
+;     -- <=3 input functions                  ; 83          ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 84          ;
+; Dedicated logic registers                   ; 92          ;
 ;                                             ;             ;
 ; I/O pins                                    ; 59          ;
+; Total MLAB memory bits                      ; 0           ;
+; Total block memory bits                     ; 128         ;
 ;                                             ;             ;
 ; Total DSP Blocks                            ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 84          ;
-; Total fan-out                               ; 1017        ;
-; Average fan-out                             ; 2.74        ;
+; Maximum fan-out                             ; 100         ;
+; Total fan-out                               ; 1230        ;
+; Average fan-out                             ; 2.92        ;
 +---------------------------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                          ;
-+---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------+----------------------------------+--------------+
-; Compilation Hierarchy Node                                          ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                         ; Entity Name                      ; Library Name ;
-+---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------+----------------------------------+--------------+
-; |simulador_drone                                                    ; 169 (0)             ; 84 (0)                    ; 0                 ; 0          ; 59   ; 0            ; |simulador_drone                                                                            ; simulador_drone                  ; work         ;
-;    |edge_detector:confirma_edge|                                    ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|edge_detector:confirma_edge                                                ; edge_detector                    ; work         ;
-;    |fluxo_dados:fd|                                                 ; 105 (16)            ; 78 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd                                                             ; fluxo_dados                      ; work         ;
-;       |contador_16_mais_menos_limitado:contador_posicao_horizontal| ; 6 (6)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal ; contador_16_mais_menos_limitado  ; work         ;
-;       |contador_1_5_mais_menos_limitado:contador_mapas|             ; 5 (5)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_mapas             ; contador_1_5_mais_menos_limitado ; work         ;
-;       |contador_1_5_mais_menos_limitado:contador_vidas|             ; 6 (6)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas             ; contador_1_5_mais_menos_limitado ; work         ;
-;       |contador_3_mais_menos:contador_modo|                         ; 4 (4)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_3_mais_menos:contador_modo                         ; contador_3_mais_menos            ; work         ;
-;       |contador_4_mais_menos_limitado:contador_posicao_vertical|    ; 4 (4)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_4_mais_menos_limitado:contador_posicao_vertical    ; contador_4_mais_menos_limitado   ; work         ;
-;       |contador_5:contador_colisao|                                 ; 4 (4)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_5:contador_colisao                                 ; contador_5                       ; work         ;
-;       |contador_m_16:contador_tempo_jogada_dificl|                  ; 19 (19)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl                  ; contador_m_16                    ; work         ;
-;       |contador_m_24:contador_tempo_jogada_medio|                   ; 21 (21)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio                   ; contador_m_24                    ; work         ;
-;       |contador_m_32:contador_tempo_jogada_facil|                   ; 20 (20)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil                   ; contador_m_32                    ; work         ;
-;       |edge_detector:detector_borda_horizontal_0|                   ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_horizontal_0                   ; edge_detector                    ; work         ;
-;       |edge_detector:detector_borda_horizontal_1|                   ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_horizontal_1                   ; edge_detector                    ; work         ;
-;       |edge_detector:detector_borda_vertical_0|                     ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_vertical_0                     ; edge_detector                    ; work         ;
-;       |edge_detector:detector_borda_vertical_1|                     ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_vertical_1                     ; edge_detector                    ; work         ;
-;       |edge_detector:detector_colisao_pulso|                        ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_colisao_pulso                        ; edge_detector                    ; work         ;
-;       |sync_ram_16x4_file2:mapa_1_jogo|                             ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo                             ; sync_ram_16x4_file2              ; work         ;
-;    |hexa7seg:display_colisao_counter|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_colisao_counter                                           ; hexa7seg                         ; work         ;
-;    |hexa7seg:display_estado|                                        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_estado                                                    ; hexa7seg                         ; work         ;
-;    |hexa7seg:display_obstaculos|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_obstaculos                                                ; hexa7seg                         ; work         ;
-;    |hexa7seg:display_posicao_horizontal|                            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_posicao_horizontal                                        ; hexa7seg                         ; work         ;
-;    |hexa7seg:display_posicao_vertical|                              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_posicao_vertical                                          ; hexa7seg                         ; work         ;
-;    |hexa7seg:display_vidas|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_vidas                                                     ; hexa7seg                         ; work         ;
-;    |unidade_controle:uc|                                            ; 27 (27)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|unidade_controle:uc                                                        ; unidade_controle                 ; work         ;
-+---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------+----------------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                  ;
++---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------+--------------+
+; Compilation Hierarchy Node                                          ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                 ; Entity Name                      ; Library Name ;
++---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------+--------------+
+; |simulador_drone                                                    ; 203 (0)             ; 92 (0)                    ; 128               ; 0          ; 59   ; 0            ; |simulador_drone                                                                                                    ; simulador_drone                  ; work         ;
+;    |edge_detector:confirma_edge|                                    ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|edge_detector:confirma_edge                                                                        ; edge_detector                    ; work         ;
+;    |fluxo_dados:fd|                                                 ; 134 (31)            ; 86 (0)                    ; 128               ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd                                                                                     ; fluxo_dados                      ; work         ;
+;       |contador_163:contador_restore|                               ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_163:contador_restore                                                       ; contador_163                     ; work         ;
+;       |contador_16_mais_menos_limitado:contador_posicao_horizontal| ; 6 (6)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal                         ; contador_16_mais_menos_limitado  ; work         ;
+;       |contador_1_5_mais_menos_limitado:contador_mapas|             ; 5 (5)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_mapas                                     ; contador_1_5_mais_menos_limitado ; work         ;
+;       |contador_1_5_mais_menos_limitado:contador_vidas|             ; 6 (6)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas                                     ; contador_1_5_mais_menos_limitado ; work         ;
+;       |contador_3_mais_menos:contador_modo|                         ; 4 (4)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_3_mais_menos:contador_modo                                                 ; contador_3_mais_menos            ; work         ;
+;       |contador_4_mais_menos_limitado:contador_posicao_vertical|    ; 4 (4)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_4_mais_menos_limitado:contador_posicao_vertical                            ; contador_4_mais_menos_limitado   ; work         ;
+;       |contador_5:contador_colisao|                                 ; 4 (4)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_5:contador_colisao                                                         ; contador_5                       ; work         ;
+;       |contador_m_16:contador_tempo_jogada_dificl|                  ; 19 (19)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl                                          ; contador_m_16                    ; work         ;
+;       |contador_m_24:contador_tempo_jogada_medio|                   ; 21 (21)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio                                           ; contador_m_24                    ; work         ;
+;       |contador_m_32:contador_tempo_jogada_facil|                   ; 20 (20)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil                                           ; contador_m_32                    ; work         ;
+;       |converte_2b_4b:conversor_posicao|                            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|converte_2b_4b:conversor_posicao                                                    ; converte_2b_4b                   ; work         ;
+;       |edge_detector:detector_borda_horizontal_0|                   ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_horizontal_0                                           ; edge_detector                    ; work         ;
+;       |edge_detector:detector_borda_horizontal_1|                   ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_horizontal_1                                           ; edge_detector                    ; work         ;
+;       |edge_detector:detector_borda_vertical_0|                     ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_vertical_0                                             ; edge_detector                    ; work         ;
+;       |edge_detector:detector_borda_vertical_1|                     ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_borda_vertical_1                                             ; edge_detector                    ; work         ;
+;       |edge_detector:detector_colisao_pulso|                        ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|edge_detector:detector_colisao_pulso                                                ; edge_detector                    ; work         ;
+;       |sync_ram_16x4_file1:mapa_0_jogo|                             ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo                                                     ; sync_ram_16x4_file1              ; work         ;
+;          |altsyncram:ram_rtl_0|                                     ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0                                ; altsyncram                       ; work         ;
+;             |altsyncram_8eg1:auto_generated|                        ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0|altsyncram_8eg1:auto_generated ; altsyncram_8eg1                  ; work         ;
+;       |sync_ram_16x4_file2:mapa_1_jogo|                             ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo                                                     ; sync_ram_16x4_file2              ; work         ;
+;          |altsyncram:ram_rtl_0|                                     ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0                                ; altsyncram                       ; work         ;
+;             |altsyncram_rig1:auto_generated|                        ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0|altsyncram_rig1:auto_generated ; altsyncram_rig1                  ; work         ;
+;       |sync_rom_16x4_file1:mapa_0|                                  ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_rom_16x4_file1:mapa_0                                                          ; sync_rom_16x4_file1              ; work         ;
+;       |sync_rom_16x4_file2:mapa_1|                                  ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|fluxo_dados:fd|sync_rom_16x4_file2:mapa_1                                                          ; sync_rom_16x4_file2              ; work         ;
+;    |hexa7seg:display_colisao_counter|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_colisao_counter                                                                   ; hexa7seg                         ; work         ;
+;    |hexa7seg:display_estado|                                        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_estado                                                                            ; hexa7seg                         ; work         ;
+;    |hexa7seg:display_obstaculos|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_obstaculos                                                                        ; hexa7seg                         ; work         ;
+;    |hexa7seg:display_posicao_horizontal|                            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_posicao_horizontal                                                                ; hexa7seg                         ; work         ;
+;    |hexa7seg:display_posicao_vertical|                              ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_posicao_vertical                                                                  ; hexa7seg                         ; work         ;
+;    |hexa7seg:display_vidas|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|hexa7seg:display_vidas                                                                             ; hexa7seg                         ; work         ;
+;    |unidade_controle:uc|                                            ; 32 (32)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |simulador_drone|unidade_controle:uc                                                                                ; unidade_controle                 ; work         ;
++---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                 ;
++---------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------------+
+; Name                                                                                                          ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                                      ;
++---------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------------+
+; fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0|altsyncram_8eg1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 16           ; 4            ; --           ; --           ; 64   ; db/simulador.ram0_sync_ram_16x4_file1_68d4b2f4.hdl.mif   ;
+; fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0|altsyncram_rig1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 16           ; 4            ; --           ; --           ; 64   ; db/simulador.ram0_sync_ram_16x4_file2_68d4b2f7_0.hdl.mif ;
++---------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------+
@@ -297,14 +341,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 84    ;
+; Total registers                              ; 92    ;
 ; Number of registers using Synchronous Clear  ; 47    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 60    ;
+; Number of registers using Clock Enable       ; 64    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                    ;
++---------------------------------------------------------------+----------------------------------------------------------+------+
+; Register Name                                                 ; Megafunction                                             ; Type ;
++---------------------------------------------------------------+----------------------------------------------------------+------+
+; fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|addr_reg[0..3] ; fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|ram_rtl_0 ; RAM  ;
++---------------------------------------------------------------+----------------------------------------------------------+------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -312,16 +365,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_5:contador_colisao|Q[0]                                 ;
-; 4:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl|Q[9]                  ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio|Q[15]                  ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil|Q[15]                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_5:contador_colisao|Q[2]                                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_163:contador_restore|Q[3]                               ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl|Q[12]                 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio|Q[14]                  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil|Q[6]                   ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal|Q[1] ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_mapas|Q[1]             ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_mapas|Q[0]             ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas|Q[1]             ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simulador_drone|fluxo_dados:fd|contador_3_mais_menos:contador_modo|Q[0]                         ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simulador_drone|fluxo_dados:fd|Mux3                                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |simulador_drone|fluxo_dados:fd|Mux4                                                             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simulador_drone|fluxo_dados:fd|data_ram[3]                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0|altsyncram_rig1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                          ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                           ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0|altsyncram_8eg1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                          ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                           ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------+
@@ -386,6 +459,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; modo             ; 0010  ; Unsigned Binary                       ;
 ; vidas            ; 1001  ; Unsigned Binary                       ;
 ; mapa             ; 1100  ; Unsigned Binary                       ;
+; restoring        ; 1101  ; Unsigned Binary                       ;
 ; preparacao       ; 0001  ; Unsigned Binary                       ;
 ; espera           ; 0011  ; Unsigned Binary                       ;
 ; deslocamento     ; 0100  ; Unsigned Binary                       ;
@@ -397,6 +471,159 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; tout             ; 1011  ; Unsigned Binary                       ;
 +------------------+-------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0 ;
++------------------------------------+----------------------------------------------------------+----------------------+
+; Parameter Name                     ; Value                                                    ; Type                 ;
++------------------------------------+----------------------------------------------------------+----------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                        ; Untyped              ;
+; AUTO_CARRY_CHAINS                  ; ON                                                       ; AUTO_CARRY           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                      ; IGNORE_CARRY         ;
+; AUTO_CASCADE_CHAINS                ; ON                                                       ; AUTO_CASCADE         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                      ; IGNORE_CASCADE       ;
+; WIDTH_BYTEENA                      ; 1                                                        ; Untyped              ;
+; OPERATION_MODE                     ; SINGLE_PORT                                              ; Untyped              ;
+; WIDTH_A                            ; 4                                                        ; Untyped              ;
+; WIDTHAD_A                          ; 4                                                        ; Untyped              ;
+; NUMWORDS_A                         ; 16                                                       ; Untyped              ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                             ; Untyped              ;
+; ADDRESS_ACLR_A                     ; NONE                                                     ; Untyped              ;
+; OUTDATA_ACLR_A                     ; NONE                                                     ; Untyped              ;
+; WRCONTROL_ACLR_A                   ; NONE                                                     ; Untyped              ;
+; INDATA_ACLR_A                      ; NONE                                                     ; Untyped              ;
+; BYTEENA_ACLR_A                     ; NONE                                                     ; Untyped              ;
+; WIDTH_B                            ; 1                                                        ; Untyped              ;
+; WIDTHAD_B                          ; 1                                                        ; Untyped              ;
+; NUMWORDS_B                         ; 1                                                        ; Untyped              ;
+; INDATA_REG_B                       ; CLOCK1                                                   ; Untyped              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                                   ; Untyped              ;
+; RDCONTROL_REG_B                    ; CLOCK1                                                   ; Untyped              ;
+; ADDRESS_REG_B                      ; CLOCK1                                                   ; Untyped              ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                             ; Untyped              ;
+; BYTEENA_REG_B                      ; CLOCK1                                                   ; Untyped              ;
+; INDATA_ACLR_B                      ; NONE                                                     ; Untyped              ;
+; WRCONTROL_ACLR_B                   ; NONE                                                     ; Untyped              ;
+; ADDRESS_ACLR_B                     ; NONE                                                     ; Untyped              ;
+; OUTDATA_ACLR_B                     ; NONE                                                     ; Untyped              ;
+; RDCONTROL_ACLR_B                   ; NONE                                                     ; Untyped              ;
+; BYTEENA_ACLR_B                     ; NONE                                                     ; Untyped              ;
+; WIDTH_BYTEENA_A                    ; 1                                                        ; Untyped              ;
+; WIDTH_BYTEENA_B                    ; 1                                                        ; Untyped              ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                     ; Untyped              ;
+; BYTE_SIZE                          ; 8                                                        ; Untyped              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                     ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                     ; Untyped              ;
+; INIT_FILE                          ; db/simulador.ram0_sync_ram_16x4_file2_68d4b2f7_0.hdl.mif ; Untyped              ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                                   ; Untyped              ;
+; MAXIMUM_DEPTH                      ; 0                                                        ; Untyped              ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                                   ; Untyped              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                                   ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                                   ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                                   ; Untyped              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                          ; Untyped              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                          ; Untyped              ;
+; ENABLE_ECC                         ; FALSE                                                    ; Untyped              ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                    ; Untyped              ;
+; WIDTH_ECCSTATUS                    ; 3                                                        ; Untyped              ;
+; DEVICE_FAMILY                      ; Cyclone V                                                ; Untyped              ;
+; CBXI_PARAMETER                     ; altsyncram_rig1                                          ; Untyped              ;
++------------------------------------+----------------------------------------------------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0 ;
++------------------------------------+--------------------------------------------------------+------------------------+
+; Parameter Name                     ; Value                                                  ; Type                   ;
++------------------------------------+--------------------------------------------------------+------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                      ; Untyped                ;
+; AUTO_CARRY_CHAINS                  ; ON                                                     ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                    ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS                ; ON                                                     ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                    ; IGNORE_CASCADE         ;
+; WIDTH_BYTEENA                      ; 1                                                      ; Untyped                ;
+; OPERATION_MODE                     ; SINGLE_PORT                                            ; Untyped                ;
+; WIDTH_A                            ; 4                                                      ; Untyped                ;
+; WIDTHAD_A                          ; 4                                                      ; Untyped                ;
+; NUMWORDS_A                         ; 16                                                     ; Untyped                ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                           ; Untyped                ;
+; ADDRESS_ACLR_A                     ; NONE                                                   ; Untyped                ;
+; OUTDATA_ACLR_A                     ; NONE                                                   ; Untyped                ;
+; WRCONTROL_ACLR_A                   ; NONE                                                   ; Untyped                ;
+; INDATA_ACLR_A                      ; NONE                                                   ; Untyped                ;
+; BYTEENA_ACLR_A                     ; NONE                                                   ; Untyped                ;
+; WIDTH_B                            ; 1                                                      ; Untyped                ;
+; WIDTHAD_B                          ; 1                                                      ; Untyped                ;
+; NUMWORDS_B                         ; 1                                                      ; Untyped                ;
+; INDATA_REG_B                       ; CLOCK1                                                 ; Untyped                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                                 ; Untyped                ;
+; RDCONTROL_REG_B                    ; CLOCK1                                                 ; Untyped                ;
+; ADDRESS_REG_B                      ; CLOCK1                                                 ; Untyped                ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                           ; Untyped                ;
+; BYTEENA_REG_B                      ; CLOCK1                                                 ; Untyped                ;
+; INDATA_ACLR_B                      ; NONE                                                   ; Untyped                ;
+; WRCONTROL_ACLR_B                   ; NONE                                                   ; Untyped                ;
+; ADDRESS_ACLR_B                     ; NONE                                                   ; Untyped                ;
+; OUTDATA_ACLR_B                     ; NONE                                                   ; Untyped                ;
+; RDCONTROL_ACLR_B                   ; NONE                                                   ; Untyped                ;
+; BYTEENA_ACLR_B                     ; NONE                                                   ; Untyped                ;
+; WIDTH_BYTEENA_A                    ; 1                                                      ; Untyped                ;
+; WIDTH_BYTEENA_B                    ; 1                                                      ; Untyped                ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                   ; Untyped                ;
+; BYTE_SIZE                          ; 8                                                      ; Untyped                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                              ; Untyped                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                   ; Untyped                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                   ; Untyped                ;
+; INIT_FILE                          ; db/simulador.ram0_sync_ram_16x4_file1_68d4b2f4.hdl.mif ; Untyped                ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                                 ; Untyped                ;
+; MAXIMUM_DEPTH                      ; 0                                                      ; Untyped                ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                                 ; Untyped                ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                                 ; Untyped                ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                                 ; Untyped                ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                                 ; Untyped                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                        ; Untyped                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                        ; Untyped                ;
+; ENABLE_ECC                         ; FALSE                                                  ; Untyped                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                  ; Untyped                ;
+; WIDTH_ECCSTATUS                    ; 3                                                      ; Untyped                ;
+; DEVICE_FAMILY                      ; Cyclone V                                              ; Untyped                ;
+; CBXI_PARAMETER                     ; altsyncram_8eg1                                        ; Untyped                ;
++------------------------------------+--------------------------------------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                ;
++-------------------------------------------+---------------------------------------------------------------------+
+; Name                                      ; Value                                                               ;
++-------------------------------------------+---------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                   ;
+; Entity Instance                           ; fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                         ;
+;     -- WIDTH_A                            ; 4                                                                   ;
+;     -- NUMWORDS_A                         ; 16                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
+;     -- WIDTH_B                            ; 1                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
+; Entity Instance                           ; fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                         ;
+;     -- WIDTH_A                            ; 4                                                                   ;
+;     -- NUMWORDS_A                         ; 16                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
+;     -- WIDTH_B                            ; 1                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
++-------------------------------------------+---------------------------------------------------------------------+
 
 
 +----------------------------------------------------+
@@ -517,26 +744,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-----------------------------------------------------+
 
 
-+----------------------------------------------------------------------------+
-; Port Connectivity Checks: "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo" ;
-+------+-------+----------+--------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                          ;
-+------+-------+----------+--------------------------------------------------+
-; we   ; Input ; Info     ; Stuck at GND                                     ;
-; data ; Input ; Info     ; Stuck at GND                                     ;
-+------+-------+----------+--------------------------------------------------+
-
-
-+----------------------------------------------------------------------------+
-; Port Connectivity Checks: "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo" ;
-+------+-------+----------+--------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                          ;
-+------+-------+----------+--------------------------------------------------+
-; we   ; Input ; Info     ; Stuck at GND                                     ;
-; data ; Input ; Info     ; Stuck at GND                                     ;
-+------+-------+----------+--------------------------------------------------+
-
-
 +---------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl" ;
 +---------+--------+----------+---------------------------------------------------------+
@@ -593,33 +800,57 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-----------------------------------------------------------------------------+
 
 
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd|contador_163:contador_restore" ;
++------+-------+----------+------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                        ;
++------+-------+----------+------------------------------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC                                   ;
+; enp  ; Input ; Info     ; Stuck at VCC                                   ;
+; D    ; Input ; Info     ; Explicitly unconnected                         ;
++------+-------+----------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxo_dados:fd"                                                                       ;
++---------+-------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------+
+; restore ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+-------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 84                          ;
+; arriav_ff             ; 92                          ;
 ;     CLR               ; 4                           ;
-;     ENA               ; 13                          ;
+;     ENA               ; 17                          ;
 ;     ENA SCLR          ; 47                          ;
-;     plain             ; 20                          ;
-; arriav_lcell_comb     ; 180                         ;
-;     arith             ; 47                          ;
-;         1 data inputs ; 47                          ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 131                         ;
+;     plain             ; 24                          ;
+; arriav_lcell_comb     ; 211                         ;
+;     arith             ; 52                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 21                          ;
-;         4 data inputs ; 46                          ;
-;         5 data inputs ; 17                          ;
-;         6 data inputs ; 30                          ;
+;         1 data inputs ; 47                          ;
+;         4 data inputs ; 1                           ;
+;         5 data inputs ; 3                           ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 158                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 26                          ;
+;         4 data inputs ; 60                          ;
+;         5 data inputs ; 21                          ;
+;         6 data inputs ; 34                          ;
 ; boundary_port         ; 59                          ;
+; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.49                        ;
+; Average LUT depth     ; 2.45                        ;
 +-----------------------+-----------------------------+
 
 
@@ -628,7 +859,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -638,7 +869,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Mar 28 11:28:19 2024
+    Info: Processing started: Thu Mar 28 14:15:09 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off simulador -c simulador
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -685,37 +916,42 @@ Info (12021): Found 1 design units, including 1 entities, in source file contado
 Info (12021): Found 1 design units, including 1 entities, in source file comparador_85.v
     Info (12023): Found entity 1: comparador_85 File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/comparador_85.v Line: 16
 Info (12127): Elaborating entity "simulador_drone" for the top level hierarchy
-Info (12128): Elaborating entity "fluxo_dados" for hierarchy "fluxo_dados:fd" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v Line: 58
-Warning (10030): Net "obstaculos[2]" at fluxo_dados.v(36) has no driver or initial value, using a default initial value '0' File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 36
+Info (12128): Elaborating entity "fluxo_dados" for hierarchy "fluxo_dados:fd" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v Line: 60
+Warning (10030): Net "obstaculos[2]" at fluxo_dados.v(38) has no driver or initial value, using a default initial value '0' File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 38
+Warning (10030): Net "rom_out[2]" at fluxo_dados.v(39) has no driver or initial value, using a default initial value '0' File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 39
+Info (12128): Elaborating entity "contador_163" for hierarchy "fluxo_dados:fd|contador_163:contador_restore" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 51
+Warning (10230): Verilog HDL assignment warning at contador_163.v(25): truncated value with size 32 to match size of target (4) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_163.v Line: 25
 Warning (12125): Using design file contador_16_mais_menos_limitado.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: contador_16_mais_menos_limitado File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_16_mais_menos_limitado.v Line: 2
-Info (12128): Elaborating entity "contador_16_mais_menos_limitado" for hierarchy "fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 49
+Info (12128): Elaborating entity "contador_16_mais_menos_limitado" for hierarchy "fluxo_dados:fd|contador_16_mais_menos_limitado:contador_posicao_horizontal" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 64
 Warning (10230): Verilog HDL assignment warning at contador_16_mais_menos_limitado.v(12): truncated value with size 32 to match size of target (4) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_16_mais_menos_limitado.v Line: 12
 Warning (10230): Verilog HDL assignment warning at contador_16_mais_menos_limitado.v(13): truncated value with size 32 to match size of target (4) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_16_mais_menos_limitado.v Line: 13
-Info (12128): Elaborating entity "contador_4_mais_menos_limitado" for hierarchy "fluxo_dados:fd|contador_4_mais_menos_limitado:contador_posicao_vertical" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 62
+Info (12128): Elaborating entity "contador_4_mais_menos_limitado" for hierarchy "fluxo_dados:fd|contador_4_mais_menos_limitado:contador_posicao_vertical" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 77
 Warning (10230): Verilog HDL assignment warning at contador_4_mais_menos_limitado.v(12): truncated value with size 32 to match size of target (2) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_4_mais_menos_limitado.v Line: 12
 Warning (10230): Verilog HDL assignment warning at contador_4_mais_menos_limitado.v(13): truncated value with size 32 to match size of target (2) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_4_mais_menos_limitado.v Line: 13
-Info (12128): Elaborating entity "contador_m_32" for hierarchy "fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 72
+Info (12128): Elaborating entity "contador_m_32" for hierarchy "fluxo_dados:fd|contador_m_32:contador_tempo_jogada_facil" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 87
 Warning (10230): Verilog HDL assignment warning at contador_m_32.v(40): truncated value with size 32 to match size of target (16) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_32.v Line: 40
-Info (12128): Elaborating entity "contador_m_24" for hierarchy "fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 82
+Info (12128): Elaborating entity "contador_m_24" for hierarchy "fluxo_dados:fd|contador_m_24:contador_tempo_jogada_medio" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 97
 Warning (10230): Verilog HDL assignment warning at contador_m_24.v(40): truncated value with size 32 to match size of target (16) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_24.v Line: 40
-Info (12128): Elaborating entity "contador_m_16" for hierarchy "fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 92
+Info (12128): Elaborating entity "contador_m_16" for hierarchy "fluxo_dados:fd|contador_m_16:contador_tempo_jogada_dificl" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 107
 Warning (10230): Verilog HDL assignment warning at contador_m_16.v(40): truncated value with size 32 to match size of target (15) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_m_16.v Line: 40
-Info (12128): Elaborating entity "sync_ram_16x4_file1" for hierarchy "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 100
-Info (12128): Elaborating entity "sync_ram_16x4_file2" for hierarchy "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 108
-Info (12128): Elaborating entity "contador_3_mais_menos" for hierarchy "fluxo_dados:fd|contador_3_mais_menos:contador_modo" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 123
+Warning (12125): Using design file sync_rom_16x4_file1.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: sync_rom_16x4_file1 File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_rom_16x4_file1.v Line: 13
+Info (12128): Elaborating entity "sync_rom_16x4_file1" for hierarchy "fluxo_dados:fd|sync_rom_16x4_file1:mapa_0" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 113
+Warning (12125): Using design file sync_rom_16x4_file2.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: sync_rom_16x4_file2 File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_rom_16x4_file2.v Line: 13
+Info (12128): Elaborating entity "sync_rom_16x4_file2" for hierarchy "fluxo_dados:fd|sync_rom_16x4_file2:mapa_1" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 119
+Info (12128): Elaborating entity "sync_ram_16x4_file1" for hierarchy "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 127
+Info (12128): Elaborating entity "sync_ram_16x4_file2" for hierarchy "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 135
+Info (12128): Elaborating entity "contador_3_mais_menos" for hierarchy "fluxo_dados:fd|contador_3_mais_menos:contador_modo" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 150
 Warning (10230): Verilog HDL assignment warning at contador_3_mais_menos.v(14): truncated value with size 32 to match size of target (2) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_3_mais_menos.v Line: 14
 Warning (10230): Verilog HDL assignment warning at contador_3_mais_menos.v(18): truncated value with size 32 to match size of target (2) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_3_mais_menos.v Line: 18
-Info (12128): Elaborating entity "contador_1_5_mais_menos_limitado" for hierarchy "fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 136
-Info (12128): Elaborating entity "contador_5" for hierarchy "fluxo_dados:fd|contador_5:contador_colisao" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 162
+Info (12128): Elaborating entity "contador_1_5_mais_menos_limitado" for hierarchy "fluxo_dados:fd|contador_1_5_mais_menos_limitado:contador_vidas" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 163
+Info (12128): Elaborating entity "contador_5" for hierarchy "fluxo_dados:fd|contador_5:contador_colisao" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 189
 Warning (10230): Verilog HDL assignment warning at contador_5.v(25): truncated value with size 32 to match size of target (3) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/contador_5.v Line: 25
-Info (12128): Elaborating entity "edge_detector" for hierarchy "fluxo_dados:fd|edge_detector:detector_colisao_pulso" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 169
-Info (12128): Elaborating entity "converte_2b_4b" for hierarchy "fluxo_dados:fd|converte_2b_4b:conversor_posicao" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 204
-Info (12128): Elaborating entity "unidade_controle" for hierarchy "unidade_controle:uc" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v Line: 82
-Warning (10230): Verilog HDL assignment warning at unidade_controle.v(90): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 90
-Warning (10230): Verilog HDL assignment warning at unidade_controle.v(91): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 91
-Warning (10230): Verilog HDL assignment warning at unidade_controle.v(92): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 92
-Warning (10230): Verilog HDL assignment warning at unidade_controle.v(93): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 93
+Info (12128): Elaborating entity "edge_detector" for hierarchy "fluxo_dados:fd|edge_detector:detector_colisao_pulso" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 196
+Info (12128): Elaborating entity "converte_2b_4b" for hierarchy "fluxo_dados:fd|converte_2b_4b:conversor_posicao" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/fluxo_dados.v Line: 231
+Info (12128): Elaborating entity "unidade_controle" for hierarchy "unidade_controle:uc" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v Line: 86
 Warning (10230): Verilog HDL assignment warning at unidade_controle.v(94): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 94
 Warning (10230): Verilog HDL assignment warning at unidade_controle.v(95): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 95
 Warning (10230): Verilog HDL assignment warning at unidade_controle.v(96): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 96
@@ -725,23 +961,79 @@ Warning (10230): Verilog HDL assignment warning at unidade_controle.v(99): trunc
 Warning (10230): Verilog HDL assignment warning at unidade_controle.v(100): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 100
 Warning (10230): Verilog HDL assignment warning at unidade_controle.v(101): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 101
 Warning (10230): Verilog HDL assignment warning at unidade_controle.v(102): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 102
-Info (12128): Elaborating entity "hexa7seg" for hierarchy "hexa7seg:display_posicao_horizontal" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v Line: 94
-Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276004): RAM logic "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|ram" is uninferred due to inappropriate RAM size File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_ram_16x4_file2.v Line: 31
-    Info (276004): RAM logic "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|ram" is uninferred due to inappropriate RAM size File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_ram_16x4_file1.v Line: 31
+Warning (10230): Verilog HDL assignment warning at unidade_controle.v(103): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 103
+Warning (10230): Verilog HDL assignment warning at unidade_controle.v(104): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 104
+Warning (10230): Verilog HDL assignment warning at unidade_controle.v(105): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 105
+Warning (10230): Verilog HDL assignment warning at unidade_controle.v(106): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 106
+Warning (10230): Verilog HDL assignment warning at unidade_controle.v(107): truncated value with size 32 to match size of target (1) File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/unidade_controle.v Line: 107
+Info (12128): Elaborating entity "hexa7seg" for hierarchy "hexa7seg:display_posicao_horizontal" File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v Line: 98
+Warning (276021): Created node "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|ram" as a single-port RAM by generating altsyncram megafunction to implement register logic. Power-up values at the outputs of the RAM are different from the original design. File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/sync_ram_16x4_file2.v Line: 31
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 4
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/simulador.ram0_sync_ram_16x4_file2_68d4b2f7_0.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 4
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/simulador.ram0_sync_ram_16x4_file1_68d4b2f4.hdl.mif
+Info (12130): Elaborated megafunction instantiation "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "fluxo_dados:fd|sync_ram_16x4_file2:mapa_1_jogo|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "4"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/simulador.ram0_sync_ram_16x4_file2_68d4b2f7_0.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rig1.tdf
+    Info (12023): Found entity 1: altsyncram_rig1 File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/db/altsyncram_rig1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "fluxo_dados:fd|sync_ram_16x4_file1:mapa_0_jogo|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "4"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/simulador.ram0_sync_ram_16x4_file1_68d4b2f4.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8eg1.tdf
+    Info (12023): Found entity 1: altsyncram_8eg1 File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/db/altsyncram_8eg1.tdf Line: 28
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "db_posicao_vertical[1]" is stuck at GND File: /home/victor/Documentos/LABDIG/Lab-Dig/PROJETO_DRONE/Verilog/simulador_drone.v Line: 12
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 243 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 281 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 51 output pins
-    Info (21061): Implemented 184 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 441 megabytes
-    Info: Processing ended: Thu Mar 28 11:28:32 2024
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:31
+    Info (21061): Implemented 214 logic cells
+    Info (21064): Implemented 8 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 453 megabytes
+    Info: Processing ended: Thu Mar 28 14:15:20 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:23
 
 

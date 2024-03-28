@@ -1,0 +1,27 @@
+-- begin_signature
+-- sync_ram_16x4_file2
+-- end_signature
+WIDTH=4;
+DEPTH=16;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	15 :	0101;
+	14 :	0100;
+	13 :	0010;
+	12 :	1100;
+	11 :	0101;
+	10 :	0100;
+	9 :	1000;
+	8 :	0010;
+	7 :	1001;
+	6 :	1010;
+	5 :	0001;
+	4 :	0101;
+	3 :	0100;
+	2 :	0010;
+	1 :	1010;
+	0 :	0001;
+END;
