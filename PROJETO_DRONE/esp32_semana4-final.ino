@@ -17,8 +17,8 @@ const char* mqtt_server = "192.168.17.191 ";
 const int joystick_x_pin = A0; 
 const int joystick_y_pin = A3;
 const int joystick_D_pin = A6;
-const int digital_pin1 = 13; // direita
-const int digital_pin2 = 19; // esquerda
+const int digital_pin1 = 19; // direita
+const int digital_pin2 = 13; // esquerda
 const int digital_pin3 = 4; // cima
 const int digital_pin4 = 5; // baixo
 const int digital_pin5 = 16; //botao
@@ -27,15 +27,15 @@ const int digital_pin7 = 18; // move foward out
 const int digital_pin8 = 23; // move back out
 const int digital_pin9 = 21; // move left
 const int digital_pin10 = 22; // move right
-const int digital_pin11 = 39; //
+//const int digital_pin11 = 39; //
 const int digital_pin12 = 25;
 const int digital_pin13 = 26;
-const int digital_pin14 = 34;
-const int digital_pin15 = 36;
+const int digital_pin14 = 12;
+//const int digital_pin15 = 19; // WORLD1
 const int digital_pin16 = 33; // end in
 const int digital_pin17 = 32; // reset in
 const int digital_pin18 = 27; // init in
-const int digital_pin19 = 35; // world in
+ //const int digital_pin19 = 35; // world in
 
 
 
@@ -59,6 +59,7 @@ char msg9[MSG_BUFFER_SIZE];
 char msg10[MSG_BUFFER_SIZE];
 char msg11[MSG_BUFFER_SIZE];
 char msgB[MSG_BUFFER_SIZE];
+char msgC[MSG_BUFFER_SIZE];
 int value = 0;
 
 
@@ -208,15 +209,15 @@ void setup() {
   pinMode(digital_pin8, OUTPUT);
   pinMode(digital_pin9, OUTPUT);
   pinMode(digital_pin10, OUTPUT);
-  pinMode(digital_pin11, INPUT);
+//  pinMode(digital_pin11, INPUT);
   pinMode(digital_pin12, INPUT);
   pinMode(digital_pin13, OUTPUT);
   pinMode(digital_pin14, INPUT);
-  pinMode(digital_pin15, INPUT);
+  //pinMode(digital_pin15, INPUT);
   pinMode(digital_pin16, INPUT);
   pinMode(digital_pin17, INPUT);
   pinMode(digital_pin18, INPUT);
-  pinMode(digital_pin19, INPUT);
+  //pinMode(digital_pin19, INPUT);
   
 
      
@@ -231,7 +232,7 @@ void loop() {
   }
   client.loop();
   int x_adc_val, y_adc_val, x_direita_out, x_esquerda_out, y_cima_out, y_baixo_out, botao, apertado; 
-  int world, init, end, reset;
+  int world, init, end, reset, world0, world1, vitoria;
   float x_volt, y_volt, D_volt;
   x_adc_val = analogRead(joystick_x_pin); 
   y_adc_val = analogRead(joystick_y_pin);
@@ -239,19 +240,19 @@ void loop() {
   x_volt = ( ( x_adc_val * 3.3 ) / 4095 );  /*Convert digital value to voltage */
   y_volt = ( ( y_adc_val * 3.3 ) / 4095 );
   D_volt = ( ( botao * 3.3 ) / 4095 );
-  //Serial.print("X_Voltage = ");
-  //Serial.print(x_volt);
-  //Serial.print("\t");
-  //Serial.print("Y_Voltage = ");
-  // Serial.print(y_volt);
-  // Serial.print("\t");
-  // Serial.print("D_Voltage = ");
-  // Serial.println(D_volt);
+  Serial.print("X_Voltage = ");
+  Serial.print(x_volt);
+  Serial.print("\t");
+  Serial.print("Y_Voltage = ");
+   Serial.print(y_volt);
+   Serial.print("\t");
+   Serial.print("D_Voltage = ");
+   Serial.println(D_volt);
 //
 
 
   apertado = digitalRead (digital_pin5);
-  // Serial.println( numap);
+   Serial.println( numap);
   if(D_volt == 0){
     numap = numap + 1;
     // Serial.println( numap);
@@ -337,11 +338,30 @@ void loop() {
   // Serial.println(y_baixo_out);
 
 
-  world = digitalRead(digital_pin19);
-  if (world == 1) {
-    snprintf (msg6, MSG_BUFFER_SIZE, "%ld", world);
-    client.publish("/broker/world", msg6);
-  }
+  // world0 = digitalRead(digital_pin19);
+  // world1 = digitalRead(digital_pin15);
+
+  // if(world1 == 1){
+  //   world = world1;
+  // snprintf (msg6, MSG_BUFFER_SIZE, "%ld", world);
+  // client.publish("/broker/world", msg6);
+  // world = digitalRead(digital_pin19);
+  // if (world == 1) {
+  //   snprintf (msg6, MSG_BUFFER_SIZE, "%ld", world);
+  //   client.publish("/broker/world", msg6);
+  // }
+  // }
+  // else if(world0==1){
+  // world = world0;
+  // snprintf (msg6, MSG_BUFFER_SIZE, "%ld", world);
+  // client.publish("/broker/world", msg6);
+  // world = digitalRead(digital_pin19);
+  // if (world == 1) {
+  //   snprintf (msg6, MSG_BUFFER_SIZE, "%ld", world);
+  //   client.publish("/broker/world", msg6);
+  // } 
+  // }
+
 
   init = digitalRead(digital_pin18);
   snprintf (msg7, MSG_BUFFER_SIZE, "%ld", init);
@@ -357,7 +377,11 @@ void loop() {
   client.publish("/broker/end", msg9);
   }
 
-
+ vitoria = digitalRead(digital_pin14);
+  if (vitoria == 1) {
+  snprintf (msgC, MSG_BUFFER_SIZE, "%ld", vitoria);
+  client.publish("/broker/vitoria", msgC);
+  }
 
 
 
