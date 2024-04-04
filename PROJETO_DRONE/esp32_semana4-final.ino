@@ -3,14 +3,17 @@
 
 #define REFRESH_RATE 10
 
-int numap;
+int numap, no_numap;
 
-// const char* ssid = "LAB_DIGITAL"; //Seu SSID da Rede WIFI
-// const char* password = "C1-17*2018@labdig"; // A Senha da Rede WIFI
-// const char* mqtt_server = "192.168.17.191 ";
-const char* ssid = "SkyMobile"; //Seu SSID da Rede WIFI
-const char* password = "voadronezinho"; // A Senha da Rede WIFI
-const char* mqtt_server = "192.168.72.17 ";
+const char* ssid = "LAB_DIGITAL"; //Seu SSID da Rede WIFI
+const char* password = "C1-17*2018@labdig"; // A Senha da Rede WIFI
+const char* mqtt_server = "192.168.17.191 ";
+// const char* ssid = "FBMSP42G"; //Seu SSID da Rede WIFI
+// const char* password = "cruzeirotri2014"; // A Senha da Rede WIFI
+// const char* mqtt_server = "192.168.0.2 ";
+// const char* ssid = "SkyMobile"; //Seu SSID da Rede WIFI
+// const char* password = "voadronezinho"; // A Senha da Rede WIFI
+// const char* mqtt_server = "172.20.10.2 ";
 const int joystick_x_pin = A0; 
 const int joystick_y_pin = A3;
 const int joystick_D_pin = A6;
@@ -24,15 +27,15 @@ const int digital_pin7 = 18; // move foward out
 const int digital_pin8 = 23; // move back out
 const int digital_pin9 = 21; // move left
 const int digital_pin10 = 22; // move right
-const int digital_pin11 = 39; 
+const int digital_pin11 = 39; //
 const int digital_pin12 = 25;
 const int digital_pin13 = 26;
-const int digital_pin14 = 34; // vitória in
-const int digital_pin15 = 36; // world 1 in
+const int digital_pin14 = 34;
+const int digital_pin15 = 36;
 const int digital_pin16 = 33; // end in
 const int digital_pin17 = 32; // reset in
 const int digital_pin18 = 27; // init in
-const int digital_pin19 = 35; // world 0 in
+const int digital_pin19 = 35; // world in
 
 
 
@@ -55,6 +58,7 @@ char msg8[MSG_BUFFER_SIZE];
 char msg9[MSG_BUFFER_SIZE];
 char msg10[MSG_BUFFER_SIZE];
 char msg11[MSG_BUFFER_SIZE];
+char msgB[MSG_BUFFER_SIZE];
 int value = 0;
 
 
@@ -227,7 +231,7 @@ void loop() {
   }
   client.loop();
   int x_adc_val, y_adc_val, x_direita_out, x_esquerda_out, y_cima_out, y_baixo_out, botao, apertado; 
-  int world0, world1, init, derrota, vitoria, reset, world;
+  int world, init, end, reset;
   float x_volt, y_volt, D_volt;
   x_adc_val = analogRead(joystick_x_pin); 
   y_adc_val = analogRead(joystick_y_pin);
@@ -242,7 +246,7 @@ void loop() {
   // Serial.print(y_volt);
   // Serial.print("\t");
   // Serial.print("D_Voltage = ");
-  //Serial.println(D_volt);
+  // Serial.println(D_volt);
 //
 
 
@@ -251,18 +255,26 @@ void loop() {
   if(D_volt == 0){
     numap = numap + 1;
     // Serial.println( numap);
-    if (numap > 3){
+    if (numap > 6){
     digitalWrite(digital_pin5, HIGH);
+    no_numap = 0;
     }
    } else 
    {
-   digitalWrite(digital_pin5, LOW);
-   numap = 0; 
+     no_numap = no_numap + 1;
+
+    if (no_numap > 6) {
+      digitalWrite(digital_pin5, LOW);
+
+      numap = 0; 
+    }
    }
 
    apertado = digitalRead (digital_pin5);
-  //  Serial.print("D = ");
-  //  Serial.println(apertado);
+   Serial.print("D = ");
+   Serial.println(apertado);
+   snprintf (msgB, MSG_BUFFER_SIZE, "%ld", apertado);
+   client.publish("/broker/confirma",msgB);
    
 
 
@@ -325,13 +337,11 @@ void loop() {
   // Serial.println(y_baixo_out);
 
 
-  world0 = digitalRead(digital_pin19);
-  world1 = digitalRead(digital_pin15);
-
-  if(
-  snprintf (msg6, MSG_BUFFER_SIZE, "%ld", world);
-  client.publish("/broker/world", msg6);
-
+  world = digitalRead(digital_pin19);
+  if (world == 1) {
+    snprintf (msg6, MSG_BUFFER_SIZE, "%ld", world);
+    client.publish("/broker/world", msg6);
+  }
 
   init = digitalRead(digital_pin18);
   snprintf (msg7, MSG_BUFFER_SIZE, "%ld", init);
@@ -342,8 +352,11 @@ void loop() {
   client.publish("/broker/reset", msg8);
 
   end = digitalRead(digital_pin16);
+  if (end == 1) {
   snprintf (msg9, MSG_BUFFER_SIZE, "%ld", end);
   client.publish("/broker/end", msg9);
+  }
+
 
 
 
